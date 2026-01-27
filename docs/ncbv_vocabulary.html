@@ -1,0 +1,1615 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Nordic Core Business Vocabulary 0.0.7</title>
+  <style>
+    :root {
+      --bg:#ffffff; --fg:#111827; --muted:#6b7280; --border:#e5e7eb; --panel:#f9fafb; --codebg:#f3f4f6; --link:#2563eb;
+    }
+    html,body{height:100%;}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;}
+    a{color:var(--link);text-decoration:none;} a:hover{text-decoration:underline;}
+    code{background:var(--codebg);padding:.15rem .35rem;border-radius:.35rem;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:.95em;}
+    .layout{display:grid;grid-template-columns:320px 1fr;min-height:100vh;}
+    nav{border-right:1px solid var(--border);background:var(--panel);padding:1.2rem 1rem;position:sticky;top:0;height:100vh;overflow:auto;}
+    main{padding:1.6rem 1.8rem;max-width:1000px;}
+    h1{font-size:1.85rem;margin:0 0 .25rem 0;}
+    h2{font-size:1.35rem;margin-top:2rem;border-top:1px solid var(--border);padding-top:1.3rem;}
+    h3{font-size:1.1rem;margin-top:1.3rem;}
+    h4{font-size:1.02rem;margin-top:1.3rem;}
+    .meta{display:grid;grid-template-columns:max-content 1fr;gap:.3rem .9rem;margin:.9rem 0 1.2rem 0;padding:.9rem 1rem;border:1px solid var(--border);border-radius:.8rem;background:#fff;}
+    .meta .k{color:var(--muted);}
+    .muted{color:var(--muted);}
+    .search{width:100%;padding:.55rem .7rem;border:1px solid var(--border);border-radius:.6rem;outline:none;margin:.4rem 0 1rem 0;background:#fff;}
+    .toc-title{font-weight:700;margin-bottom:.2rem;}
+    nav ul{list-style:none;padding-left:0;margin:.3rem 0 1.2rem 0;}
+    nav li{margin:.25rem 0;}
+    nav li a{display:block;padding:.15rem .2rem;border-radius:.4rem;}
+    nav li a:hover{background:#eef2ff;}
+    .namespaces{border:1px solid var(--border);border-radius:.8rem;overflow:hidden;}
+    .namespaces table{width:100%;border-collapse:collapse;font-size:.95rem;}
+    .namespaces th,.namespaces td{padding:.55rem .7rem;border-bottom:1px solid var(--border);vertical-align:top;}
+    .namespaces th{background:var(--panel);text-align:left;}
+    .namespaces tr:last-child td{border-bottom:none;}
+    .term{margin-top:1rem;}
+    .term-label{font-weight:650;margin-top:.2rem;}
+    .term-def{margin:.4rem 0 .65rem 0;}
+    .kv{border:1px solid var(--border);border-radius:.8rem;padding:.7rem .8rem;background:#fff;}
+    .kv-row{display:grid;grid-template-columns:160px 1fr;gap:.6rem;padding:.25rem 0;}
+    .kv-k{color:var(--muted);}
+    .badge{display:inline-block;font-size:.78rem;border:1px solid var(--border);background:var(--panel);border-radius:999px;padding:.1rem .55rem;margin-left:.35rem;color:#374151;}
+    .hidden{display:none;}
+    footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);color:var(--muted);font-size:.92rem;}
+    @media(max-width:980px){.layout{grid-template-columns:1fr;} nav{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--border);}}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav>
+    <div class="toc-title">Contents</div>
+    <input id="search" class="search" type="search" placeholder="Filter terms (label, local name)…"/>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#namespaces">Namespaces</a></li>
+      <li><a href="#terms">Term definitions</a></li>
+    </ul>
+
+    <div class="toc-title">Classes <span class="badge">30</span></div>
+    <div id="toc-classes"><ul>
+<li><a href="#Address">Address</a></li>
+<li><a href="#Agent">Agent</a></li>
+<li><a href="#BeneficialOwner">Beneficial Owner</a></li>
+<li><a href="#BeneficialOwnerRole">Beneficial Owner Role</a></li>
+<li><a href="#Code">Code</a></li>
+<li><a href="#CompositeRepresentationRule">Composite Representation Rule</a></li>
+<li><a href="#ContactPoint">Contact Point</a></li>
+<li><a href="#Document">Document</a></li>
+<li><a href="#Identifier">Identifier</a></li>
+<li><a href="#LegalEntity">Legal Entity</a></li>
+<li><a href="#LegalResource">Legal Resource</a></li>
+<li><a href="#LegalStatus">Legal Status</a></li>
+<li><a href="#Location">Location</a></li>
+<li><a href="#Mandate">Mandate</a></li>
+<li><a href="#MandateTransfer">Mandate Transfer</a></li>
+<li><a href="#Membership">Membership</a></li>
+<li><a href="#MembershipBasedRepresentationRule">Membership Based Representation Rule</a></li>
+<li><a href="#MonetaryAmount">Amount</a></li>
+<li><a href="#Object">Object</a></li>
+<li><a href="#PeriodOfTime">Period of Time</a></li>
+<li><a href="#Person">Person</a></li>
+<li><a href="#RepresentationRule">Representation Rule (Signatory Rule)</a></li>
+<li><a href="#Restriction">Restriction</a></li>
+<li><a href="#RestrictionType">Restriction Type</a></li>
+<li><a href="#Role">Role</a></li>
+<li><a href="#RoleBasedRepresentationRule">Role Based Representation Rule</a></li>
+<li><a href="#Rule">Rule</a></li>
+<li><a href="#Scope">Scope</a></li>
+<li><a href="#ShareCapital">Share Capital</a></li>
+<li><a href="#Source">Source</a></li>
+</ul></div>
+
+    <div class="toc-title">Properties <span class="badge">106</span></div>
+    <div id="toc-props"><ul>
+<li><a href="#allOf">All of</a></li>
+<li><a href="#alone">Alone</a></li>
+<li><a href="#and">And</a></li>
+<li><a href="#appliesToObject">Applies to Object</a></li>
+<li><a href="#beneficialOwners">Beneficial Owners</a></li>
+<li><a href="#consistsOfRepresentationRule">Consists of Representation Rule</a></li>
+<li><a href="#definesValidMembership">Defines Valid Membership</a></li>
+<li><a href="#definesValidRole">Defines Valid Role </a></li>
+<li><a href="#fiveOf">Five of</a></li>
+<li><a href="#fourOf">Four of</a></li>
+<li><a href="#grantsMandate">Grants Mandate</a></li>
+<li><a href="#grantsRepresentationRight">Grants Representation Right</a></li>
+<li><a href="#hasActivity">Activity</a></li>
+<li><a href="#hasCode">Has Code</a></li>
+<li><a href="#hasContactPoint">Contact Point</a></li>
+<li><a href="#hasDuration">Has Duration</a></li>
+<li><a href="#hasGeographicalScope">(Has) Geographical Scope/ Has Location / (Has) Geographical Coverage</a></li>
+<li><a href="#hasIdentifier">Identifier</a></li>
+<li><a href="#hasLegalForm">Legal Form</a></li>
+<li><a href="#hasLegalStatus">Legal Status</a></li>
+<li><a href="#hasMandator">(Has) Mandator</a></li>
+<li><a href="#hasMember">Has Member</a></li>
+<li><a href="#hasRepresentationRule">Has Representation Rule</a></li>
+<li><a href="#hasRestriction">Has Restriction</a></li>
+<li><a href="#hasRole">Role</a></li>
+<li><a href="#hasScope">Has Scope</a></li>
+<li><a href="#hasShareCapital">Share Capital</a></li>
+<li><a href="#hasSource">Has Source</a></li>
+<li><a href="#heldByLegalEntity">Held by Legal Entity</a></li>
+<li><a href="#heldByPerson">Held by Person</a></li>
+<li><a href="#implements">Implements</a></li>
+<li><a href="#isPerson">Is a Person</a></li>
+<li><a href="#jointly">Jointly</a></li>
+<li><a href="#legalIdentifier">Legal Identifier</a></li>
+<li><a href="#majorityOf">Majority of</a></li>
+<li><a href="#mandatee">Mandatee</a></li>
+<li><a href="#member">Member</a></li>
+<li><a href="#memberQuantifier">Member Quantifier</a></li>
+<li><a href="#oneOf">One of</a></li>
+<li><a href="#or">Or</a></li>
+<li><a href="#originalMandate">Original Mandate</a></li>
+<li><a href="#postalAddress">Postal Address</a></li>
+<li><a href="#power">Power</a></li>
+<li><a href="#registeredAddress">Registered Address</a></li>
+<li><a href="#roleHolderQuantifier">Role Holder Quantifier</a></li>
+<li><a href="#subject">Subject</a></li>
+<li><a href="#threeOf">Three of</a></li>
+<li><a href="#totalCapitalAmount">Total Capital Amount</a></li>
+<li><a href="#transferOfMandate">Transfer of Mandate</a></li>
+<li><a href="#twoOf">Two of</a></li>
+<li><a href="#type">Type</a></li>
+<li><a href="#adminUnitLevel1">Admin Unit Level 1</a></li>
+<li><a href="#adminUnitLevel2">Admin Unit Level 2</a></li>
+<li><a href="#alternativeName">Alternative Name</a></li>
+<li><a href="#amount">Amount</a></li>
+<li><a href="#capitalType">Capital Type</a></li>
+<li><a href="#careOf">Care of</a></li>
+<li><a href="#codeIdentifier">Code Identifier</a></li>
+<li><a href="#codeName">Code name</a></li>
+<li><a href="#codeValue">Code</a></li>
+<li><a href="#contactPage">Contact Page</a></li>
+<li><a href="#currency">Currency</a></li>
+<li><a href="#datatype">Datatype</a></li>
+<li><a href="#date">Date</a></li>
+<li><a href="#dateOfBirth">Date Of Birth</a></li>
+<li><a href="#dateOfIssue">Date of Issue</a></li>
+<li><a href="#delegable">Delegable</a></li>
+<li><a href="#description">Description</a></li>
+<li><a href="#email">Has Email</a></li>
+<li><a href="#endDate">End Date</a></li>
+<li><a href="#fullAddress">Full Address</a></li>
+<li><a href="#fullName">Full Name</a></li>
+<li><a href="#geographicIdentifier">Geographic Identifier</a></li>
+<li><a href="#geographicName">Geographic Name</a></li>
+<li><a href="#hasTelephone">Has Telephone</a></li>
+<li><a href="#identifierValue">Identifier</a></li>
+<li><a href="#inClassification">In Classification</a></li>
+<li><a href="#interestControl">Interest Control</a></li>
+<li><a href="#interestDirectOrIndirect">Interest Direct Or Indirect</a></li>
+<li><a href="#interestType">Interest Type</a></li>
+<li><a href="#legalName">Legal Name</a></li>
+<li><a href="#locatorDesignator">Locator Designator</a></li>
+<li><a href="#locatorName">Locator Name</a></li>
+<li><a href="#minimumNumberOfMembers">Minimum Number of Members</a></li>
+<li><a href="#minimumNumberOfRoleHolders">Minimum Number of Role Holders</a></li>
+<li><a href="#modified">Modified</a></li>
+<li><a href="#name">Name</a></li>
+<li><a href="#notation">Notation</a></li>
+<li><a href="#numberOfShares">Number of Shares</a></li>
+<li><a href="#objectType">Object Type</a></li>
+<li><a href="#postCode">Post Code</a></li>
+<li><a href="#postName">Post Name</a></li>
+<li><a href="#postOfficeBox">Post Office Box</a></li>
+<li><a href="#prefLabel">Preferred Label</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#registrationDate">Registration Date</a></li>
+<li><a href="#schemaAgency">Schema Agency</a></li>
+<li><a href="#schemeName">Scheme Name</a></li>
+<li><a href="#schemeURI">Scheme URI</a></li>
+<li><a href="#sequence">Sequence</a></li>
+<li><a href="#startDate">Start Date</a></li>
+<li><a href="#status">Status</a></li>
+<li><a href="#thoroughfare">Thoroughfare</a></li>
+<li><a href="#title">Title</a></li>
+<li><a href="#unit">Unit</a></li>
+<li><a href="#value">Value</a></li>
+</ul></div>
+
+    <div class="toc-title">Concepts <span class="badge">0</span></div>
+    <div id="toc-concepts"><div class='muted'>—</div></div>
+  </nav>
+
+  <main>
+    <h1>Nordic Core Business Vocabulary 0.0.7</h1>
+    <div class="muted">Rendered from Turtle source: <code>Nordic Core Business Vocabulary (9).ttl</code></div>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <p class="muted">This is a GitHub Pages–friendly, self-contained HTML rendering of the uploaded Turtle vocabulary.</p>
+      <div class="meta">
+        <div class="k">Published</div><div>2024-12-03</div>
+        <div class="k">Version info</div><div>0.0.7</div>
+        <div class="k">Primary namespace</div><div>https://iri.suomi.fi/model/ncbv/</div>
+        <div class="k">Generated</div><div>2026-01-27</div>
+        <div class="k">Source</div><div><a href="Nordic Core Business Vocabulary (9).ttl">Turtle</a> <span class="muted">(put the .ttl next to this HTML in the repo)</span></div>
+      </div>
+    </section>
+
+    <section id="namespaces">
+      <h2>Namespaces</h2>
+      <div class="namespaces">
+        <table>
+          <thead><tr><th>Prefix</th><th>Namespace</th></tr></thead>
+          <tbody>
+            <tr><td><code>busdoc</code></td><td><code>https://iri.suomi.fi/model/busdoc/1.0.2/</code></td></tr><tr><td><code>dcap</code></td><td><code>http://purl.org/ws-mmi-dc/terms/</code></td></tr><tr><td><code>dct</code></td><td><code>http://purl.org/dc/terms/</code></td></tr><tr><td><code>dcterms</code></td><td><code>http://purl.org/dc/terms/</code></td></tr><tr><td><code>foaf</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td></tr><tr><td><code>geo</code></td><td><code>http://www.opengis.net/ont/geosparql#</code></td></tr><tr><td><code>http</code></td><td><code>http://www.w3.org/2011/http#</code></td></tr><tr><td><code>isa2core</code></td><td><code>https://iri.suomi.fi/model/isa2core/1.0.0/</code></td></tr><tr><td><code>m8g</code></td><td><code>http://data.europa.eu/m8g/</code></td></tr><tr><td><code>ncbv</code></td><td><code>https://iri.suomi.fi/model/ncbv/</code></td></tr><tr><td><code>owl</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td></tr><tr><td><code>rdf</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr><tr><td><code>rdfs</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr><tr><td><code>sh</code></td><td><code>http://www.w3.org/ns/shacl#</code></td></tr><tr><td><code>skos</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td></tr><tr><td><code>suomi-meta</code></td><td><code>https://iri.suomi.fi/model/suomi-meta/</code></td></tr><tr><td><code>xml</code></td><td><code>http://www.w3.org/XML/1998/namespace</code></td></tr><tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="terms">
+      <h2>Term definitions</h2>
+
+      <h3>Class definitions</h3>
+      <div id="terms-classes">
+        <div class="term">
+<h4 id="Address"><code>Address</code></h4>
+<div class="term-label">Address</div>
+<div class="term-def">An identification of the fixed location of a geographic place.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Address">ncbv:Address</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Address">Address</a></div></div>
+</div></div><div class="term">
+<h4 id="Agent"><code>Agent</code></h4>
+<div class="term-label">Agent</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Agent">ncbv:Agent</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Agent">Agent</a></div></div>
+</div></div><div class="term">
+<h4 id="BeneficialOwner"><code>BeneficialOwner</code></h4>
+<div class="term-label">Beneficial Owner</div>
+<div class="term-def">A natural person(s) who ultimately owns or controls the agent.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/BeneficialOwner">ncbv:BeneficialOwner</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="BeneficialOwnerRole"><code>BeneficialOwnerRole</code></h4>
+<div class="term-label">Beneficial Owner Role</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/BeneficialOwnerRole">ncbv:BeneficialOwnerRole</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Role">Role</a></div></div>
+</div></div><div class="term">
+<h4 id="Code"><code>Code</code></h4>
+<div class="term-label">Code</div>
+<div class="term-def">A generic class for any code values that a specific class can have; in the NCBV the Code class contains code values for legal form, legal status and (economic) activity.  </div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Code">ncbv:Code</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Concept">Concept</a></div></div>
+</div></div><div class="term">
+<h4 id="CompositeRepresentationRule"><code>CompositeRepresentationRule</code></h4>
+<div class="term-label">Composite Representation Rule</div>
+<div class="term-def">A class that replaces the &quot;Complex Representation Rule&quot; in previous NCBV versions; example of a composite rule for general signatory rights (legal representation): &quot;CEO alone and two board members jointly&quot;</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/CompositeRepresentationRule">ncbv:CompositeRepresentationRule</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#RepresentationRule">RepresentationRule</a></div></div>
+</div></div><div class="term">
+<h4 id="ContactPoint"><code>ContactPoint</code></h4>
+<div class="term-label">Contact Point</div>
+<div class="term-def">Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with. </div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/ContactPoint">ncbv:ContactPoint</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#ContactPoint">ContactPoint</a></div></div>
+</div></div><div class="term">
+<h4 id="Document"><code>Document</code></h4>
+<div class="term-label">Document</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Document">ncbv:Document</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Document">Document</a>, <a href="#Source">Source</a></div></div>
+</div></div><div class="term">
+<h4 id="Identifier"><code>Identifier</code></h4>
+<div class="term-label">Identifier</div>
+<div class="term-def">A unique set of characters used to identify the legal entity. </div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Identifier">ncbv:Identifier</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Identifier">Identifier</a></div></div>
+</div></div><div class="term">
+<h4 id="LegalEntity"><code>LegalEntity</code></h4>
+<div class="term-label">Legal Entity</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/LegalEntity">ncbv:LegalEntity</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Agent">Agent</a>, <a href="#LegalEntity">LegalEntity</a></div></div>
+</div></div><div class="term">
+<h4 id="LegalResource"><code>LegalResource</code></h4>
+<div class="term-label">Legal Resource</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/LegalResource">ncbv:LegalResource</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Source">Source</a></div></div>
+</div></div><div class="term">
+<h4 id="LegalStatus"><code>LegalStatus</code></h4>
+<div class="term-label">Legal Status</div>
+<div class="term-def">An indication of whether a registration authority has registered some extraordinary proceedings for the legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/LegalStatus">ncbv:LegalStatus</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="Location"><code>Location</code></h4>
+<div class="term-label">Location</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Location">ncbv:Location</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Location">Location</a></div></div>
+</div></div><div class="term">
+<h4 id="Mandate"><code>Mandate</code></h4>
+<div class="term-label">Mandate</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Mandate">ncbv:Mandate</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="MandateTransfer"><code>MandateTransfer</code></h4>
+<div class="term-label">Mandate Transfer</div>
+<div class="term-def">A class for documenting the possible transfer (or delegation) of a Mandate from a previous Mandatee to another; example: Mandate is granted by CEO of Company, is delegable, the first Mandatee delegated the Mandate to another Agent who becomes the new Mandatee; the transfer of the Mandate is logged in this class.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/MandateTransfer">ncbv:MandateTransfer</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Source">Source</a></div></div>
+</div></div><div class="term">
+<h4 id="Membership"><code>Membership</code></h4>
+<div class="term-label">Membership</div>
+<div class="term-def">The Membership class describes certain types of relationships between agents (persons and legal entities). 
+
+A person can be a member of an association, employed by a company, be a board member in or the CEO of a limited company.
+
+The official definition of Membership can be found here: 
+https://www.w3.org/TR/vocab-org/#org:Membership
+
+This technical note does not change the content of the official definition of the Membership class.
+
+Upper class: 
+https://www.w3.org/ns/org#Membership</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Membership">ncbv:Membership</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="MembershipBasedRepresentationRule"><code>MembershipBasedRepresentationRule</code></h4>
+<div class="term-label">Membership Based Representation Rule</div>
+<div class="term-def">A class that replaces the previous &quot;Simple Representation Rule&quot; class (partially); example: a mandate granted to &quot;a man on the street&quot;, pointing at a certain person as a  Member of the Mandator (Membership in this case could be &quot;mandatee&quot; or similar).</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/MembershipBasedRepresentationRule">ncbv:MembershipBasedRepresentationRule</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#RepresentationRule">RepresentationRule</a></div></div>
+</div></div><div class="term">
+<h4 id="MonetaryAmount"><code>MonetaryAmount</code></h4>
+<div class="term-label">Amount</div>
+<div class="term-def">see unece:Amount and schema:MonetaryAmount</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/MonetaryAmount">ncbv:MonetaryAmount</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="Object"><code>Object</code></h4>
+<div class="term-label">Object</div>
+<div class="term-def">Example: can be a specific house, car; has an Identifier (car registration number)</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Object">ncbv:Object</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="PeriodOfTime"><code>PeriodOfTime</code></h4>
+<div class="term-label">Period of Time</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/PeriodOfTime">ncbv:PeriodOfTime</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#PeriodOfTime">PeriodOfTime</a></div></div>
+</div></div><div class="term">
+<h4 id="Person"><code>Person</code></h4>
+<div class="term-label">Person</div>
+<div class="term-def">A individual human being who may be dead or alive, but not imaginary.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Person">ncbv:Person</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Agent">Agent</a>, <a href="#Person">Person</a>, <a href="#Person">Person</a></div></div>
+</div></div><div class="term">
+<h4 id="RepresentationRule"><code>RepresentationRule</code></h4>
+<div class="term-label">Representation Rule (Signatory Rule)</div>
+<div class="term-def">A rule that describes who or which agents a mandate is granted to. 
+
+The rule can be used both in the case of legal representation, when a CEO or a board member signs for the agent (company) based on their official role in the company, as well as when a mandate is given to a specific person (&quot;a man on the street&quot;) who has no previous affiliation to the mandating agent.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/RepresentationRule">ncbv:RepresentationRule</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="Restriction"><code>Restriction</code></h4>
+<div class="term-label">Restriction</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Restriction">ncbv:Restriction</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="RestrictionType"><code>RestrictionType</code></h4>
+<div class="term-label">Restriction Type</div>
+<div class="term-def">A class for describing what the value in the Restriction class means; example: Restriction.value: 10000; RestrictionType: Datatype: Decimal or Integer; Unit: SEK, NOK, EUR... Name: Monetary Amount restriction; Description: &quot;The maximum monetary amount to be used with the Mandate (like: &quot;purchasing a car&quot;)  </div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/RestrictionType">ncbv:RestrictionType</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="Role"><code>Role</code></h4>
+<div class="term-label">Role</div>
+<div class="term-def">In the context of Mandates, the Role class 
+indicates the Role that the Agent plays in a Membership relationship with a legal entity. 
+
+Upper class: https://www.w3.org/TR/vocab-org/#class-role
+
+Suggested code list for Nordic use cases: http://uri.suomi.fi/codelist/verotus/membershiproletypes</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Role">ncbv:Role</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Concept">Concept</a></div></div>
+</div></div><div class="term">
+<h4 id="RoleBasedRepresentationRule"><code>RoleBasedRepresentationRule</code></h4>
+<div class="term-label">Role Based Representation Rule</div>
+<div class="term-def">A class that replaces (partially) the Simple Representation Rule in previous versions; example: signatory rights rule &quot;CEO alone&quot;</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/RoleBasedRepresentationRule">ncbv:RoleBasedRepresentationRule</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#RepresentationRule">RepresentationRule</a></div></div>
+</div></div><div class="term">
+<h4 id="Rule"><code>Rule</code></h4>
+<div class="term-label">Rule</div>
+<div class="term-def">eli:Rule</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Rule">ncbv:Rule</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Source">Source</a></div></div>
+</div></div><div class="term">
+<h4 id="Scope"><code>Scope</code></h4>
+<div class="term-label">Scope</div>
+<div class="term-def">A class to define what powers the Mandator grants to the Mandatee through the Mandate.
+
+Example: A gives signatory power to B. A grants B the power to buy a car for the company. </div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Scope">ncbv:Scope</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="ShareCapital"><code>ShareCapital</code></h4>
+<div class="term-label">Share Capital</div>
+<div class="term-def">Share capital refers to the total amount of capital raised by a legal entity through the issuance of shares to shareholders.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/ShareCapital">ncbv:ShareCapital</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div><div class="term">
+<h4 id="Source"><code>Source</code></h4>
+<div class="term-label">Source</div>
+<div class="term-def">A class to describe what the powers that are delegated by the Mandator are originally based on;  example: &quot;law&quot;, &quot;statutes of company&quot;; &quot;another mandate&quot; etc.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/Source">ncbv:Source</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Class</div></div>
+<div class="kv-row"><div class="kv-k">Subclass of</div><div class="kv-v"><a href="#Thing">Thing</a></div></div>
+</div></div>
+      </div>
+
+      <h3>Property definitions</h3>
+      <div id="terms-props">
+        <div class="term">
+<h4 id="allOf"><code>allOf</code></h4>
+<div class="term-label">All of</div>
+<div class="term-def">Constraint property that requires all of the agents holding a post to sign.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/allOf">ncbv:allOf</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#jointly">jointly</a></div></div>
+</div></div><div class="term">
+<h4 id="alone"><code>alone</code></h4>
+<div class="term-label">Alone</div>
+<div class="term-def">Requires holder of the post to sign alone.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/alone">ncbv:alone</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Membership">Membership</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="and"><code>and</code></h4>
+<div class="term-label">And</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/and">ncbv:and</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="appliesToObject"><code>appliesToObject</code></h4>
+<div class="term-label">Applies to Object</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/appliesToObject">ncbv:appliesToObject</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="beneficialOwners"><code>beneficialOwners</code></h4>
+<div class="term-label">Beneficial Owners</div>
+<div class="term-def">A natural person(s) who ultimately owns or controls the agent.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/beneficialOwners">ncbv:beneficialOwners</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="consistsOfRepresentationRule"><code>consistsOfRepresentationRule</code></h4>
+<div class="term-label">Consists of Representation Rule</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/consistsOfRepresentationRule">ncbv:consistsOfRepresentationRule</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="definesValidMembership"><code>definesValidMembership</code></h4>
+<div class="term-label">Defines Valid Membership</div>
+<div class="term-def">The Simple Representation Rule class cannot at the same time be defined by a Valid Membership and Valid Role, it&#x27;s either or.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/definesValidMembership">ncbv:definesValidMembership</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="definesValidRole"><code>definesValidRole</code></h4>
+<div class="term-label">Defines Valid Role </div>
+<div class="term-def">The Simple Representation Rule class cannot at the same time be defined by a Valid Membership and Valid Role, it&#x27;s either or.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/definesValidRole">ncbv:definesValidRole</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="fiveOf"><code>fiveOf</code></h4>
+<div class="term-label">Five of</div>
+<div class="term-def">Requires five of the defined agents holding a post to sign.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/fiveOf">ncbv:fiveOf</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="fourOf"><code>fourOf</code></h4>
+<div class="term-label">Four of</div>
+<div class="term-def">Requires four of the defined agents holding a post to sign.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/fourOf">ncbv:fourOf</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="grantsMandate"><code>grantsMandate</code></h4>
+<div class="term-label">Grants Mandate</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/grantsMandate">ncbv:grantsMandate</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="grantsRepresentationRight"><code>grantsRepresentationRight</code></h4>
+<div class="term-label">Grants Representation Right</div>
+<div class="term-def">The signatory rights that is registered for the legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/grantsRepresentationRight">ncbv:grantsRepresentationRight</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasActivity"><code>hasActivity</code></h4>
+<div class="term-label">Activity</div>
+<div class="term-def">An active deed or action carried out by a legal entity</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasActivity">ncbv:hasActivity</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#companyActivity">companyActivity</a></div></div>
+</div></div><div class="term">
+<h4 id="hasCode"><code>hasCode</code></h4>
+<div class="term-label">Has Code</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasCode">ncbv:hasCode</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Concept">Concept</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasContactPoint"><code>hasContactPoint</code></h4>
+<div class="term-label">Contact Point</div>
+<div class="term-def">The main contact information of the resource.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasContactPoint">ncbv:hasContactPoint</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#contactPoint">contactPoint</a>, <a href="#contactPoint_">contactPoint_</a></div></div>
+</div></div><div class="term">
+<h4 id="hasDuration"><code>hasDuration</code></h4>
+<div class="term-label">Has Duration</div>
+<div class="term-def">The association &quot;has duration&quot; points to &quot;Period of Time&quot;and indicates the validity period of the mandate; like &quot;1.1.2025-31.12.2025&quot;</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasDuration">ncbv:hasDuration</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasGeographicalScope"><code>hasGeographicalScope</code></h4>
+<div class="term-label">(Has) Geographical Scope/ Has Location / (Has) Geographical Coverage</div>
+<div class="term-def">The association geographical scope points at a location; this describes the geographic region the mandate is valid.  </div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasGeographicalScope">ncbv:hasGeographicalScope</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#spatial">spatial</a></div></div>
+</div></div><div class="term">
+<h4 id="hasIdentifier"><code>hasIdentifier</code></h4>
+<div class="term-label">Identifier</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasIdentifier">ncbv:hasIdentifier</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+<div class="kv-row"><div class="kv-k">Equivalent property</div><div class="kv-v"><a href="#identifierAs">identifierAs</a></div></div>
+</div></div><div class="term">
+<h4 id="hasLegalForm"><code>hasLegalForm</code></h4>
+<div class="term-label">Legal Form</div>
+<div class="term-def">The legal form of a legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasLegalForm">ncbv:hasLegalForm</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Code">Code</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasLegalStatus"><code>hasLegalStatus</code></h4>
+<div class="term-label">Legal Status</div>
+<div class="term-def">An indication of whether a registration authority has registered some extraordinary proceedings for the legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasLegalStatus">ncbv:hasLegalStatus</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#companyStatus">companyStatus</a></div></div>
+</div></div><div class="term">
+<h4 id="hasMandator"><code>hasMandator</code></h4>
+<div class="term-label">(Has) Mandator</div>
+<div class="term-def">The Mandator association points always to the &quot;primary mandator&quot;, who is the original source of the delegated power.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasMandator">ncbv:hasMandator</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasMember"><code>hasMember</code></h4>
+<div class="term-label">Has Member</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasMember">ncbv:hasMember</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasRepresentationRule"><code>hasRepresentationRule</code></h4>
+<div class="term-label">Has Representation Rule</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasRepresentationRule">ncbv:hasRepresentationRule</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasRestriction"><code>hasRestriction</code></h4>
+<div class="term-label">Has Restriction</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasRestriction">ncbv:hasRestriction</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasRole"><code>hasRole</code></h4>
+<div class="term-label">Role</div>
+<div class="term-def">Indicates the Role that the Agent plays in a Membership relationship with a legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasRole">ncbv:hasRole</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#role">role</a></div></div>
+</div></div><div class="term">
+<h4 id="hasScope"><code>hasScope</code></h4>
+<div class="term-label">Has Scope</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasScope">ncbv:hasScope</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasShareCapital"><code>hasShareCapital</code></h4>
+<div class="term-label">Share Capital</div>
+<div class="term-def">The total registered share capital for the legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasShareCapital">ncbv:hasShareCapital</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="hasSource"><code>hasSource</code></h4>
+<div class="term-label">Has Source</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasSource">ncbv:hasSource</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="heldByLegalEntity"><code>heldByLegalEntity</code></h4>
+<div class="term-label">Held by Legal Entity</div>
+<div class="term-def">Indicates the legal entity that is holding the post.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/heldByLegalEntity">ncbv:heldByLegalEntity</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="heldByPerson"><code>heldByPerson</code></h4>
+<div class="term-label">Held by Person</div>
+<div class="term-def">Indicates the person that holds the post.
+</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/heldByPerson">ncbv:heldByPerson</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="implements"><code>implements</code></h4>
+<div class="term-label">Implements</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/implements">ncbv:implements</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#implements">implements</a></div></div>
+</div></div><div class="term">
+<h4 id="isPerson"><code>isPerson</code></h4>
+<div class="term-label">Is a Person</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/isPerson">ncbv:isPerson</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Person">Person</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="jointly"><code>jointly</code></h4>
+<div class="term-label">Jointly</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/jointly">ncbv:jointly</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="legalIdentifier"><code>legalIdentifier</code></h4>
+<div class="term-label">Legal Identifier</div>
+<div class="term-def">An identifier that is given to a legal entity at registration.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/legalIdentifier">ncbv:legalIdentifier</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#legalidentifier">legalidentifier</a></div></div>
+</div></div><div class="term">
+<h4 id="majorityOf"><code>majorityOf</code></h4>
+<div class="term-label">Majority of</div>
+<div class="term-def">Constraint property that requires majority of agents holding a post to sign.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/majorityOf">ncbv:majorityOf</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="mandatee"><code>mandatee</code></h4>
+<div class="term-label">Mandatee</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/mandatee">ncbv:mandatee</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="member"><code>member</code></h4>
+<div class="term-label">Member</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/member">ncbv:member</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="memberQuantifier"><code>memberQuantifier</code></h4>
+<div class="term-label">Member Quantifier</div>
+<div class="term-def">Specifies a qualitative quantity or proportion of members required for the rule, used when the number cannot be expressed as a specific numeric value (e.g., “all”, “half”, “majority”).</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/memberQuantifier">ncbv:memberQuantifier</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Concept">Concept</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="oneOf"><code>oneOf</code></h4>
+<div class="term-label">One of</div>
+<div class="term-def">Requires one of the defined agents holding a post to sign.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/oneOf">ncbv:oneOf</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="or"><code>or</code></h4>
+<div class="term-label">Or</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/or">ncbv:or</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="originalMandate"><code>originalMandate</code></h4>
+<div class="term-label">Original Mandate</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/originalMandate">ncbv:originalMandate</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="postalAddress"><code>postalAddress</code></h4>
+<div class="term-label">Postal Address</div>
+<div class="term-def">The address to which mail can be sent to the legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/postalAddress">ncbv:postalAddress</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#address_">address_</a></div></div>
+</div></div><div class="term">
+<h4 id="power"><code>power</code></h4>
+<div class="term-label">Power</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/power">ncbv:power</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="registeredAddress"><code>registeredAddress</code></h4>
+<div class="term-label">Registered Address</div>
+<div class="term-def">The address to which formal communications can be sent to the legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/registeredAddress">ncbv:registeredAddress</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#registeredAddress">registeredAddress</a></div></div>
+</div></div><div class="term">
+<h4 id="roleHolderQuantifier"><code>roleHolderQuantifier</code></h4>
+<div class="term-label">Role Holder Quantifier</div>
+<div class="term-def">Specifies a qualitative quantity or proportion of role holders required for the rule, used when the number cannot be expressed as a specific numeric value (e.g., “all”, “half”, “majority”).</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/roleHolderQuantifier">ncbv:roleHolderQuantifier</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="subject"><code>subject</code></h4>
+<div class="term-label">Subject</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/subject">ncbv:subject</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#subject">subject</a></div></div>
+</div></div><div class="term">
+<h4 id="threeOf"><code>threeOf</code></h4>
+<div class="term-label">Three of</div>
+<div class="term-def">Requires two of the defined agents holding a post to sign.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/threeOf">ncbv:threeOf</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="totalCapitalAmount"><code>totalCapitalAmount</code></h4>
+<div class="term-label">Total Capital Amount</div>
+<div class="term-def">The total capital amount of the Legal Entity&#x27;s (company&#x27;s) share capital, expressed in monetary values.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/totalCapitalAmount">ncbv:totalCapitalAmount</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="transferOfMandate"><code>transferOfMandate</code></h4>
+<div class="term-label">Transfer of Mandate</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/transferOfMandate">ncbv:transferOfMandate</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="twoOf"><code>twoOf</code></h4>
+<div class="term-label">Two of</div>
+<div class="term-def">Requires two of the defined agents holding a post to sign.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/twoOf">ncbv:twoOf</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="type"><code>type</code></h4>
+<div class="term-label">Type</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/type">ncbv:type</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Object Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topObjectProperty">topObjectProperty</a></div></div>
+</div></div>
+        <div class="term">
+<h4 id="adminUnitLevel1"><code>adminUnitLevel1</code></h4>
+<div class="term-label">Admin Unit Level 1</div>
+<div class="term-def">The uppermost administrative unit for the address, almost always a country.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/adminUnitLevel1">ncbv:adminUnitLevel1</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#adminUnitLevel1">adminUnitLevel1</a></div></div>
+</div></div><div class="term">
+<h4 id="adminUnitLevel2"><code>adminUnitLevel2</code></h4>
+<div class="term-label">Admin Unit Level 2</div>
+<div class="term-def">The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/adminUnitLevel2">ncbv:adminUnitLevel2</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#adminUnitLevel2">adminUnitLevel2</a></div></div>
+</div></div><div class="term">
+<h4 id="alternativeName"><code>alternativeName</code></h4>
+<div class="term-label">Alternative Name</div>
+<div class="term-def">Any other registered name by which a legal entity is known.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/alternativeName">ncbv:alternativeName</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+<div class="kv-row"><div class="kv-k">Equivalent property</div><div class="kv-v"><a href="#alternativeName">alternativeName</a></div></div>
+</div></div><div class="term">
+<h4 id="amount"><code>amount</code></h4>
+<div class="term-label">Amount</div>
+<div class="term-def">The amount of money.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/amount">ncbv:amount</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="capitalType"><code>capitalType</code></h4>
+<div class="term-label">Capital Type</div>
+<div class="term-def">Values expressed in a separate code list, could contain the following: 
+
+Capital Type	Description
+Authorized Share Capital	Maximum capital a company is legally allowed to issue, as stated in its statutes
+
+Issued Share Capital	Capital corresponding to the total number of shares that have actually been issued
+
+Subscribed Share Capital	Part of issued capital that investors have agreed to purchase
+
+Paid-up Share Capital	Subscribed capital for which the company has received payment
+
+Called-up Share Capital	Subscribed capital where payment has been requested (called), but not necessarily received
+
+Unpaid Capital	Portion of called-up capital still owed by shareholders
+
+Nominal / Par Value	The base value assigned to each share; may also be relevant at share type level
+
+Equity vs Debt hybrid	Some instruments may qualify as equity under certain laws but be treated as debt elsewhere</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/capitalType">ncbv:capitalType</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="careOf"><code>careOf</code></h4>
+<div class="term-label">Care of</div>
+<div class="term-def">Used when an address is at the address of another person or legal entity.
+</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/careOf">ncbv:careOf</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="codeIdentifier"><code>codeIdentifier</code></h4>
+<div class="term-label">Code Identifier</div>
+<div class="term-def">An identifier for the code, can be of any format like an URI or just alphanumeric.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/codeIdentifier">ncbv:codeIdentifier</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#identifier">identifier</a></div></div>
+</div></div><div class="term">
+<h4 id="codeName"><code>codeName</code></h4>
+<div class="term-label">Code name</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/codeName">ncbv:codeName</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#prefLabel">prefLabel</a></div></div>
+</div></div><div class="term">
+<h4 id="codeValue"><code>codeValue</code></h4>
+<div class="term-label">Code</div>
+<div class="term-def">The actual code value from a selected code list.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/codeValue">ncbv:codeValue</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#notation">notation</a></div></div>
+</div></div><div class="term">
+<h4 id="contactPage"><code>contactPage</code></h4>
+<div class="term-label">Contact Page</div>
+<div class="term-def">A web page that could be used to reach out the Contact Point.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/contactPage">ncbv:contactPage</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="currency"><code>currency</code></h4>
+<div class="term-label">Currency</div>
+<div class="term-def">The currency in which the monetary amount is expressed. ISO 4217 currency format, e.g. &quot;EUR&quot;.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/currency">ncbv:currency</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+<div class="kv-row"><div class="kv-k">Equivalent property</div><div class="kv-v"><a href="#currencyCode">currencyCode</a></div></div>
+</div></div><div class="term">
+<h4 id="datatype"><code>datatype</code></h4>
+<div class="term-label">Datatype</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/datatype">ncbv:datatype</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="date"><code>date</code></h4>
+<div class="term-label">Date</div>
+<div class="term-def">The date when the legal status was registered.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/date">ncbv:date</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="dateOfBirth"><code>dateOfBirth</code></h4>
+<div class="term-label">Date Of Birth</div>
+<div class="term-def">The point in time on which the Person was born. Persons can be registered with a membership in a legal entity whithout a identifier being a national registration number.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/dateOfBirth">ncbv:dateOfBirth</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#birthDate">birthDate</a></div></div>
+</div></div><div class="term">
+<h4 id="dateOfIssue"><code>dateOfIssue</code></h4>
+<div class="term-label">Date of Issue</div>
+<div class="term-def">The date on which the something was issued; in this context for instance a Mandate or an Identifier.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/dateOfIssue">ncbv:dateOfIssue</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#dateOfIssue">dateOfIssue</a></div></div>
+</div></div><div class="term">
+<h4 id="delegable"><code>delegable</code></h4>
+<div class="term-label">Delegable</div>
+<div class="term-def">An indicator of whether the Mandate can be delegated or not.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/delegable">ncbv:delegable</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="description"><code>description</code></h4>
+<div class="term-label">Description</div>
+<div class="term-def">An attribute used to describe a Class.
+
+Examples:
+Class: Representation Rule; description: &quot;CEO can sign alone&quot; or &quot;two board members can sign jointly&quot;; 
+
+Class: Mandate Type; description: &quot;a person is entitled to file a tax declaration on behalf of the company (Mandator)&quot; 
+
+http://purl.org/dc/terms/description
+</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/description">ncbv:description</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#description">description</a></div></div>
+</div></div><div class="term">
+<h4 id="email"><code>email</code></h4>
+<div class="term-label">Has Email</div>
+<div class="term-def">An electronic address through which the Contact Point can be contacted.
+
+Equivalent with schema:email</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/email">ncbv:email</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#email">email</a></div></div>
+</div></div><div class="term">
+<h4 id="endDate"><code>endDate</code></h4>
+<div class="term-label">End Date</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/endDate">ncbv:endDate</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="fullAddress"><code>fullAddress</code></h4>
+<div class="term-label">Full Address</div>
+<div class="term-def">The complete address written as a string.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/fullAddress">ncbv:fullAddress</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#fullAddress">fullAddress</a></div></div>
+</div></div><div class="term">
+<h4 id="fullName"><code>fullName</code></h4>
+<div class="term-label">Full Name</div>
+<div class="term-def">The complete name of the Person as one string.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/fullName">ncbv:fullName</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#name">name</a></div></div>
+<div class="kv-row"><div class="kv-k">Equivalent property</div><div class="kv-v"><a href="#fullName">fullName</a></div></div>
+</div></div><div class="term">
+<h4 id="geographicIdentifier"><code>geographicIdentifier</code></h4>
+<div class="term-label">Geographic Identifier</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/geographicIdentifier">ncbv:geographicIdentifier</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#geographicIdentifier">geographicIdentifier</a></div></div>
+</div></div><div class="term">
+<h4 id="geographicName"><code>geographicName</code></h4>
+<div class="term-label">Geographic Name</div>
+<div class="term-def">A recognizable name for a place, like &quot;Eiffel Tower&quot; or &quot;Madrid&quot;. </div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/geographicName">ncbv:geographicName</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#geographicName">geographicName</a></div></div>
+</div></div><div class="term">
+<h4 id="hasTelephone"><code>hasTelephone</code></h4>
+<div class="term-label">Has Telephone</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/hasTelephone">ncbv:hasTelephone</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#telephone">telephone</a></div></div>
+</div></div><div class="term">
+<h4 id="identifierValue"><code>identifierValue</code></h4>
+<div class="term-label">Identifier</div>
+<div class="term-def">The identifier of a mandate is used to separate different mandates from each other, making it unique.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/identifierValue">ncbv:identifierValue</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#identifier">identifier</a></div></div>
+</div></div><div class="term">
+<h4 id="inClassification"><code>inClassification</code></h4>
+<div class="term-label">In Classification</div>
+<div class="term-def">NACE codes are published in scheme http://publications.europa.eu/resource/authority/ux2/nace2/nace2. Description in text for all NACE codes in all EU languages can be found there.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/inClassification">ncbv:inClassification</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="interestControl"><code>interestControl</code></h4>
+<div class="term-label">Interest Control</div>
+<div class="term-def">Extent of the control. 25%, 25-50%, 50%, 50-75%, 75%, 100%</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/interestControl">ncbv:interestControl</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="interestDirectOrIndirect"><code>interestDirectOrIndirect</code></h4>
+<div class="term-label">Interest Direct Or Indirect</div>
+<div class="term-def">How directly the interest is exercised by the interested party. The value MUST be &#x27;indirect&#x27; if intermediate entities or agents are known to exist, and MUST be &#x27;direct&#x27; if such intermediaries are known not to exist. Otherwise the value MUST be &#x27;unknown&#x27;.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/interestDirectOrIndirect">ncbv:interestDirectOrIndirect</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="interestType"><code>interestType</code></h4>
+<div class="term-label">Interest Type</div>
+<div class="term-def">The type of interest held by a Natural person in an agent. In Sweden this is free text but can have enum like: shareholding, votingRights, appointmentOfBoard, otherInfluenceOrControl, ,seniorManagingOfficial, settlor, trustee, protector, beneficiaryOfLegalArrangement, rightsToSurplusAssetsOnDissolution, rightsToProfitOrIncome, rightsGrantedByContract, conditionalRightsGrantedByContract, controlViaCompanyRulesOrArticles, controlByLegalFramework, boardMember, boardChair, unknownInterest, unpublishedInterest, enjoymentAndUseOfAssets, rightToProfitOrIncomeFromAssets</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/interestType">ncbv:interestType</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="legalName"><code>legalName</code></h4>
+<div class="term-label">Legal Name</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/legalName">ncbv:legalName</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#legalName">legalName</a></div></div>
+</div></div><div class="term">
+<h4 id="locatorDesignator"><code>locatorDesignator</code></h4>
+<div class="term-label">Locator Designator</div>
+<div class="term-def">A number or a sequence of characters that uniquely identifies the locator within the relevant scope.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/locatorDesignator">ncbv:locatorDesignator</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#locatorDesignator">locatorDesignator</a></div></div>
+</div></div><div class="term">
+<h4 id="locatorName"><code>locatorName</code></h4>
+<div class="term-label">Locator Name</div>
+<div class="term-def">Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/locatorName">ncbv:locatorName</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#locatorName">locatorName</a></div></div>
+</div></div><div class="term">
+<h4 id="minimumNumberOfMembers"><code>minimumNumberOfMembers</code></h4>
+<div class="term-label">Minimum Number of Members</div>
+<div class="term-def">The number of members required for the Representation Rule to be valid; examples are 1, 2, 3, 4, 5...</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/minimumNumberOfMembers">ncbv:minimumNumberOfMembers</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="minimumNumberOfRoleHolders"><code>minimumNumberOfRoleHolders</code></h4>
+<div class="term-label">Minimum Number of Role Holders</div>
+<div class="term-def">The number of role holders required for the Representation Rule to be valid; examples are 1, 2, 3, 4, 5...</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/minimumNumberOfRoleHolders">ncbv:minimumNumberOfRoleHolders</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="modified"><code>modified</code></h4>
+<div class="term-label">Modified</div>
+<div class="term-def">The date of the last update of something like a Mandate.
+
+upper attribute
+http://purl.org/dc/terms/modified
+
+
+dcterms:modified</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/modified">ncbv:modified</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="name"><code>name</code></h4>
+<div class="term-label">Name</div>
+<div class="term-def">A word or a combination of characters by which an entity/agent/thing is designated, called, or known.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/name">ncbv:name</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#name">name</a>, <a href="#prefLabel">prefLabel</a></div></div>
+<div class="kv-row"><div class="kv-k">Equivalent property</div><div class="kv-v"><a href="#name">name</a>, <a href="#name">name</a></div></div>
+</div></div><div class="term">
+<h4 id="notation"><code>notation</code></h4>
+<div class="term-label">Notation</div>
+<div class="term-def">A string of characters to uniquely identify a concept.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/notation">ncbv:notation</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#notation">notation</a></div></div>
+</div></div><div class="term">
+<h4 id="numberOfShares"><code>numberOfShares</code></h4>
+<div class="term-label">Number of Shares</div>
+<div class="term-def">The total number of individual shares associated with the specified share capital value.
+
+This count represents the share units issued, authorized, subscribed, or paid-up, depending on the type of capital being described (capitalType).</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/numberOfShares">ncbv:numberOfShares</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="objectType"><code>objectType</code></h4>
+<div class="term-label">Object Type</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/objectType">ncbv:objectType</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="postCode"><code>postCode</code></h4>
+<div class="term-label">Post Code</div>
+<div class="term-def">The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/postCode">ncbv:postCode</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="postName"><code>postName</code></h4>
+<div class="term-label">Post Name</div>
+<div class="term-def">A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/postName">ncbv:postName</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="postOfficeBox"><code>postOfficeBox</code></h4>
+<div class="term-label">Post Office Box</div>
+<div class="term-def">A location designator for a postal delivery point at a post office, usually a number.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/postOfficeBox">ncbv:postOfficeBox</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#poBox">poBox</a></div></div>
+<div class="kv-row"><div class="kv-k">Equivalent property</div><div class="kv-v"><a href="#postbox">postbox</a></div></div>
+</div></div><div class="term">
+<h4 id="prefLabel"><code>prefLabel</code></h4>
+<div class="term-label">Preferred Label</div>
+<div class="term-def">The preferred label attribute is used to name the actual scope of the Mandate; example: &quot;Car Purchase&quot;; &quot;Filing a Declaration (of some type)&quot;; or using a specific national eService (mandates given in the Swedish Mina Ombud or the Finnish Suomi.fi eAuthorizations).  </div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/prefLabel">ncbv:prefLabel</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#prefLabel">prefLabel</a></div></div>
+</div></div><div class="term">
+<h4 id="reference"><code>reference</code></h4>
+<div class="term-label">Reference</div>
+<div class="term-def">Reference to the description of the NACE code.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/reference">ncbv:reference</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="registrationDate"><code>registrationDate</code></h4>
+<div class="term-label">Registration Date</div>
+<div class="term-def">The date when a public authority has registered the legal entity.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/registrationDate">ncbv:registrationDate</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#registrationDate">registrationDate</a></div></div>
+</div></div><div class="term">
+<h4 id="schemaAgency"><code>schemaAgency</code></h4>
+<div class="term-label">Schema Agency</div>
+<div class="term-def">The name of the agency that issued the identifier.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/schemaAgency">ncbv:schemaAgency</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#issuingAuthorityName">issuingAuthorityName</a></div></div>
+</div></div><div class="term">
+<h4 id="schemeName"><code>schemeName</code></h4>
+<div class="term-label">Scheme Name</div>
+<div class="term-def">Name of the scheme used to construct the identifier.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/schemeName">ncbv:schemeName</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#schemeName">schemeName</a></div></div>
+</div></div><div class="term">
+<h4 id="schemeURI"><code>schemeURI</code></h4>
+<div class="term-label">Scheme URI</div>
+<div class="term-def">URI of the scheme used to construct the identifier.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/schemeURI">ncbv:schemeURI</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+<div class="kv-row"><div class="kv-k">Equivalent property</div><div class="kv-v"><a href="#issuingAuthorityURI">issuingAuthorityURI</a></div></div>
+</div></div><div class="term">
+<h4 id="sequence"><code>sequence</code></h4>
+<div class="term-label">Sequence</div>
+<div class="term-def">An indicator for the order of a series of values; &quot;1, 2, 3...&quot;</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/sequence">ncbv:sequence</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="startDate"><code>startDate</code></h4>
+<div class="term-label">Start Date</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/startDate">ncbv:startDate</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+<div class="kv-row"><div class="kv-k">Equivalent property</div><div class="kv-v"><a href="#startDate">startDate</a>, <a href="#startTime">startTime</a></div></div>
+</div></div><div class="term">
+<h4 id="status"><code>status</code></h4>
+<div class="term-label">Status</div>
+<div class="term-def">A mandate&#x27;s status can be for instance: active, withdrawn/inactive &gt; Tore checks values 
+
+Upper attribute: adms:status</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/status">ncbv:status</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="thoroughfare"><code>thoroughfare</code></h4>
+<div class="term-label">Thoroughfare</div>
+<div class="term-def">The name of a passage or way through from one location to another.</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/thoroughfare">ncbv:thoroughfare</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#thoroughfare">thoroughfare</a></div></div>
+</div></div><div class="term">
+<h4 id="title"><code>title</code></h4>
+<div class="term-label">Title</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/title">ncbv:title</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#title">title</a></div></div>
+</div></div><div class="term">
+<h4 id="unit"><code>unit</code></h4>
+<div class="term-label">Unit</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/unit">ncbv:unit</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#topDataProperty">topDataProperty</a></div></div>
+</div></div><div class="term">
+<h4 id="value"><code>value</code></h4>
+<div class="term-label">Value</div>
+<div class="kv">
+<div class="kv-row"><div class="kv-k">IRI</div><div class="kv-v"><a href="https://iri.suomi.fi/model/ncbv/value">ncbv:value</a></div></div>
+<div class="kv-row"><div class="kv-k">Type</div><div class="kv-v">Datatype Property</div></div>
+<div class="kv-row"><div class="kv-k">Domain</div><div class="kv-v"><span class=muted>—</span></div></div>
+<div class="kv-row"><div class="kv-k">Range</div><div class="kv-v"><a href="#Literal">Literal</a></div></div>
+<div class="kv-row"><div class="kv-k">Subproperty of</div><div class="kv-v"><a href="#value">value</a></div></div>
+</div></div>
+        
+        
+      </div>
+
+      <h3>Concept definitions</h3>
+      <div id="terms-concepts">
+        <div class='muted'>No skos:Concept terms detected in the primary namespace.</div>
+      </div>
+    </section>
+
+    <footer>
+      Commit <code>ncbv_vocabulary.html</code> and the Turtle file to the same folder in your repo; enable GitHub Pages; the relative Turtle link will then work.
+    </footer>
+  </main>
+</div>
+
+<script>
+const input = document.getElementById('search');
+const normalize = (s) => (s||'').toLowerCase();
+function applyFilter() {
+  const q = normalize(input.value);
+  const sections = [
+    {tocId:'toc-classes', termsId:'terms-classes'},
+    {tocId:'toc-props', termsId:'terms-props'},
+    {tocId:'toc-concepts', termsId:'terms-concepts'},
+  ];
+  sections.forEach(sec => {
+    const toc = document.getElementById(sec.tocId);
+    const terms = document.getElementById(sec.termsId);
+    if (!toc || !terms) return;
+    toc.querySelectorAll('li').forEach(li => {
+      const a = li.querySelector('a');
+      const text = a ? normalize(a.textContent) : '';
+      li.classList.toggle('hidden', q && !text.includes(q));
+    });
+    terms.querySelectorAll('.term').forEach(block => {
+      const content = normalize(block.textContent);
+      block.classList.toggle('hidden', q && !content.includes(q));
+    });
+  });
+}
+input.addEventListener('input', applyFilter);
+</script>
+</body>
+</html>

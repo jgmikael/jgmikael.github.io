@@ -1,0 +1,2291 @@
+@prefix busdoc:     <https://iri.suomi.fi/model/busdoc/1.0.2/> .
+@prefix dcap:       <http://purl.org/ws-mmi-dc/terms/> .
+@prefix dct:        <http://purl.org/dc/terms/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix geo:        <http://www.opengis.net/ont/geosparql#> .
+@prefix http:       <http://www.w3.org/2011/http#> .
+@prefix isa2core:   <https://iri.suomi.fi/model/isa2core/1.0.0/> .
+@prefix m8g:        <http://data.europa.eu/m8g/> .
+@prefix ncbv:       <https://iri.suomi.fi/model/ncbv/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:         <http://www.w3.org/ns/shacl#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix suomi-meta: <https://iri.suomi.fi/model/suomi-meta/> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+ncbv:Scope  rdf:type                  owl:Class;
+        rdfs:comment                  "A class to define what powers the Mandator grants to the Mandatee through the Mandate.\n\nExample: A gives signatory power to B. A grants B the power to buy a car for the company. "@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Scope"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2025-04-08T15:07:05.889Z"^^xsd:dateTime;
+        dcterms:identifier            "Scope"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T12:57:23.975Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-92>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:appliesToObject;
+                                                                owl:someValuesFrom  ncbv:Object
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:power;
+                                                                owl:someValuesFrom  skos:Concept
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:interestType  rdf:type           owl:DatatypeProperty;
+        rdfs:comment                  "The type of interest held by a Natural person in an agent. In Sweden this is free text but can have enum like: shareholding, votingRights, appointmentOfBoard, otherInfluenceOrControl, ,seniorManagingOfficial, settlor, trustee, protector, beneficiaryOfLegalArrangement, rightsToSurplusAssetsOnDissolution, rightsToProfitOrIncome, rightsGrantedByContract, conditionalRightsGrantedByContract, controlViaCompanyRulesOrArticles, controlByLegalFramework, boardMember, boardChair, unknownInterest, unpublishedInterest, enjoymentAndUseOfAssets, rightToProfitOrIncomeFromAssets"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Interest Type"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "interestType"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:40:35.116Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Rule  rdf:type                   owl:Class;
+        rdfs:comment                  "eli:Rule"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Rule"@en;
+        rdfs:subClassOf               ncbv:Source;
+        dcterms:created               "2025-08-21T10:27:21.044Z"^^xsd:dateTime;
+        dcterms:identifier            "Rule"^^xsd:NCName;
+        dcterms:modified              "2025-08-21T10:29:44.401Z"^^xsd:dateTime;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:implements;
+                                                                owl:someValuesFrom  ncbv:LegalResource
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:MembershipBasedRepresentationRule
+        rdf:type                      owl:Class;
+        rdfs:comment                  "A class that replaces the previous \"Simple Representation Rule\" class (partially); example: a mandate granted to \"a man on the street\", pointing at a certain person as a  Member of the Mandator (Membership in this case could be \"mandatee\" or similar)."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Membership Based Representation Rule"@en;
+        rdfs:subClassOf               ncbv:RepresentationRule;
+        dcterms:created               "2025-09-29T08:42:42.614Z"^^xsd:dateTime;
+        dcterms:identifier            "MembershipBasedRepresentationRule"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T07:36:42.045Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-84>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:definesValidMembership;
+                                                                owl:someValuesFrom  ncbv:Membership
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:memberQuantifier;
+                                                                owl:someValuesFrom  skos:Concept
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:minimumNumberOfMembers;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:or  rdf:type                     owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Or"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-06T13:29:13.183Z"^^xsd:dateTime;
+        dcterms:identifier            "or"^^xsd:NCName;
+        dcterms:modified              "2025-02-06T13:29:13.183Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:BeneficialOwner  rdf:type        owl:Class;
+        rdfs:comment                  "A natural person(s) who ultimately owns or controls the agent."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Beneficial Owner"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "BeneficialOwner"^^xsd:NCName;
+        dcterms:modified              "2025-01-13T14:50:58.003Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-3002>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:interestControl;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:interestDirectOrIndirect;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:interestType;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:isPerson;
+                                                                owl:someValuesFrom  ncbv:Person
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:email  rdf:type                  owl:DatatypeProperty;
+        rdfs:comment                  "An electronic address through which the Contact Point can be contacted.\n\nEquivalent with schema:email"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Email"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            m8g:email;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "email"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:25:27.225Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:registeredAddress
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "The address to which formal communications can be sent to the legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Registered Address"@en;
+        rdfs:subPropertyOf            isa2core:registeredAddress;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "registeredAddress"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.065Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:beneficialOwners
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "A natural person(s) who ultimately owns or controls the agent."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Beneficial Owners"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "beneficialOwners"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.068Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:alternativeName  rdf:type        owl:DatatypeProperty;
+        rdfs:comment                  "Any other registered name by which a legal entity is known."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Alternative Name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "alternativeName"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:33:03.353Z"^^xsd:dateTime;
+        owl:equivalentProperty        isa2core:alternativeName;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:originalMandate  rdf:type        owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Original Mandate"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-06-13T08:29:04.082Z"^^xsd:dateTime;
+        dcterms:identifier            "originalMandate"^^xsd:NCName;
+        dcterms:modified              "2025-06-13T08:29:04.082Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Person  rdf:type                 owl:Class;
+        rdfs:comment                  "A individual human being who may be dead or alive, but not imaginary."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Person"@en;
+        rdfs:subClassOf               ncbv:Agent , isa2core:Person , foaf:Person;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "Person"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T15:29:33.483Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-6005>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:dateOfBirth;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:fullName;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasIdentifier;
+                                                                owl:someValuesFrom  ncbv:Identifier
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:transferOfMandate
+        rdf:type                      owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Transfer of Mandate"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-06-13T08:25:05.945Z"^^xsd:dateTime;
+        dcterms:identifier            "transferOfMandate"^^xsd:NCName;
+        dcterms:modified              "2025-06-13T08:25:05.945Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:totalCapitalAmount
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "The total capital amount of the Legal Entity's (company's) share capital, expressed in monetary values."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Total Capital Amount"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-06-12T13:56:39.537Z"^^xsd:dateTime;
+        dcterms:identifier            "totalCapitalAmount"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T13:56:39.537Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:codeValue  rdf:type              owl:DatatypeProperty;
+        rdfs:comment                  "The actual code value from a selected code list."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Code"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            skos:notation;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "codeValue"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T11:41:06.263Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:LegalResource  rdf:type          owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Legal Resource"@en;
+        rdfs:subClassOf               ncbv:Source;
+        dcterms:created               "2025-08-21T10:23:15.403Z"^^xsd:dateTime;
+        dcterms:identifier            "LegalResource"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T08:42:53.164Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-90>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:endDate  rdf:type                owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "End Date"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-04-08T14:44:41.742Z"^^xsd:dateTime;
+        dcterms:identifier            "endDate"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T14:44:41.742Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+sh:     rdfs:label  "sh"@da-DK , "sh"@is-IS , "sh"@nb-NO , "sh"@sv , "sh"@fi , "sh"@en;
+        dcap:preferredXMLNamespacePrefix
+                "sh" .
+
+ncbv:postalAddress  rdf:type          owl:ObjectProperty;
+        rdfs:comment                  "The address to which mail can be sent to the legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Postal Address"@en;
+        rdfs:subPropertyOf            isa2core:address_;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "postalAddress"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.066Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:MonetaryAmount  rdf:type         owl:Class;
+        rdfs:comment                  "see unece:Amount and schema:MonetaryAmount"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Amount"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2025-06-12T12:07:03.806Z"^^xsd:dateTime;
+        dcterms:identifier            "MonetaryAmount"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T08:37:38.974Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-85>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:value;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:currency;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:LegalStatus  rdf:type            owl:Class;
+        rdfs:comment                  "An indication of whether a registration authority has registered some extraordinary proceedings for the legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Legal Status"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "LegalStatus"^^xsd:NCName;
+        dcterms:modified              "2025-01-13T13:58:16.205Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-23>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:date;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasCode;
+                                                                owl:someValuesFrom  ncbv:Code
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:adminUnitLevel2  rdf:type        owl:DatatypeProperty;
+        rdfs:comment                  "The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Admin Unit Level 2"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:adminUnitLevel2;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "adminUnitLevel2"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:26:00.483Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:notation  rdf:type               owl:DatatypeProperty;
+        rdfs:comment                  "A string of characters to uniquely identify a concept."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Notation"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            skos:notation;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "notation"^^xsd:NCName;
+        dcterms:modified              "2025-01-14T13:15:41.555Z"^^xsd:dateTime;
+        skos:editorialNote            "Description does not seem to be correct";
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:unit  rdf:type                   owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Unit"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-04-08T15:19:46.875Z"^^xsd:dateTime;
+        dcterms:identifier            "unit"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T15:19:46.875Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasMember  rdf:type              owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Member"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-08-26T12:48:57.441Z"^^xsd:dateTime;
+        dcterms:identifier            "hasMember"^^xsd:NCName;
+        dcterms:modified              "2025-08-26T12:48:57.441Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasSource  rdf:type              owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Source"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-04-08T14:57:13.685Z"^^xsd:dateTime;
+        dcterms:identifier            "hasSource"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T14:57:13.685Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:subject  rdf:type                owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Subject"@en;
+        rdfs:subPropertyOf            sh:subject;
+        dcterms:created               "2025-04-08T15:13:51.129Z"^^xsd:dateTime;
+        dcterms:identifier            "subject"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T15:13:51.129Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:RoleBasedRepresentationRule
+        rdf:type                      owl:Class;
+        rdfs:comment                  "A class that replaces (partially) the Simple Representation Rule in previous versions; example: signatory rights rule \"CEO alone\""@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Role Based Representation Rule"@en;
+        rdfs:subClassOf               ncbv:RepresentationRule;
+        dcterms:created               "2025-09-29T08:35:37.658Z"^^xsd:dateTime;
+        dcterms:identifier            "RoleBasedRepresentationRule"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T07:34:54.461Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-83>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:minimumNumberOfRoleHolders;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:definesValidRole;
+                                                                owl:someValuesFrom  ncbv:Role
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:roleHolderQuantifier;
+                                                                owl:someValuesFrom  skos:Concept
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Object  rdf:type                 owl:Class;
+        rdfs:comment                  "Example: can be a specific house, car; has an Identifier (car registration number)"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Object"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2025-09-25T07:28:13.745Z"^^xsd:dateTime;
+        dcterms:identifier            "Object"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T08:39:25.479Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-87>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasIdentifier;
+                                                                owl:someValuesFrom  ncbv:Identifier
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:type;
+                                                                owl:someValuesFrom  skos:Concept
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:fullAddress  rdf:type            owl:DatatypeProperty;
+        rdfs:comment                  "The complete address written as a string."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Full Address"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:fullAddress;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "fullAddress"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:40:22.023Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:description  rdf:type            owl:DatatypeProperty;
+        rdfs:comment                  "An attribute used to describe a Class.\n\nExamples:\nClass: Representation Rule; description: \"CEO can sign alone\" or \"two board members can sign jointly\"; \n\nClass: Mandate Type; description: \"a person is entitled to file a tax declaration on behalf of the company (Mandator)\" \n\nhttp://purl.org/dc/terms/description\n"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Description"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:description;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "description"^^xsd:NCName;
+        dcterms:modified              "2025-06-13T09:53:33.542Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasScope  rdf:type               owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Scope"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-06T14:13:06.299Z"^^xsd:dateTime;
+        dcterms:identifier            "hasScope"^^xsd:NCName;
+        dcterms:modified              "2025-02-06T14:13:06.299Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:thoroughfare  rdf:type           owl:DatatypeProperty;
+        rdfs:comment                  "The name of a passage or way through from one location to another."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Thoroughfare"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:thoroughfare;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "thoroughfare"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T11:41:32.617Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:date  rdf:type                   owl:DatatypeProperty;
+        rdfs:comment                  "The date when the legal status was registered."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Date"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "date"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:41:28.912Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Mandate  rdf:type                owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Mandate"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2025-02-06T09:04:54.071Z"^^xsd:dateTime;
+        dcterms:identifier            "Mandate"^^xsd:NCName;
+        dcterms:modified              "2025-05-09T08:38:37.754Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-75>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasMandator;
+                                                                owl:someValuesFrom  ncbv:Agent
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasRepresentationRule;
+                                                                owl:someValuesFrom  ncbv:RepresentationRule
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasRestriction;
+                                                                owl:someValuesFrom  ncbv:Restriction
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasDuration;
+                                                                owl:someValuesFrom  ncbv:PeriodOfTime
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:status;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:delegable;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:identifierValue;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:dateOfIssue;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasSource;
+                                                                owl:someValuesFrom  ncbv:Source
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasGeographicalScope;
+                                                                owl:someValuesFrom  ncbv:Location
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:modified;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasScope;
+                                                                owl:someValuesFrom  ncbv:Scope
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:fiveOf  rdf:type                 owl:ObjectProperty;
+        rdfs:comment                  "Requires five of the defined agents holding a post to sign."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Five of"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "fiveOf"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.068Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:RepresentationRule
+        rdf:type                      owl:Class;
+        rdfs:comment                  "A rule that describes who or which agents a mandate is granted to. \n\nThe rule can be used both in the case of legal representation, when a CEO or a board member signs for the agent (company) based on their official role in the company, as well as when a mandate is given to a specific person (\"a man on the street\") who has no previous affiliation to the mandating agent."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Representation Rule (Signatory Rule)"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "RepresentationRule"^^xsd:NCName;
+        dcterms:modified              "2025-05-13T10:34:35.499Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-6011>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:description;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:sequence;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:prefLabel  rdf:type              owl:DatatypeProperty;
+        rdfs:comment                  "The preferred label attribute is used to name the actual scope of the Mandate; example: \"Car Purchase\"; \"Filing a Declaration (of some type)\"; or using a specific national eService (mandates given in the Swedish Mina Ombud or the Finnish Suomi.fi eAuthorizations).  "@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Preferred Label"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            skos:prefLabel;
+        dcterms:created               "2025-04-08T15:12:30.711Z"^^xsd:dateTime;
+        dcterms:identifier            "prefLabel"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T08:10:40.287Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+[ rdf:type            owl:Class;
+  owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                          owl:onProperty      ncbv:codeValue;
+                          owl:someValuesFrom  xsd:string
+                        ]
+                        [ rdf:type            owl:Restriction;
+                          owl:onProperty      ncbv:inClassification;
+                          owl:someValuesFrom  xsd:string
+                        ]
+                        [ rdf:type            owl:Restriction;
+                          owl:onProperty      ncbv:reference;
+                          owl:someValuesFrom  xsd:string
+                        ]
+                        [ rdf:type            owl:Restriction;
+                          owl:onProperty      ncbv:sequence;
+                          owl:someValuesFrom  xsd:string
+                        ]
+                      )
+] .
+
+owl:    rdfs:label  "owl"@da-DK , "owl"@is-IS , "owl"@nb-NO , "owl"@sv , "owl"@en , "owl"@fi;
+        dcap:preferredXMLNamespacePrefix
+                "owl" .
+
+ncbv:MandateTransfer  rdf:type        owl:Class;
+        rdfs:comment                  "A class for documenting the possible transfer (or delegation) of a Mandate from a previous Mandatee to another; example: Mandate is granted by CEO of Company, is delegable, the first Mandatee delegated the Mandate to another Agent who becomes the new Mandatee; the transfer of the Mandate is logged in this class."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Mandate Transfer"@en;
+        rdfs:subClassOf               ncbv:Source;
+        dcterms:created               "2025-06-13T08:22:56.154Z"^^xsd:dateTime;
+        dcterms:identifier            "MandateTransfer"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T08:41:52.225Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-89>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:date;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:originalMandate;
+                                                                owl:someValuesFrom  ncbv:Mandate
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:mandatee;
+                                                                owl:someValuesFrom  ncbv:Agent
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:identifierValue;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:numberOfShares  rdf:type         owl:DatatypeProperty;
+        rdfs:comment                  "The total number of individual shares associated with the specified share capital value.\n\nThis count represents the share units issued, authorized, subscribed, or paid-up, depending on the type of capital being described (capitalType)."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Number of Shares"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-06-12T14:04:53.34Z"^^xsd:dateTime;
+        dcterms:identifier            "numberOfShares"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:04:53.34Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+skos:   rdfs:label  "skos"@da-DK , "skos"@is-IS , "skos"@nb-NO , "skos"@fi , "skos"@sv , "skos"@en;
+        dcap:preferredXMLNamespacePrefix
+                "skos" .
+
+ncbv:hasMandator  rdf:type            owl:ObjectProperty;
+        rdfs:comment                  "The Mandator association points always to the \"primary mandator\", who is the original source of the delegated power."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "(Has) Mandator"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-06T09:13:22.7Z"^^xsd:dateTime;
+        dcterms:identifier            "hasMandator"^^xsd:NCName;
+        dcterms:modified              "2025-09-25T11:53:54.403Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-76>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:ContactPoint  rdf:type           owl:Class;
+        rdfs:comment                  "Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with. "@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Contact Point"@en;
+        rdfs:subClassOf               m8g:ContactPoint;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "ContactPoint"^^xsd:NCName;
+        dcterms:modified              "2025-01-13T14:51:20.968Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-6044>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:contactPage;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:email;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasTelephone;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Code  rdf:type                   owl:Class;
+        rdfs:comment                  "A generic class for any code values that a specific class can have; in the NCBV the Code class contains code values for legal form, legal status and (economic) activity.  "@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Code"@en;
+        rdfs:subClassOf               skos:Concept;
+        dcterms:created               "2025-01-09T13:48:37.357Z"^^xsd:dateTime;
+        dcterms:identifier            "Code"^^xsd:NCName;
+        dcterms:modified              "2025-01-13T14:49:22.74Z"^^xsd:dateTime;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:codeValue;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:sequence;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:name;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:identifierValue;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:datatype  rdf:type               owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Datatype"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-04-08T15:20:30.704Z"^^xsd:dateTime;
+        dcterms:identifier            "datatype"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T15:20:30.704Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:fullName  rdf:type               owl:DatatypeProperty;
+        rdfs:comment                  "The complete name of the Person as one string."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Full Name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            foaf:name;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "fullName"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:32:12.198Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-6012>;
+        owl:equivalentProperty        isa2core:fullName;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:implements  rdf:type             owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Implements"@en;
+        rdfs:subPropertyOf            isa2core:implements;
+        dcterms:created               "2025-08-21T10:28:18.143Z"^^xsd:dateTime;
+        dcterms:identifier            "implements"^^xsd:NCName;
+        dcterms:modified              "2025-08-21T10:28:18.143Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:careOf  rdf:type                 owl:DatatypeProperty;
+        rdfs:comment                  "Used when an address is at the address of another person or legal entity.\n"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Care of"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "careOf"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:43:45.336Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:RestrictionType  rdf:type        owl:Class;
+        rdfs:comment                  "A class for describing what the value in the Restriction class means; example: Restriction.value: 10000; RestrictionType: Datatype: Decimal or Integer; Unit: SEK, NOK, EUR... Name: Monetary Amount restriction; Description: \"The maximum monetary amount to be used with the Mandate (like: \"purchasing a car\")  "@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Restriction Type"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2025-04-08T15:17:57.979Z"^^xsd:dateTime;
+        dcterms:identifier            "RestrictionType"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T12:57:42.838Z"^^xsd:dateTime;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:identifierValue;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:unit;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:datatype;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:description;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasIdentifier  rdf:type          owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Identifier"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "hasIdentifier"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.062Z"^^xsd:dateTime;
+        owl:equivalentProperty        isa2core:identifierAs;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:currency  rdf:type               owl:DatatypeProperty;
+        rdfs:comment                  "The currency in which the monetary amount is expressed. ISO 4217 currency format, e.g. \"EUR\"."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Currency"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "currency"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:07:04.074Z"^^xsd:dateTime;
+        owl:equivalentProperty        busdoc:currencyCode;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Source  rdf:type                 owl:Class;
+        rdfs:comment                  "A class to describe what the powers that are delegated by the Mandator are originally based on;  example: \"law\", \"statutes of company\"; \"another mandate\" etc."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Source"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2025-04-08T14:53:46.526Z"^^xsd:dateTime;
+        dcterms:identifier            "Source"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T08:43:38.517Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-91>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:description;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:type;
+                                                                owl:someValuesFrom  skos:Concept
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:twoOf  rdf:type                  owl:ObjectProperty;
+        rdfs:comment                  "Requires two of the defined agents holding a post to sign."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Two of"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "twoOf"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.061Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:adminUnitLevel1  rdf:type        owl:DatatypeProperty;
+        rdfs:comment                  "The uppermost administrative unit for the address, almost always a country."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Admin Unit Level 1"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:adminUnitLevel1;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "adminUnitLevel1"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:42:15.68Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Document  rdf:type               owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Document"@en;
+        rdfs:subClassOf               ncbv:Source , foaf:Document;
+        dcterms:created               "2025-06-13T08:43:49.168Z"^^xsd:dateTime;
+        dcterms:identifier            "Document"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T08:49:03.898Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-93>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:title;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:codeName  rdf:type               owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Code name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            skos:prefLabel;
+        dcterms:created               "2025-01-13T12:38:28.173Z"^^xsd:dateTime;
+        dcterms:identifier            "codeName"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:42:59.226Z"^^xsd:dateTime;
+        suomi-meta:creator            "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasDuration  rdf:type            owl:ObjectProperty;
+        rdfs:comment                  "The association \"has duration\" points to \"Period of Time\"and indicates the validity period of the mandate; like \"1.1.2025-31.12.2025\""@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Duration"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-03-03T12:49:00.084Z"^^xsd:dateTime;
+        dcterms:identifier            "hasDuration"^^xsd:NCName;
+        dcterms:modified              "2025-05-09T09:25:12.588Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:ShareCapital  rdf:type           owl:Class;
+        rdfs:comment                  "Share capital refers to the total amount of capital raised by a legal entity through the issuance of shares to shareholders."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Share Capital"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "ShareCapital"^^xsd:NCName;
+        dcterms:modified              "2025-01-13T14:50:23.875Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-6040>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:totalCapitalAmount;
+                                                                owl:someValuesFrom  ncbv:MonetaryAmount
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:capitalType;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:numberOfShares;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:sequence  rdf:type               owl:DatatypeProperty;
+        rdfs:comment                  "An indicator for the order of a series of values; \"1, 2, 3...\""@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Sequence"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "sequence"^^xsd:NCName;
+        dcterms:modified              "2025-05-13T10:44:46.965Z"^^xsd:dateTime;
+        skos:editorialNote            "Should this instead be a literal?";
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:objectType  rdf:type             owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Object Type"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-09-25T12:01:34.898Z"^^xsd:dateTime;
+        dcterms:identifier            "objectType"^^xsd:NCName;
+        dcterms:modified              "2025-09-25T12:01:34.898Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:interestDirectOrIndirect
+        rdf:type                      owl:DatatypeProperty;
+        rdfs:comment                  "How directly the interest is exercised by the interested party. The value MUST be 'indirect' if intermediate entities or agents are known to exist, and MUST be 'direct' if such intermediaries are known not to exist. Otherwise the value MUST be 'unknown'."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Interest Direct Or Indirect"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "interestDirectOrIndirect"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:44:28.382Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:delegable  rdf:type              owl:DatatypeProperty;
+        rdfs:comment                  "An indicator of whether the Mandate can be delegated or not."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Delegable"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-04-08T14:43:29.654Z"^^xsd:dateTime;
+        dcterms:identifier            "delegable"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T07:31:56.699Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-79>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:grantsMandate  rdf:type          owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Grants Mandate"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-06T09:07:11Z"^^xsd:dateTime;
+        dcterms:identifier            "grantsMandate"^^xsd:NCName;
+        dcterms:modified              "2025-02-06T09:07:11Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:dateOfIssue  rdf:type            owl:DatatypeProperty;
+        rdfs:comment                  "The date on which the something was issued; in this context for instance a Mandate or an Identifier."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Date of Issue"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:dateOfIssue;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "dateOfIssue"^^xsd:NCName;
+        dcterms:modified              "2025-06-13T09:57:31.758Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:capitalType  rdf:type            owl:DatatypeProperty;
+        rdfs:comment                  "Values expressed in a separate code list, could contain the following: \n\nCapital Type\tDescription\nAuthorized Share Capital\tMaximum capital a company is legally allowed to issue, as stated in its statutes\n\nIssued Share Capital\tCapital corresponding to the total number of shares that have actually been issued\n\nSubscribed Share Capital\tPart of issued capital that investors have agreed to purchase\n\nPaid-up Share Capital\tSubscribed capital for which the company has received payment\n\nCalled-up Share Capital\tSubscribed capital where payment has been requested (called), but not necessarily received\n\nUnpaid Capital\tPortion of called-up capital still owed by shareholders\n\nNominal / Par Value\tThe base value assigned to each share; may also be relevant at share type level\n\nEquity vs Debt hybrid\tSome instruments may qualify as equity under certain laws but be treated as debt elsewhere"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Capital Type"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-06-12T14:01:09.312Z"^^xsd:dateTime;
+        dcterms:identifier            "capitalType"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:01:09.312Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:inClassification
+        rdf:type                      owl:DatatypeProperty;
+        rdfs:comment                  "NACE codes are published in scheme http://publications.europa.eu/resource/authority/ux2/nace2/nace2. Description in text for all NACE codes in all EU languages can be found there."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "In Classification"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "inClassification"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:39:11.41Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:legalName  rdf:type              owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Legal Name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:legalName;
+        dcterms:created               "2025-01-09T13:03:18.422Z"^^xsd:dateTime;
+        dcterms:identifier            "legalName"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:40:02.265Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-105>;
+        suomi-meta:creator            "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasTelephone  rdf:type           owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Telephone"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            m8g:telephone;
+        dcterms:created               "2025-01-15T13:22:57.998Z"^^xsd:dateTime;
+        dcterms:identifier            "hasTelephone"^^xsd:NCName;
+        dcterms:modified              "2025-01-15T13:25:55.416Z"^^xsd:dateTime;
+        suomi-meta:creator            "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:schemeURI  rdf:type              owl:DatatypeProperty;
+        rdfs:comment                  "URI of the scheme used to construct the identifier."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Scheme URI"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "schemeURI"^^xsd:NCName;
+        dcterms:modified              "2025-01-15T13:47:00.408Z"^^xsd:dateTime;
+        owl:equivalentProperty        isa2core:issuingAuthorityURI;
+        skos:editorialNote            "Could this be AnyURI datatype instead?";
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:status  rdf:type                 owl:DatatypeProperty;
+        rdfs:comment                  "A mandate's status can be for instance: active, withdrawn/inactive > Tore checks values \n\nUpper attribute: adms:status"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Status"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-03-25T12:23:36.219Z"^^xsd:dateTime;
+        dcterms:identifier            "status"^^xsd:NCName;
+        dcterms:modified              "2025-05-09T09:15:13.463Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:modified  rdf:type               owl:DatatypeProperty;
+        rdfs:comment                  "The date of the last update of something like a Mandate.\n\nupper attribute\nhttp://purl.org/dc/terms/modified\n\n\ndcterms:modified"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Modified"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-06-12T07:37:49.229Z"^^xsd:dateTime;
+        dcterms:identifier            "modified"^^xsd:NCName;
+        dcterms:modified              "2025-06-13T10:01:26.609Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:definesValidRole
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "The Simple Representation Rule class cannot at the same time be defined by a Valid Membership and Valid Role, it's either or."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Defines Valid Role "@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-06T13:44:16.367Z"^^xsd:dateTime;
+        dcterms:identifier            "definesValidRole"^^xsd:NCName;
+        dcterms:modified              "2025-05-21T07:42:08.052Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Role  rdf:type                   owl:Class;
+        rdfs:comment                  "In the context of Mandates, the Role class \nindicates the Role that the Agent plays in a Membership relationship with a legal entity. \n\nUpper class: https://www.w3.org/TR/vocab-org/#class-role\n\nSuggested code list for Nordic use cases: http://uri.suomi.fi/codelist/verotus/membershiproletypes"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Role"@en;
+        rdfs:subClassOf               skos:Concept;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "Role"^^xsd:NCName;
+        dcterms:modified              "2025-11-19T09:21:00.609Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-6004>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:oneOf  rdf:type                  owl:ObjectProperty;
+        rdfs:comment                  "Requires one of the defined agents holding a post to sign."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "One of"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "oneOf"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.068Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:grantsRepresentationRight
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "The signatory rights that is registered for the legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Grants Representation Right"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "grantsRepresentationRight"^^xsd:NCName;
+        dcterms:modified              "2025-02-06T09:02:02.636Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Restriction  rdf:type            owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Restriction"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2025-03-03T12:45:18.743Z"^^xsd:dateTime;
+        dcterms:identifier            "Restriction"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T08:40:19.092Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-88>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:value;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:type;
+                                                                owl:someValuesFrom  ncbv:RestrictionType
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:threeOf  rdf:type                owl:ObjectProperty;
+        rdfs:comment                  "Requires two of the defined agents holding a post to sign."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Three of"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "threeOf"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.06Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+foaf:   rdfs:label  "foaf"@da-DK , "foaf"@is-IS , "foaf"@nb-NO , "foaf"@fi , "foaf"@sv , "foaf"@en;
+        dcap:preferredXMLNamespacePrefix
+                "foaf" .
+
+ncbv:appliesToObject  rdf:type        owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Applies to Object"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-09-25T07:35:09.95Z"^^xsd:dateTime;
+        dcterms:identifier            "appliesToObject"^^xsd:NCName;
+        dcterms:modified              "2025-09-25T07:35:09.95Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:member  rdf:type                 owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Member"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-08-26T12:46:48.908Z"^^xsd:dateTime;
+        dcterms:identifier            "member"^^xsd:NCName;
+        dcterms:modified              "2025-08-26T12:46:48.908Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:LegalEntity  rdf:type            owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Legal Entity"@en;
+        rdfs:subClassOf               isa2core:LegalEntity , ncbv:Agent;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "LegalEntity"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T15:28:33.755Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-6006>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:alternativeName;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:registrationDate;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasActivity;
+                                                                owl:someValuesFrom  ncbv:Code
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasShareCapital;
+                                                                owl:someValuesFrom  ncbv:ShareCapital
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasIdentifier;
+                                                                owl:someValuesFrom  ncbv:Identifier
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:legalIdentifier;
+                                                                owl:someValuesFrom  ncbv:Identifier
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasLegalForm;
+                                                                owl:someValuesFrom  ncbv:Code
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasLegalStatus;
+                                                                owl:someValuesFrom  ncbv:LegalStatus
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:beneficialOwners;
+                                                                owl:someValuesFrom  ncbv:BeneficialOwner
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:postalAddress;
+                                                                owl:someValuesFrom  ncbv:Address
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:registeredAddress;
+                                                                owl:someValuesFrom  ncbv:Address
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasContactPoint;
+                                                                owl:someValuesFrom  ncbv:ContactPoint
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:legalName;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:definesValidMembership
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "The Simple Representation Rule class cannot at the same time be defined by a Valid Membership and Valid Role, it's either or."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Defines Valid Membership"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-07T11:36:05.196Z"^^xsd:dateTime;
+        dcterms:identifier            "definesValidMembership"^^xsd:NCName;
+        dcterms:modified              "2025-05-21T07:40:26.886Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:amount  rdf:type                 owl:DatatypeProperty;
+        rdfs:comment                  "The amount of money."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Amount"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "amount"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:38:25.079Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:geographicIdentifier
+        rdf:type                      owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Geographic Identifier"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:geographicIdentifier;
+        dcterms:created               "2025-04-08T15:03:55.229Z"^^xsd:dateTime;
+        dcterms:identifier            "geographicIdentifier"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T15:03:55.229Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+rdfs:   rdfs:label  "rdfs"@da-DK , "rdfs"@is-IS , "rdfs"@nb-NO , "rdfs"@sv , "rdfs"@en , "rdfs"@fi;
+        dcap:preferredXMLNamespacePrefix
+                "rdfs" .
+
+ncbv:Location  rdf:type               owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Location"@en;
+        rdfs:subClassOf               isa2core:Location;
+        dcterms:created               "2025-04-08T15:01:30.679Z"^^xsd:dateTime;
+        dcterms:identifier            "Location"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T08:38:26.384Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-86>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:geographicIdentifier;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:geographicName;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:value  rdf:type                  owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Value"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:value;
+        dcterms:created               "2025-04-08T15:06:12.994Z"^^xsd:dateTime;
+        dcterms:identifier            "value"^^xsd:NCName;
+        dcterms:modified              "2025-04-08T15:06:12.994Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+[ rdf:type            owl:Class;
+  owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                          owl:onProperty      ncbv:description;
+                          owl:someValuesFrom  rdfs:Literal
+                        ]
+                      )
+] .
+
+ncbv:startDate  rdf:type              owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Start Date"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-04-08T14:44:22.142Z"^^xsd:dateTime;
+        dcterms:identifier            "startDate"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:28:31.782Z"^^xsd:dateTime;
+        owl:equivalentProperty        busdoc:startDate , isa2core:startTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasContactPoint  rdf:type        owl:ObjectProperty;
+        rdfs:comment                  "The main contact information of the resource."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Contact Point"@en;
+        rdfs:subPropertyOf            isa2core:contactPoint_ , m8g:contactPoint;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "hasContactPoint"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.064Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:heldByPerson  rdf:type           owl:ObjectProperty;
+        rdfs:comment                  "Indicates the person that holds the post.\n"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Held by Person"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "heldByPerson"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.059Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:CompositeRepresentationRule
+        rdf:type                      owl:Class;
+        rdfs:comment                  "A class that replaces the \"Complex Representation Rule\" in previous NCBV versions; example of a composite rule for general signatory rights (legal representation): \"CEO alone and two board members jointly\""@fi;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Composite Representation Rule"@en;
+        rdfs:subClassOf               ncbv:RepresentationRule;
+        dcterms:created               "2025-09-29T08:28:22.122Z"^^xsd:dateTime;
+        dcterms:identifier            "CompositeRepresentationRule"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T07:35:14.774Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-82>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:and;
+                                                                owl:someValuesFrom  ncbv:RepresentationRule
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:or;
+                                                                owl:someValuesFrom  ncbv:RepresentationRule
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:identifierValue  rdf:type        owl:DatatypeProperty;
+        rdfs:comment                  "The identifier of a mandate is used to separate different mandates from each other, making it unique."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Identifier"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            dcterms:identifier;
+        dcterms:created               "2025-04-08T14:51:21.327Z"^^xsd:dateTime;
+        dcterms:identifier            "identifierValue"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T07:33:19.954Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasLegalStatus  rdf:type         owl:ObjectProperty;
+        rdfs:comment                  "An indication of whether a registration authority has registered some extraordinary proceedings for the legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Legal Status"@en;
+        rdfs:subPropertyOf            isa2core:companyStatus;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "hasLegalStatus"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T07:05:43.457Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-23>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Address  rdf:type                owl:Class;
+        rdfs:comment                  "An identification of the fixed location of a geographic place."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Address"@en;
+        rdfs:subClassOf               isa2core:Address;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "Address"^^xsd:NCName;
+        dcterms:modified              "2024-12-12T10:16:36.886Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-4>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:adminUnitLevel1;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:adminUnitLevel2;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:careOf;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:fullAddress;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:locatorDesignator;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:locatorName;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:postCode;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:postName;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:postOfficeBox;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:thoroughfare;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+dcterms:  rdfs:label  "Dcterms"@en;
+        dcap:preferredXMLNamespacePrefix
+                "dct" .
+
+ncbv:hasLegalForm  rdf:type           owl:ObjectProperty;
+        rdfs:comment                  "The legal form of a legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Legal Form"@en;
+        rdfs:range                    ncbv:Code;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "hasLegalForm"^^xsd:NCName;
+        dcterms:modified              "2025-02-17T12:56:19.337Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-16>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:   rdf:type                      owl:Ontology;
+        rdfs:comment                  "The common Nordic data vocabulary for business information, initiated by the Nordic Smart Government & Business 4.0 program in 2022-24, further developed and maintained by the Nordic Data Quality and Semantics working group (2025-)."@en;
+        rdfs:label                    "Nordisk"@is-IS , "Nordic Core Business Vocabulary"@en , "Pohjoismainen yritystiedon ydintietomalli"@fi , "Nordisk företagsdatamodell"@sv , "Nordisk datamodel"@da-DK , "Nordisk datamodel"@nb-NO;
+        dcterms:contributor           <urn:uuid:0e7e4f57-be57-4f99-bb1f-bfdcf0b6948a>;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:hasPart               ncbv:RoleBasedRepresentationRule , ncbv:hasTelephone , ncbv:unit , ncbv:jointly , ncbv:hasGeographicalScope , ncbv:fiveOf , ncbv:reference , ncbv:hasIdentifier , ncbv:startDate , ncbv:fullName , ncbv:endDate , ncbv:LegalStatus , ncbv:Address , ncbv:roleHolderQuantifier , ncbv:notation , ncbv:alternativeName , ncbv:and , ncbv:interestDirectOrIndirect , ncbv:originalMandate , ncbv:postOfficeBox , ncbv:hasScope , ncbv:delegable , ncbv:legalName , ncbv:member , ncbv:memberQuantifier , ncbv:Location , ncbv:totalCapitalAmount , ncbv:locatorName , ncbv:interestType , ncbv:grantsRepresentationRight , ncbv:Identifier , ncbv:twoOf , ncbv:Rule , ncbv:ContactPoint , ncbv:MembershipBasedRepresentationRule , ncbv:schemeName , ncbv:dateOfBirth , ncbv:MonetaryAmount , ncbv:power , ncbv:currency , ncbv:codeName , ncbv:allOf , ncbv:thoroughfare , ncbv:email , ncbv:definesValidRole , ncbv:hasRepresentationRule , ncbv:status , ncbv:Restriction , ncbv:hasCode , ncbv:registeredAddress , ncbv:hasLegalStatus , ncbv:minimumNumberOfRoleHolders , ncbv:hasSource , ncbv:numberOfShares , ncbv:description , ncbv:or , ncbv:amount , ncbv:RestrictionType , ncbv:Role , ncbv:PeriodOfTime , ncbv:codeValue , ncbv:majorityOf , ncbv:prefLabel , ncbv:transferOfMandate , ncbv:Object , ncbv:hasRole , ncbv:date , ncbv:hasShareCapital , ncbv:fullAddress , ncbv:LegalEntity , ncbv:locatorDesignator , ncbv:minimumNumberOfMembers , ncbv:geographicName , ncbv:hasLegalForm , ncbv:adminUnitLevel1 , ncbv:Mandate , ncbv:registrationDate , ncbv:Document , ncbv:grantsMandate , ncbv:CompositeRepresentationRule , ncbv:legalIdentifier , ncbv:type , ncbv:consistsOfRepresentationRule , ncbv:datatype , ncbv:title , ncbv:name , ncbv:inClassification , ncbv:Code , ncbv:postCode , ncbv:heldByLegalEntity , ncbv:hasRestriction , ncbv:contactPage , ncbv:threeOf , ncbv:geographicIdentifier , ncbv:Source , ncbv:LegalResource , ncbv:hasMandator , ncbv:isPerson , ncbv:sequence , ncbv:schemaAgency , ncbv:Person , ncbv:RepresentationRule , ncbv:Scope , ncbv:postName , ncbv:fourOf , ncbv:capitalType , ncbv:codeIdentifier , ncbv:mandatee , ncbv:Membership , ncbv:heldByPerson , ncbv:Agent , ncbv:subject , ncbv:postalAddress , ncbv:objectType , ncbv:BeneficialOwnerRole , ncbv:appliesToObject , ncbv:identifierValue , ncbv:ShareCapital , ncbv:hasDuration , ncbv:careOf , ncbv:hasContactPoint , ncbv:alone , ncbv:modified , ncbv:interestControl , ncbv:oneOf , ncbv:BeneficialOwner , ncbv:adminUnitLevel2 , ncbv:dateOfIssue , ncbv:schemeURI , ncbv:MandateTransfer , ncbv:implements , ncbv:value , ncbv:hasActivity , ncbv:definesValidMembership , ncbv:beneficialOwners , ncbv:hasMember;
+        dcterms:identifier            "06e409e7-ecac-4cfa-91d0-80badd4c8dde";
+        dcterms:isPartOf              <http://urn.fi/URN:NBN:fi:au:ptvl:v1132> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1126> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1105> , <http://urn.fi/URN:NBN:fi:au:ptvl:v1095>;
+        dcterms:language              "fi" , "nb-NO" , "is-IS" , "en" , "da-DK" , "sv";
+        dcterms:modified              "2025-10-23T07:46:53.967Z"^^xsd:dateTime;
+        dcterms:requires              <https://iri.suomi.fi/terminology/nbvoc/> , owl: , dcterms: , m8g: , skos:;
+        dcap:preferredXMLNamespace    "https://iri.suomi.fi/model/ncbv/";
+        dcap:preferredXMLNamespacePrefix
+                "ncbv";
+        owl:imports                   busdoc: , rdfs: , sh: , isa2core: , foaf:;
+        owl:priorVersion              <https://iri.suomi.fi/model/ncbv/0.0.6/>;
+        owl:versionIRI                <https://iri.suomi.fi/model/ncbv/0.0.7/>;
+        owl:versionInfo               "0.0.7";
+        suomi-meta:contact            "yhteentoimivuus@dvv.fi";
+        suomi-meta:contentModified    "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        suomi-meta:copiedFrom         "https://iri.suomi.fi/model/ncbv2/";
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:postCode  rdf:type               owl:DatatypeProperty;
+        rdfs:comment                  "The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Post Code"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "postCode"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:42:50.839Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:locatorName  rdf:type            owl:DatatypeProperty;
+        rdfs:comment                  "Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Locator Name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:locatorName;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "locatorName"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:43:28.357Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:codeIdentifier  rdf:type         owl:DatatypeProperty;
+        rdfs:comment                  "An identifier for the code, can be of any format like an URI or just alphanumeric."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Code Identifier"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            dcterms:identifier;
+        dcterms:created               "2025-01-13T13:48:22.671Z"^^xsd:dateTime;
+        dcterms:identifier            "codeIdentifier"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:43:07.863Z"^^xsd:dateTime;
+        suomi-meta:creator            "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:and  rdf:type                    owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "And"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-06T13:25:50.709Z"^^xsd:dateTime;
+        dcterms:identifier            "and"^^xsd:NCName;
+        dcterms:modified              "2025-02-06T13:25:50.709Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:legalIdentifier  rdf:type        owl:ObjectProperty;
+        rdfs:comment                  "An identifier that is given to a legal entity at registration."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Legal Identifier"@en;
+        rdfs:subPropertyOf            isa2core:legalidentifier;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "legalIdentifier"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.065Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:power  rdf:type                  owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Power"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-09-25T11:56:32.922Z"^^xsd:dateTime;
+        dcterms:identifier            "power"^^xsd:NCName;
+        dcterms:modified              "2025-09-25T11:56:32.922Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:minimumNumberOfRoleHolders
+        rdf:type                      owl:DatatypeProperty;
+        rdfs:comment                  "The number of role holders required for the Representation Rule to be valid; examples are 1, 2, 3, 4, 5..."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Minimum Number of Role Holders"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-03-31T11:47:24.403Z"^^xsd:dateTime;
+        dcterms:identifier            "minimumNumberOfRoleHolders"^^xsd:NCName;
+        dcterms:modified              "2025-10-03T12:00:04.292Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:roleHolderQuantifier
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "Specifies a qualitative quantity or proportion of role holders required for the rule, used when the number cannot be expressed as a specific numeric value (e.g., “all”, “half”, “majority”)."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Role Holder Quantifier"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-10-03T11:55:38.422Z"^^xsd:dateTime;
+        dcterms:identifier            "roleHolderQuantifier"^^xsd:NCName;
+        dcterms:modified              "2025-10-03T12:03:37.471Z"^^xsd:dateTime;
+        suomi-meta:creator            "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:schemaAgency  rdf:type           owl:DatatypeProperty;
+        rdfs:comment                  "The name of the agency that issued the identifier."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Schema Agency"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:issuingAuthorityName;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "schemaAgency"^^xsd:NCName;
+        dcterms:modified              "2025-01-14T12:57:23.949Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:postName  rdf:type               owl:DatatypeProperty;
+        rdfs:comment                  "A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Post Name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "postName"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:42:25.411Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:name  rdf:type                   owl:DatatypeProperty;
+        rdfs:comment                  "A word or a combination of characters by which an entity/agent/thing is designated, called, or known."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            foaf:name , skos:prefLabel;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "name"^^xsd:NCName;
+        dcterms:modified              "2025-06-13T10:17:40.289Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-18>;
+        owl:equivalentProperty        busdoc:name , isa2core:name;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:schemeName  rdf:type             owl:DatatypeProperty;
+        rdfs:comment                  "Name of the scheme used to construct the identifier."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Scheme Name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:schemeName;
+        dcterms:created               "2025-01-14T11:22:26.624Z"^^xsd:dateTime;
+        dcterms:identifier            "schemeName"^^xsd:NCName;
+        dcterms:modified              "2025-01-15T13:46:29.49Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:alone  rdf:type                  owl:ObjectProperty;
+        rdfs:comment                  "Requires holder of the post to sign alone."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Alone"@en;
+        rdfs:range                    ncbv:Membership;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "alone"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.066Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:contactPage  rdf:type            owl:DatatypeProperty;
+        rdfs:comment                  "A web page that could be used to reach out the Contact Point."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Contact Page"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "contactPage"^^xsd:NCName;
+        dcterms:modified              "2025-01-15T13:24:44.06Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:locatorDesignator
+        rdf:type                      owl:DatatypeProperty;
+        rdfs:comment                  "A number or a sequence of characters that uniquely identifies the locator within the relevant scope."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Locator Designator"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:locatorDesignator;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "locatorDesignator"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:42:05.239Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:type  rdf:type                   owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Type"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-08-21T10:36:24.243Z"^^xsd:dateTime;
+        dcterms:identifier            "type"^^xsd:NCName;
+        dcterms:modified              "2025-08-21T10:36:24.243Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:dateOfBirth  rdf:type            owl:DatatypeProperty;
+        rdfs:comment                  "The point in time on which the Person was born. Persons can be registered with a membership in a legal entity whithout a identifier being a national registration number."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Date Of Birth"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            m8g:birthDate;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "dateOfBirth"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:44:51.392Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-6013>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+m8g:    rdfs:label  "m8g"@da-DK , "m8g"@is-IS , "m8g"@nb-NO , "m8g"@fi , "m8g"@sv , "m8g"@en;
+        dcap:preferredXMLNamespacePrefix
+                "m8g" .
+
+ncbv:minimumNumberOfMembers
+        rdf:type                      owl:DatatypeProperty;
+        rdfs:comment                  "The number of members required for the Representation Rule to be valid; examples are 1, 2, 3, 4, 5..."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Minimum Number of Members"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2025-10-03T11:53:24.292Z"^^xsd:dateTime;
+        dcterms:identifier            "minimumNumberOfMembers"^^xsd:NCName;
+        dcterms:modified              "2025-10-03T12:00:58.958Z"^^xsd:dateTime;
+        suomi-meta:creator            "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:registrationDate
+        rdf:type                      owl:DatatypeProperty;
+        rdfs:comment                  "The date when a public authority has registered the legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Registration Date"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            m8g:registrationDate;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "registrationDate"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:40:49.561Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-22>;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasCode  rdf:type                owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Code"@en;
+        rdfs:range                    skos:Concept;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-01-09T14:03:00.446Z"^^xsd:dateTime;
+        dcterms:identifier            "hasCode"^^xsd:NCName;
+        dcterms:modified              "2025-11-19T09:15:17.839Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:mandatee  rdf:type               owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Mandatee"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-06-13T08:31:06.623Z"^^xsd:dateTime;
+        dcterms:identifier            "mandatee"^^xsd:NCName;
+        dcterms:modified              "2025-06-13T08:31:06.623Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Identifier  rdf:type             owl:Class;
+        rdfs:comment                  "A unique set of characters used to identify the legal entity. "@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Identifier"@en;
+        rdfs:subClassOf               isa2core:Identifier;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "Identifier"^^xsd:NCName;
+        dcterms:modified              "2024-12-12T10:15:59.22Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-7>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:dateOfIssue;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:schemaAgency;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:notation;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:schemeURI;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:schemeName;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:identifierValue;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:memberQuantifier
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "Specifies a qualitative quantity or proportion of members required for the rule, used when the number cannot be expressed as a specific numeric value (e.g., “all”, “half”, “majority”)."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Member Quantifier"@en;
+        rdfs:range                    skos:Concept;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-09-25T12:06:47.067Z"^^xsd:dateTime;
+        dcterms:identifier            "memberQuantifier"^^xsd:NCName;
+        dcterms:modified              "2025-10-03T12:08:22.051Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "4c00fd3e-ad5d-4ad6-8782-de29597a5d57";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:consistsOfRepresentationRule
+        rdf:type                      owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Consists of Representation Rule"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-06T13:14:51.113Z"^^xsd:dateTime;
+        dcterms:identifier            "consistsOfRepresentationRule"^^xsd:NCName;
+        dcterms:modified              "2025-02-06T13:14:51.113Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:postOfficeBox  rdf:type          owl:DatatypeProperty;
+        rdfs:comment                  "A location designator for a postal delivery point at a post office, usually a number."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Post Office Box"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:poBox;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "postOfficeBox"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T14:12:19.538Z"^^xsd:dateTime;
+        owl:equivalentProperty        busdoc:postbox;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:geographicName  rdf:type         owl:DatatypeProperty;
+        rdfs:comment                  "A recognizable name for a place, like \"Eiffel Tower\" or \"Madrid\". "@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Geographic Name"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            isa2core:geographicName;
+        dcterms:created               "2025-04-08T15:04:22.67Z"^^xsd:dateTime;
+        dcterms:identifier            "geographicName"^^xsd:NCName;
+        dcterms:modified              "2025-06-12T11:35:05.686Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasGeographicalScope
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "The association geographical scope points at a location; this describes the geographic region the mandate is valid.  "@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "(Has) Geographical Scope/ Has Location / (Has) Geographical Coverage"@en;
+        rdfs:subPropertyOf            dcterms:spatial;
+        dcterms:created               "2025-04-08T15:00:45.327Z"^^xsd:dateTime;
+        dcterms:identifier            "hasGeographicalScope"^^xsd:NCName;
+        dcterms:modified              "2025-09-25T11:53:11.679Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:allOf  rdf:type                  owl:ObjectProperty;
+        rdfs:comment                  "Constraint property that requires all of the agents holding a post to sign."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "All of"@en;
+        rdfs:subPropertyOf            ncbv:jointly;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "allOf"^^xsd:NCName;
+        dcterms:modified              "2025-01-23T13:21:39.011Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:majorityOf  rdf:type             owl:ObjectProperty;
+        rdfs:comment                  "Constraint property that requires majority of agents holding a post to sign."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Majority of"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "majorityOf"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.066Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasActivity  rdf:type            owl:ObjectProperty;
+        rdfs:comment                  "An active deed or action carried out by a legal entity"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Activity"@en;
+        rdfs:subPropertyOf            isa2core:companyActivity;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "hasActivity"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.06Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:BeneficialOwnerRole
+        rdf:type                      owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Beneficial Owner Role"@en;
+        rdfs:subClassOf               ncbv:Role;
+        dcterms:created               "2025-10-06T13:10:58.049Z"^^xsd:dateTime;
+        dcterms:identifier            "BeneficialOwnerRole"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T13:10:58.049Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:title  rdf:type                  owl:DatatypeProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Title"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            foaf:title;
+        dcterms:created               "2025-06-13T08:44:20.412Z"^^xsd:dateTime;
+        dcterms:identifier            "title"^^xsd:NCName;
+        dcterms:modified              "2025-06-13T08:44:20.412Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:heldByLegalEntity
+        rdf:type                      owl:ObjectProperty;
+        rdfs:comment                  "Indicates the legal entity that is holding the post."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Held by Legal Entity"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "heldByLegalEntity"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.064Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasRepresentationRule
+        rdf:type                      owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Representation Rule"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-02-06T09:14:45.096Z"^^xsd:dateTime;
+        dcterms:identifier            "hasRepresentationRule"^^xsd:NCName;
+        dcterms:modified              "2025-02-06T09:14:45.096Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasShareCapital  rdf:type        owl:ObjectProperty;
+        rdfs:comment                  "The total registered share capital for the legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Share Capital"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "hasShareCapital"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.061Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:reference  rdf:type              owl:DatatypeProperty;
+        rdfs:comment                  "Reference to the description of the NACE code."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Reference"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "reference"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:41:46.379Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasRestriction  rdf:type         owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Has Restriction"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-03-03T12:46:09.776Z"^^xsd:dateTime;
+        dcterms:identifier            "hasRestriction"^^xsd:NCName;
+        dcterms:modified              "2025-03-03T12:46:09.776Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:fourOf  rdf:type                 owl:ObjectProperty;
+        rdfs:comment                  "Requires four of the defined agents holding a post to sign."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Four of"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "fourOf"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.062Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:interestControl  rdf:type        owl:DatatypeProperty;
+        rdfs:comment                  "Extent of the control. 25%, 25-50%, 50%, 50-75%, 75%, 100%"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Interest Control"@en;
+        rdfs:range                    rdfs:Literal;
+        rdfs:subPropertyOf            owl:topDataProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "interestControl"^^xsd:NCName;
+        dcterms:modified              "2025-02-07T11:44:14.685Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:hasRole  rdf:type                owl:ObjectProperty;
+        rdfs:comment                  "Indicates the Role that the Agent plays in a Membership relationship with a legal entity."@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Role"@en;
+        rdfs:subPropertyOf            m8g:role;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "hasRole"^^xsd:NCName;
+        dcterms:modified              "2024-12-03T09:04:01.064Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:PeriodOfTime  rdf:type           owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Period of Time"@en;
+        rdfs:subClassOf               dcterms:PeriodOfTime;
+        dcterms:created               "2025-03-03T12:48:07.269Z"^^xsd:dateTime;
+        dcterms:identifier            "PeriodOfTime"^^xsd:NCName;
+        dcterms:modified              "2025-03-03T12:48:07.269Z"^^xsd:dateTime;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:startDate;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:endDate;
+                                                                owl:someValuesFrom  rdfs:Literal
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:jointly  rdf:type                owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Jointly"@en;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2025-01-23T13:21:07.879Z"^^xsd:dateTime;
+        dcterms:identifier            "jointly"^^xsd:NCName;
+        dcterms:modified              "2025-01-23T13:21:07.879Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:isPerson  rdf:type               owl:ObjectProperty;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Is a Person"@en;
+        rdfs:range                    ncbv:Person;
+        rdfs:subPropertyOf            owl:topObjectProperty;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "isPerson"^^xsd:NCName;
+        dcterms:modified              "2025-01-15T18:56:11.089Z"^^xsd:dateTime;
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "58829ee3-1066-4365-9f81-ac7eda9fd43e";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Agent  rdf:type                  owl:Class;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Agent"@en;
+        rdfs:subClassOf               isa2core:Agent;
+        dcterms:created               "2025-04-08T15:27:43.597Z"^^xsd:dateTime;
+        dcterms:identifier            "Agent"^^xsd:NCName;
+        dcterms:modified              "2025-10-06T07:07:04.484Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-41>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:grantsMandate;
+                                                                owl:someValuesFrom  ncbv:Mandate
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasMember;
+                                                                owl:someValuesFrom  ncbv:Membership
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
+
+ncbv:Membership  rdf:type             owl:Class;
+        rdfs:comment                  "The Membership class describes certain types of relationships between agents (persons and legal entities). \n\nA person can be a member of an association, employed by a company, be a board member in or the CEO of a limited company.\n\nThe official definition of Membership can be found here: \nhttps://www.w3.org/TR/vocab-org/#org:Membership\n\nThis technical note does not change the content of the official definition of the Membership class.\n\nUpper class: \nhttps://www.w3.org/ns/org#Membership"@en;
+        rdfs:isDefinedBy              ncbv:;
+        rdfs:label                    "Membership"@en;
+        rdfs:subClassOf               owl:Thing;
+        dcterms:created               "2024-12-03T09:04:01.057Z"^^xsd:dateTime;
+        dcterms:identifier            "Membership"^^xsd:NCName;
+        dcterms:modified              "2025-05-21T07:59:55.235Z"^^xsd:dateTime;
+        dcterms:subject               <https://iri.suomi.fi/terminology/nbvoc/concept-78>;
+        owl:equivalentClass           [ rdf:type            owl:Class;
+                                        owl:intersectionOf  ( [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:hasRole;
+                                                                owl:someValuesFrom  ncbv:Role
+                                                              ]
+                                                              [ rdf:type            owl:Restriction;
+                                                                owl:onProperty      ncbv:member;
+                                                                owl:someValuesFrom  ncbv:Agent
+                                                              ]
+                                                            )
+                                      ];
+        suomi-meta:creator            "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:modifier           "5dc030a4-740f-4dde-9548-4e6e797899d8";
+        suomi-meta:publicationStatus  <http://uri.suomi.fi/codelist/interoperabilityplatform/interoperabilityplatform_status/code/SUGGESTED> .
