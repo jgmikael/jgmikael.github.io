@@ -1,0 +1,300 @@
+{
+    "@context": {
+        "@protected": true,
+        "Activity": "https://iri.suomi.fi/model/authz/Activity",
+        "Agent": "https://iri.suomi.fi/model/authz/Agent",
+        "AssignmentRequirement": {
+            "@id": "https://iri.suomi.fi/model/authz/AssignmentRequirement",
+            "@context": {
+                "@protected": true,
+                "hasSelection": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasSelection",
+                    "@type": "@id"
+                }
+            }
+        },
+        "AssignmentRule": {
+            "@id": "https://iri.suomi.fi/model/authz/AssignmentRule",
+            "@context": {
+                "@protected": true,
+                "description": {
+                    "@id": "https://iri.suomi.fi/model/authz/description",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "hasAssignmentRequirement": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasAssignmentRequirement",
+                    "@type": "@id"
+                },
+                "identifier": {
+                    "@id": "https://iri.suomi.fi/model/authz/identifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Audit": {
+            "@id": "https://iri.suomi.fi/model/authz/Audit",
+            "@context": {
+                "@protected": true,
+                "auditedAuthorization": {
+                    "@id": "https://iri.suomi.fi/model/authz/auditedAuthorization",
+                    "@type": "@id"
+                },
+                "identifier": {
+                    "@id": "https://iri.suomi.fi/model/authz/identifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "transactionDateTime": {
+                    "@id": "https://iri.suomi.fi/model/authz/transactionDateTime",
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                }
+            }
+        },
+        "Authority": "https://iri.suomi.fi/model/authz/Authority",
+        "Authorization": {
+            "@id": "https://iri.suomi.fi/model/authz/Authorization",
+            "@context": {
+                "@protected": true,
+                "dateOfIssue": {
+                    "@id": "https://iri.suomi.fi/model/authz/dateOfIssue",
+                    "@type": "http://www.w3.org/2001/XMLSchema#date"
+                },
+                "delegable": {
+                    "@id": "https://iri.suomi.fi/model/authz/delegable",
+                    "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+                },
+                "hasAssignmentRule": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasAssignmentRule",
+                    "@type": "@id"
+                },
+                "hasAuthorizationRule": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasAuthorizationRule",
+                    "@type": "@id"
+                },
+                "hasAuthorizationScope": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasAuthorizationScope",
+                    "@type": "@id"
+                },
+                "hasInvolvement": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasInvolvement",
+                    "@type": "@id"
+                },
+                "hasLegalBasis": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasLegalBasis",
+                    "@type": "@id"
+                },
+                "identifier": {
+                    "@id": "https://iri.suomi.fi/model/authz/identifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "isDocumentedIn": "https://iri.suomi.fi/model/authz/isDocumentedIn",
+                "replaces": {
+                    "@id": "https://iri.suomi.fi/model/authz/replaces",
+                    "@type": "@id"
+                },
+                "title": {
+                    "@id": "https://iri.suomi.fi/model/authz/title",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "validDuring": {
+                    "@id": "https://iri.suomi.fi/model/authz/validDuring",
+                    "@type": "@id"
+                },
+                "wasGeneratedBy": {
+                    "@id": "https://iri.suomi.fi/model/authz/wasGeneratedBy",
+                    "@type": "@id"
+                }
+            }
+        },
+        "AuthorizationActivity": {
+            "@id": "https://iri.suomi.fi/model/authz/AuthorizationActivity",
+            "@context": {
+                "@protected": true,
+                "qualifiedAssociation": {
+                    "@id": "https://iri.suomi.fi/model/authz/qualifiedAssociation",
+                    "@type": "@id"
+                },
+                "used": {
+                    "@id": "https://iri.suomi.fi/model/authz/used",
+                    "@type": "@id"
+                }
+            }
+        },
+        "AuthorizationRule": {
+            "@id": "https://iri.suomi.fi/model/authz/AuthorizationRule",
+            "@context": {
+                "@protected": true,
+                "description": {
+                    "@id": "https://iri.suomi.fi/model/authz/description",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "identifier": {
+                    "@id": "https://iri.suomi.fi/model/authz/identifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "title": {
+                    "@id": "https://iri.suomi.fi/model/authz/title",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "AuthorizationScope": {
+            "@id": "https://iri.suomi.fi/model/authz/AuthorizationScope",
+            "@context": {
+                "@protected": true,
+                "hasRestriction": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasRestriction",
+                    "@type": "@id"
+                }
+            }
+        },
+        "EconomicOperator": "https://iri.suomi.fi/model/authz/EconomicOperator",
+        "Entity": "https://iri.suomi.fi/model/authz/Entity",
+        "Involvement": {
+            "@id": "https://iri.suomi.fi/model/authz/Involvement",
+            "@context": {
+                "@protected": true,
+                "hasAgent": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasAgent",
+                    "@type": "@id"
+                },
+                "hasRole": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasRole",
+                    "@type": "@id"
+                },
+                "identifier": {
+                    "@id": "https://iri.suomi.fi/model/authz/identifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "involvementPeriod": {
+                    "@id": "https://iri.suomi.fi/model/authz/involvementPeriod",
+                    "@type": "@id"
+                }
+            }
+        },
+        "InvolvementSelection": {
+            "@id": "https://iri.suomi.fi/model/authz/InvolvementSelection",
+            "@context": {
+                "@protected": true,
+                "selectsInvolvement": {
+                    "@id": "https://iri.suomi.fi/model/authz/selectsInvolvement",
+                    "@type": "@id"
+                }
+            }
+        },
+        "JuridicalPrecedence": {
+            "@id": "https://iri.suomi.fi/model/authz/JuridicalPrecedence",
+            "@context": {
+                "@protected": true,
+                "description": {
+                    "@id": "https://iri.suomi.fi/model/authz/description",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "identifier": {
+                    "@id": "https://iri.suomi.fi/model/authz/identifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "title": {
+                    "@id": "https://iri.suomi.fi/model/authz/title",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "Law": {
+            "@id": "https://iri.suomi.fi/model/authz/Law",
+            "@context": {
+                "@protected": true,
+                "description": {
+                    "@id": "https://iri.suomi.fi/model/authz/description",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "identifier": {
+                    "@id": "https://iri.suomi.fi/model/authz/identifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "title": {
+                    "@id": "https://iri.suomi.fi/model/authz/title",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "LegalBasis": {
+            "@id": "https://iri.suomi.fi/model/authz/LegalBasis",
+            "@context": {
+                "@protected": true,
+                "hasApplicableLaw": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasApplicableLaw",
+                    "@type": "@id"
+                }
+            }
+        },
+        "PeriodOfTime": "https://iri.suomi.fi/model/authz/PeriodOfTime",
+        "Person": "https://iri.suomi.fi/model/authz/Person",
+        "Restriction": "https://iri.suomi.fi/model/authz/Restriction",
+        "Role": "https://iri.suomi.fi/model/authz/Role",
+        "Rule": {
+            "@id": "https://iri.suomi.fi/model/authz/Rule",
+            "@context": {
+                "@protected": true,
+                "identifier": {
+                    "@id": "https://iri.suomi.fi/model/authz/identifier",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "title": {
+                    "@id": "https://iri.suomi.fi/model/authz/title",
+                    "@type": "http://www.w3.org/2001/XMLSchema#string"
+                }
+            }
+        },
+        "RuleOperator": {
+            "@id": "https://iri.suomi.fi/model/authz/RuleOperator",
+            "@context": {
+                "@protected": true,
+                "hasSubrestriction": {
+                    "@id": "https://iri.suomi.fi/model/authz/hasSubrestriction",
+                    "@type": "@id"
+                }
+            }
+        },
+        "Scope": "https://iri.suomi.fi/model/authz/Scope",
+        "endDate": {
+            "@id": "https://iri.suomi.fi/model/authz/endDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "endedAtTime": {
+            "@id": "https://iri.suomi.fi/model/authz/endedAtTime",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "hasOperandRule": {
+            "@id": "https://iri.suomi.fi/model/authz/hasOperandRule",
+            "@type": "@id"
+        },
+        "hasOperator": {
+            "@id": "https://iri.suomi.fi/model/authz/hasOperator",
+            "@type": "@id"
+        },
+        "hasRuleOperator": {
+            "@id": "https://iri.suomi.fi/model/authz/hasRuleOperator",
+            "@type": "@id"
+        },
+        "hasSubrule": {
+            "@id": "https://iri.suomi.fi/model/authz/hasSubrule",
+            "@type": "@id"
+        },
+        "startDate": {
+            "@id": "https://iri.suomi.fi/model/authz/startDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "startedAtTime": {
+            "@id": "https://iri.suomi.fi/model/authz/startedAtTime",
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "unit": {
+            "@id": "https://iri.suomi.fi/model/authz/unit",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "value": {
+            "@id": "https://iri.suomi.fi/model/authz/value",
+            "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+    }
+}
