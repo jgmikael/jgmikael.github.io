@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+
+    <title>General Authorisation Model</title>
+
+    <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+    <script class="remove">
+        var respecConfig = {
+            localBiblio: {},
+            specStatus: "unofficial",
+            shortName: "gam-draft",
+            latestVersion: "https://jgmikael.github.io/docs/gam/",
+            thisVersion: "https://jgmikael.github.io/docs/gam/",
+            doJsonLd: true,
+            editors: [{
+                name: "Mikael af Hällström"
+            }],
+            alternateFormats: [{
+                    uri: "vocabulary.ttl",
+                    label: "Turtle"
+                },
+                {
+                    uri: "vocabulary.jsonld",
+                    label: "JSON-LD"
+                }
+            ],
+            inlineCSS: true,
+            doRDFa: false,
+            noIDLIn: true,
+            noLegacyStyle: false
+        };
+    </script>
+    <style type="text/css">
+        :root {
+            color-scheme: light;
+        }
+
+        dl.terms dt {
+            float: left;
+            clear: left;
+            width: 10vw;
+        }
+
+        dl.terms dd {
+            margin-left: 15vw;
+        }
+
+        dl.terms dd:after {
+            content: '';
+            display: block;
+            clear: both;
+            margin-bottom: 5px;
+        }
+
+        table.rdfs-definition td {
+            vertical-align: top;
+            margin-right: 2em;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        /* code {
+          color: red;
+        } */
+
+        .term_definitions section {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: darkgrey;
+        }
+
+        .annoy {
+            background: hsla(40, 100%, 50%, 0.95);
+            color: black;
+            padding: .75em 1em;
+            border: red;
+            border-style: solid none;
+            box-shadow: 0 2px 8px black;
+            text-align: center;
+        }
+
+        summary {
+            font-weight: normal !important;
+        }
+
+        .example-with-playground {
+            position: relative;
+        }
+
+        a.jsonld-playground-button {
+            position: absolute;
+            top: 4.4em;
+            right: 1.4em;
+            z-index: 1;
+            padding: 0.3em 0.7em;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #000000;
+            background-color: #ffffff;
+            opacity: .4;
+            border-radius: 4px;
+            text-decoration: none;
+            box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a.jsonld-playground-button:hover {
+            background-color: #f0f0f0;
+            opacity: 1;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <link href="gam-work/vocabulary.jsonld" rel="alternate" type="application/ld+json">
+    <link href="gam-work/vocabulary.ttl" rel="alternate" type="text/turtle">
+</head>
+
+<body>
+    <section id="abstract">
+        <p>This document describes the <span property="dc:title" id="title">General Authorisation Model</span>, i.e.,
+            the <span property="dc:description" id="description">Vocabulary serving both Nordic DQS work as well as EU WE BUILD LSP.</span>.
+        </p>
+        <p>Alternate versions of the vocabulary definition exist in
+            <a rel="alternate" href="vocabulary.ttl">Turtle</a> and
+            <a rel="alternate" href="vocabulary.jsonld">JSON-LD</a>.
+        </p>
+        <dl>
+            <dt>Published:</dt>
+            <dd>
+                <time property="dc:date" id="time">2026-09-29</time>
+            </dd>
+            <dt>Version Info:</dt>
+            <dd>Early draft, 2026-09-29</dd>
+            <dt id="see_also">See Also:</dt>
+        </dl>
+    </section>
+    <section id="sotd">
+        <p>Working publication of the early General Authorisation Model (GAM) draft. The source model has known deficiencies. Domains and ranges marked in the source YAML as inferred from existential restrictions are editorial publication hints; the generated RDF is not a lossless reproduction of the source OWL. The canonical term identifiers retain the <code>https://iri.suomi.fi/model/authz/</code> namespace.</p>
+        <p>Source: <a href="vocabulary.yml">GAM YAML</a>. Original draft: <a href="https://iri.suomi.fi/model/authz/">GAM OWL namespace</a>. Four object-property ranges and several XSD datatype ranges are editorial proposals needed for generation; they require review before authoritative use.</p>
+    </section>
+    <section id="conformance"></section>
+    <section>
+        <h2>Namespaces</h2>
+        <p>This specification makes use of the following namespaces:</p>
+        <dl class="terms" id="namespaces">
+            <dt><code>authz</code></dt>
+            <dd><code>https://iri.suomi.fi/model/authz/</code></dd>
+            <dt><code>eu-core</code></dt>
+            <dd><code>https://iri.suomi.fi/model/eu-core/</code></dd>
+            <dt><code>prov</code></dt>
+            <dd><code>http://www.w3.org/ns/prov#</code></dd>
+            <dt><code>foaf</code></dt>
+            <dd><code>http://xmlns.com/foaf/0.1/</code></dd>
+            <dt><code>dcterms</code></dt>
+            <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt><code>xsd</code></dt>
+            <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+            <dt><code>rdfs</code></dt>
+            <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+            <dt><code>owl</code></dt>
+            <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+            <dt><code>dc</code></dt>
+            <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt><code>rdf</code></dt>
+            <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        </dl>
+    </section>
+
+    <section>
+        <h2>Specification of terms</h2>
+        <p>This publication contains the classes and properties of the draft GAM YAML. The machine-readable serializations are linked above, and the <a href="vocabulary.yml">editable YAML source</a> is available alongside them.</p>
+    </section>
+    <section>
+        <h2><code>@context</code> files</h2>
+        <p>The following <code>@context</code> files make use of the terms defined in this specification:</p>
+        <ul id="contexts">
+            <li><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a>
+                <details>
+                    <summary>term list</summary>
+                    <ul>
+                        <li><a href="#Activity"><code>Activity<code></code></code></a></li>
+                        <li><a href="#Agent"><code>Agent<code></code></code></a></li>
+                        <li><a href="#AssignmentRequirement"><code>AssignmentRequirement<code></code></code></a></li>
+                        <li><a href="#AssignmentRule"><code>AssignmentRule<code></code></code></a></li>
+                        <li><a href="#Audit"><code>Audit<code></code></code></a></li>
+                        <li><a href="#Authority"><code>Authority<code></code></code></a></li>
+                        <li><a href="#Authorization"><code>Authorization<code></code></code></a></li>
+                        <li><a href="#AuthorizationActivity"><code>AuthorizationActivity<code></code></code></a></li>
+                        <li><a href="#AuthorizationRule"><code>AuthorizationRule<code></code></code></a></li>
+                        <li><a href="#AuthorizationScope"><code>AuthorizationScope<code></code></code></a></li>
+                        <li><a href="#EconomicOperator"><code>EconomicOperator<code></code></code></a></li>
+                        <li><a href="#Entity"><code>Entity<code></code></code></a></li>
+                        <li><a href="#Involvement"><code>Involvement<code></code></code></a></li>
+                        <li><a href="#InvolvementSelection"><code>InvolvementSelection<code></code></code></a></li>
+                        <li><a href="#JuridicalPrecedence"><code>JuridicalPrecedence<code></code></code></a></li>
+                        <li><a href="#Law"><code>Law<code></code></code></a></li>
+                        <li><a href="#LegalBasis"><code>LegalBasis<code></code></code></a></li>
+                        <li><a href="#PeriodOfTime"><code>PeriodOfTime<code></code></code></a></li>
+                        <li><a href="#Person"><code>Person<code></code></code></a></li>
+                        <li><a href="#Restriction"><code>Restriction<code></code></code></a></li>
+                        <li><a href="#Role"><code>Role<code></code></code></a></li>
+                        <li><a href="#Rule"><code>Rule<code></code></code></a></li>
+                        <li><a href="#RuleOperator"><code>RuleOperator<code></code></code></a></li>
+                        <li><a href="#Scope"><code>Scope<code></code></code></a></li>
+                        <li><a href="#auditedAuthorization"><code>auditedAuthorization<code></code></code></a></li>
+                        <li><a href="#dateOfIssue"><code>dateOfIssue<code></code></code></a></li>
+                        <li><a href="#delegable"><code>delegable<code></code></code></a></li>
+                        <li><a href="#description"><code>description<code></code></code></a></li>
+                        <li><a href="#endDate"><code>endDate<code></code></code></a></li>
+                        <li><a href="#endedAtTime"><code>endedAtTime<code></code></code></a></li>
+                        <li><a href="#hasAgent"><code>hasAgent<code></code></code></a></li>
+                        <li><a href="#hasApplicableLaw"><code>hasApplicableLaw<code></code></code></a></li>
+                        <li><a href="#hasAssignmentRequirement"><code>hasAssignmentRequirement<code></code></code></a></li>
+                        <li><a href="#hasAssignmentRule"><code>hasAssignmentRule<code></code></code></a></li>
+                        <li><a href="#hasAuthorizationRule"><code>hasAuthorizationRule<code></code></code></a></li>
+                        <li><a href="#hasAuthorizationScope"><code>hasAuthorizationScope<code></code></code></a></li>
+                        <li><a href="#hasInvolvement"><code>hasInvolvement<code></code></code></a></li>
+                        <li><a href="#hasLegalBasis"><code>hasLegalBasis<code></code></code></a></li>
+                        <li><a href="#hasOperandRule"><code>hasOperandRule<code></code></code></a></li>
+                        <li><a href="#hasOperator"><code>hasOperator<code></code></code></a></li>
+                        <li><a href="#hasRestriction"><code>hasRestriction<code></code></code></a></li>
+                        <li><a href="#hasRole"><code>hasRole<code></code></code></a></li>
+                        <li><a href="#hasRuleOperator"><code>hasRuleOperator<code></code></code></a></li>
+                        <li><a href="#hasSelection"><code>hasSelection<code></code></code></a></li>
+                        <li><a href="#hasSubrestriction"><code>hasSubrestriction<code></code></code></a></li>
+                        <li><a href="#hasSubrule"><code>hasSubrule<code></code></code></a></li>
+                        <li><a href="#identifier"><code>identifier<code></code></code></a></li>
+                        <li><a href="#involvementPeriod"><code>involvementPeriod<code></code></code></a></li>
+                        <li><a href="#isDocumentedIn"><code>isDocumentedIn<code></code></code></a></li>
+                        <li><a href="#qualifiedAssociation"><code>qualifiedAssociation<code></code></code></a></li>
+                        <li><a href="#replaces"><code>replaces<code></code></code></a></li>
+                        <li><a href="#selectsInvolvement"><code>selectsInvolvement<code></code></code></a></li>
+                        <li><a href="#startDate"><code>startDate<code></code></code></a></li>
+                        <li><a href="#startedAtTime"><code>startedAtTime<code></code></code></a></li>
+                        <li><a href="#title"><code>title<code></code></code></a></li>
+                        <li><a href="#transactionDateTime"><code>transactionDateTime<code></code></code></a></li>
+                        <li><a href="#unit"><code>unit<code></code></code></a></li>
+                        <li><a href="#used"><code>used<code></code></code></a></li>
+                        <li><a href="#validDuring"><code>validDuring<code></code></code></a></li>
+                        <li><a href="#value"><code>value<code></code></code></a></li>
+                        <li><a href="#wasGeneratedBy"><code>wasGeneratedBy<code></code></code></a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </section>
+
+    <section id="term_definitions">
+        <h2>Term definitions</h2>
+
+        <section id="property_definitions" class="term_definitions">
+            <h3>Property definitions</h3>
+            <p>The following are property definitions in the <code>authz</code> namespace.</p>
+            <section id="auditedAuthorization">
+                <h4><code>auditedAuthorization</code></h4>
+                <p><em>audited authorisation</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Audit"><code>Audit</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="dateOfIssue">
+                <h4><code>dateOfIssue</code></h4>
+                <p><em>Date of Issue</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:date</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="delegable">
+                <h4><code>delegable</code></h4>
+                <p><em>Delegable</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:boolean</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="description">
+                <h4><code>description</code></h4>
+                <p><em>Description</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#AssignmentRule"><code>AssignmentRule</code></a> ⊔&nbsp;<a href="#AuthorizationRule"><code>AuthorizationRule</code></a> ⊔&nbsp;<a href="#JuridicalPrecedence"><code>JuridicalPrecedence</code></a> ⊔&nbsp;<a href="#Law"><code>Law</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="endDate">
+                <h4><code>endDate</code></h4>
+                <p><em>End Date</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:date</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="endedAtTime">
+                <h4><code>endedAtTime</code></h4>
+                <p><em>Ended at Time</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:dateTime</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasAgent">
+                <h4><code>hasAgent</code></h4>
+                <p><em>has agent</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Involvement"><code>Involvement</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Agent"><code>Agent</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasApplicableLaw">
+                <h4><code>hasApplicableLaw</code></h4>
+                <p><em>has applicable law</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#LegalBasis"><code>LegalBasis</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Law"><code>Law</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasAssignmentRequirement">
+                <h4><code>hasAssignmentRequirement</code></h4>
+                <p><em>has assignment requirement</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#AssignmentRule"><code>AssignmentRule</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#AssignmentRequirement"><code>AssignmentRequirement</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasAssignmentRule">
+                <h4><code>hasAssignmentRule</code></h4>
+                <p><em>has assignment rule</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#AssignmentRule"><code>AssignmentRule</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasAuthorizationRule">
+                <h4><code>hasAuthorizationRule</code></h4>
+                <p><em>has authorisation rule</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#AuthorizationRule"><code>AuthorizationRule</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasAuthorizationScope">
+                <h4><code>hasAuthorizationScope</code></h4>
+                <p><em>has authorisation scope</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#AuthorizationScope"><code>AuthorizationScope</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasInvolvement">
+                <h4><code>hasInvolvement</code></h4>
+                <p><em>has involvement</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Involvement"><code>Involvement</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasLegalBasis">
+                <h4><code>hasLegalBasis</code></h4>
+                <p><em>has legal basis</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#LegalBasis"><code>LegalBasis</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasOperandRule">
+                <h4><code>hasOperandRule</code></h4>
+                <p><em>has operand rule</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#Rule"><code>Rule</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasOperator">
+                <h4><code>hasOperator</code></h4>
+                <p><em>has operator</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#RuleOperator"><code>RuleOperator</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasRestriction">
+                <h4><code>hasRestriction</code></h4>
+                <p><em>has restriction</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#AuthorizationScope"><code>AuthorizationScope</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Restriction"><code>Restriction</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasRole">
+                <h4><code>hasRole</code></h4>
+                <p><em>has role</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Involvement"><code>Involvement</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Role"><code>Role</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasRuleOperator">
+                <h4><code>hasRuleOperator</code></h4>
+                <p><em>has rule operator</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#RuleOperator"><code>RuleOperator</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasSelection">
+                <h4><code>hasSelection</code></h4>
+                <p><em>has selection</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#AssignmentRequirement"><code>AssignmentRequirement</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#InvolvementSelection"><code>InvolvementSelection</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasSubrestriction">
+                <h4><code>hasSubrestriction</code></h4>
+                <p><em>has subrestriction</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#RuleOperator"><code>RuleOperator</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Restriction"><code>Restriction</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="hasSubrule">
+                <h4><code>hasSubrule</code></h4>
+                <p><em>has subrule</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#Rule"><code>Rule</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="identifier">
+                <h4><code>identifier</code></h4>
+                <p><em>Identifier</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#AssignmentRule"><code>AssignmentRule</code></a> ⊔&nbsp;<a href="#Audit"><code>Audit</code></a> ⊔&nbsp;<a href="#Authorization"><code>Authorization</code></a> ⊔&nbsp;<a href="#AuthorizationRule"><code>AuthorizationRule</code></a> ⊔&nbsp;<a href="#Involvement"><code>Involvement</code></a> ⊔&nbsp;<a href="#JuridicalPrecedence"><code>JuridicalPrecedence</code></a> ⊔&nbsp;<a href="#Law"><code>Law</code></a> ⊔&nbsp;<a href="#Rule"><code>Rule</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="involvementPeriod">
+                <h4><code>involvementPeriod</code></h4>
+                <p><em>involvement period</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Involvement"><code>Involvement</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#PeriodOfTime"><code>PeriodOfTime</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="isDocumentedIn">
+                <h4><code>isDocumentedIn</code></h4>
+                <p><em>is documented in</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="https://iri.suomi.fi/model/eu-core/Document"><code>eu-core:Document</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="qualifiedAssociation">
+                <h4><code>qualifiedAssociation</code></h4>
+                <p><em>qualified association</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#AuthorizationActivity"><code>AuthorizationActivity</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Involvement"><code>Involvement</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="replaces">
+                <h4><code>replaces</code></h4>
+                <p><em>replaces</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="selectsInvolvement">
+                <h4><code>selectsInvolvement</code></h4>
+                <p><em>selects involvement</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#InvolvementSelection"><code>InvolvementSelection</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Involvement"><code>Involvement</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="startDate">
+                <h4><code>startDate</code></h4>
+                <p><em>Start Date</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:date</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="startedAtTime">
+                <h4><code>startedAtTime</code></h4>
+                <p><em>Started at Time</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:dateTime</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="title">
+                <h4><code>title</code></h4>
+                <p><em>Title</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a> ⊔&nbsp;<a href="#AuthorizationRule"><code>AuthorizationRule</code></a> ⊔&nbsp;<a href="#JuridicalPrecedence"><code>JuridicalPrecedence</code></a> ⊔&nbsp;<a href="#Law"><code>Law</code></a> ⊔&nbsp;<a href="#Rule"><code>Rule</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="transactionDateTime">
+                <h4><code>transactionDateTime</code></h4>
+                <p><em>Transaction Date Time</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Audit"><code>Audit</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:dateTime</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="unit">
+                <h4><code>unit</code></h4>
+                <p><em>Unit</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="used">
+                <h4><code>used</code></h4>
+                <p><em>used</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#AuthorizationActivity"><code>AuthorizationActivity</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Entity"><code>Entity</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="validDuring">
+                <h4><code>validDuring</code></h4>
+                <p><em>valid during</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#PeriodOfTime"><code>PeriodOfTime</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="value">
+                <h4><code>value</code></h4>
+                <p><em>Value</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="wasGeneratedBy">
+                <h4><code>wasGeneratedBy</code></h4>
+                <p><em>was generated by</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Authorization"><code>Authorization</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#AuthorizationActivity"><code>AuthorizationActivity</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+        </section>
+
+        <section id="class_definitions" class="term_definitions">
+            <h2>Class definitions</h2>
+            <p>The following are class definitions in the <code>authz</code> namespace.</p>
+            <section id="Activity">
+                <h4><code>Activity</code></h4>
+                <p><em>Activity</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="http://www.w3.org/ns/prov#Activity"><code>prov:Activity</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Agent">
+                <h4><code>Agent</code></h4>
+                <p><em>Agent</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="http://xmlns.com/foaf/0.1/Agent"><code>foaf:Agent</code></a> ⊓&nbsp;<a href="http://www.w3.org/ns/prov#Agent"><code>prov:Agent</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Superclass of:</dt>
+                    <dd><a href="#EconomicOperator"><code>EconomicOperator</code></a>, <a href="#Person"><code>Person</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasAgent"><code>hasAgent</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="AssignmentRequirement">
+                <h4><code>AssignmentRequirement</code></h4>
+                <p><em>Assignment Requirement</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasAssignmentRequirement"><code>hasAssignmentRequirement</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#hasSelection"><code>hasSelection</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="AssignmentRule">
+                <h4><code>AssignmentRule</code></h4>
+                <p><em>Assignment Rule</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#Rule"><code>Rule</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasAssignmentRule"><code>hasAssignmentRule</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#hasAssignmentRequirement"><code>hasAssignmentRequirement</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#description"><code>description</code></a>, <a href="#identifier"><code>identifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Audit">
+                <h4><code>Audit</code></h4>
+                <p><em>Audit</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain of:</dt>
+                    <dd><a href="#auditedAuthorization"><code>auditedAuthorization</code></a>, <a href="#transactionDateTime"><code>transactionDateTime</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Authority">
+                <h4><code>Authority</code></h4>
+                <p><em>Authority</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Authorization">
+                <h4><code>Authorization</code></h4>
+                <p><em>Authorisation</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#auditedAuthorization"><code>auditedAuthorization</code></a>, <a href="#replaces"><code>replaces</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#dateOfIssue"><code>dateOfIssue</code></a>, <a href="#delegable"><code>delegable</code></a>, <a href="#hasAssignmentRule"><code>hasAssignmentRule</code></a>, <a href="#hasAuthorizationRule"><code>hasAuthorizationRule</code></a>, <a href="#hasAuthorizationScope"><code>hasAuthorizationScope</code></a>, <a href="#hasInvolvement"><code>hasInvolvement</code></a>, <a href="#hasLegalBasis"><code>hasLegalBasis</code></a>, <a href="#isDocumentedIn"><code>isDocumentedIn</code></a>, <a href="#replaces"><code>replaces</code></a>, <a href="#validDuring"><code>validDuring</code></a>, <a href="#wasGeneratedBy"><code>wasGeneratedBy</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a>, <a href="#title"><code>title</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="AuthorizationActivity">
+                <h4><code>AuthorizationActivity</code></h4>
+                <p><em>Authorisation Activity</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#wasGeneratedBy"><code>wasGeneratedBy</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#qualifiedAssociation"><code>qualifiedAssociation</code></a>, <a href="#used"><code>used</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="AuthorizationRule">
+                <h4><code>AuthorizationRule</code></h4>
+                <p><em>Authorisation Rule</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#Rule"><code>Rule</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasAuthorizationRule"><code>hasAuthorizationRule</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#description"><code>description</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#title"><code>title</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="AuthorizationScope">
+                <h4><code>AuthorizationScope</code></h4>
+                <p><em>Authorisation Scope</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#Scope"><code>Scope</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasAuthorizationScope"><code>hasAuthorizationScope</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#hasRestriction"><code>hasRestriction</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="EconomicOperator">
+                <h4><code>EconomicOperator</code></h4>
+                <p><em>Economic Operator</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#Agent"><code>Agent</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Entity">
+                <h4><code>Entity</code></h4>
+                <p><em>Entity</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="http://www.w3.org/ns/prov#Entity"><code>prov:Entity</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#used"><code>used</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Involvement">
+                <h4><code>Involvement</code></h4>
+                <p><em>Involvement</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasInvolvement"><code>hasInvolvement</code></a>, <a href="#qualifiedAssociation"><code>qualifiedAssociation</code></a>, <a href="#selectsInvolvement"><code>selectsInvolvement</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#hasAgent"><code>hasAgent</code></a>, <a href="#hasRole"><code>hasRole</code></a>, <a href="#involvementPeriod"><code>involvementPeriod</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="InvolvementSelection">
+                <h4><code>InvolvementSelection</code></h4>
+                <p><em>Involvement Selection</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasSelection"><code>hasSelection</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#selectsInvolvement"><code>selectsInvolvement</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="JuridicalPrecedence">
+                <h4><code>JuridicalPrecedence</code></h4>
+                <p><em>Juridical Precedence</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#description"><code>description</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#title"><code>title</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Law">
+                <h4><code>Law</code></h4>
+                <p><em>Law</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasApplicableLaw"><code>hasApplicableLaw</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#description"><code>description</code></a>, <a href="#identifier"><code>identifier</code></a>, <a href="#title"><code>title</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="LegalBasis">
+                <h4><code>LegalBasis</code></h4>
+                <p><em>Legal Basis</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasLegalBasis"><code>hasLegalBasis</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#hasApplicableLaw"><code>hasApplicableLaw</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="PeriodOfTime">
+                <h4><code>PeriodOfTime</code></h4>
+                <p><em>Period of Time</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="http://purl.org/dc/terms/PeriodOfTime"><code>dcterms:PeriodOfTime</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#involvementPeriod"><code>involvementPeriod</code></a>, <a href="#validDuring"><code>validDuring</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Person">
+                <h4><code>Person</code></h4>
+                <p><em>Person</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="#Agent"><code>Agent</code></a> ⊓&nbsp;<a href="https://iri.suomi.fi/model/eu-core/Person"><code>eu-core:Person</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Restriction">
+                <h4><code>Restriction</code></h4>
+                <p><em>Restriction</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasRestriction"><code>hasRestriction</code></a>, <a href="#hasSubrestriction"><code>hasSubrestriction</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Role">
+                <h4><code>Role</code></h4>
+                <p><em>Role</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasRole"><code>hasRole</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Rule">
+                <h4><code>Rule</code></h4>
+                <p><em>Rule</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Superclass of:</dt>
+                    <dd><a href="#AssignmentRule"><code>AssignmentRule</code></a>, <a href="#AuthorizationRule"><code>AuthorizationRule</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasOperandRule"><code>hasOperandRule</code></a>, <a href="#hasSubrule"><code>hasSubrule</code></a></dd>
+                    <dt>In the domain of:</dt>
+                    <dd><a href="#identifier"><code>identifier</code></a>, <a href="#title"><code>title</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="RuleOperator">
+                <h4><code>RuleOperator</code></h4>
+                <p><em>Rule Operator</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#hasOperator"><code>hasOperator</code></a>, <a href="#hasRuleOperator"><code>hasRuleOperator</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#hasSubrestriction"><code>hasSubrestriction</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="Scope">
+                <h4><code>Scope</code></h4>
+                <p><em>Scope</em></p>
+                <p>See the <a href="https://iri.suomi.fi/model/authz/">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Superclass of:</dt>
+                    <dd><a href="#AuthorizationScope"><code>AuthorizationScope</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld</code></a></dd>
+                </dl>
+            </section>
+        </section>
+
+
+    </section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+# General Authorisation Model, transcribed from the attached draft OWL ontology.
+# Follows the EBWV master YAML sections and field names.
+# Domain and range entries derived from owl:equivalentClass restrictions are
+# publication hints, not explicit rdfs:domain/rdfs:range axioms in the source.
+# The EBWV YAML format cannot express those OWL equivalentClass restrictions,
+# subproperties, imports, or original editorial metadata. No individuals or
+# custom datatypes are declared in the source.
+# Four previously unresolved property ranges are proposed from their names for this build.
+# Original broad rdfs:Literal ranges are narrowed to proposed XSD datatypes for publication.
+# The context URL points to the published version of this draft on GitHub Pages.
+vocab:
+  - id: authz
+    value: https://iri.suomi.fi/model/authz/
+    context: https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld
+prefix:
+  - id: eu-core
+    value: https://iri.suomi.fi/model/eu-core/
+  - id: prov
+    value: http://www.w3.org/ns/prov#
+  - id: foaf
+    value: http://xmlns.com/foaf/0.1/
+  - id: dcterms
+    value: http://purl.org/dc/terms/
+  - id: xsd
+    value: http://www.w3.org/2001/XMLSchema#
+  - id: rdfs
+    value: http://www.w3.org/2000/01/rdf-schema#
+  - id: owl
+    value: http://www.w3.org/2002/07/owl#
+ontology:
+  - property: dc:title
+    value: General Authorisation Model
+  - property: dc:description
+    value: Vocabulary serving both Nordic DQS work as well as EU WE BUILD LSP.
+class:
+  - id: Activity
+    label: Activity
+    upper_value: prov:Activity
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Agent
+    label: Agent
+    upper_value:
+      - foaf:Agent
+      - prov:Agent
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: AssignmentRequirement
+    label: Assignment Requirement
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: AssignmentRule
+    label: Assignment Rule
+    upper_value: Rule
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Audit
+    label: Audit
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Authority
+    label: Authority
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Authorization
+    label: Authorisation
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: AuthorizationActivity
+    label: Authorisation Activity
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: AuthorizationRule
+    label: Authorisation Rule
+    upper_value: Rule
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: AuthorizationScope
+    label: Authorisation Scope
+    upper_value: Scope
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: EconomicOperator
+    label: Economic Operator
+    upper_value: Agent
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Entity
+    label: Entity
+    upper_value: prov:Entity
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Involvement
+    label: Involvement
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: InvolvementSelection
+    label: Involvement Selection
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: JuridicalPrecedence
+    label: Juridical Precedence
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Law
+    label: Law
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: LegalBasis
+    label: Legal Basis
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: PeriodOfTime
+    label: Period of Time
+    upper_value: dcterms:PeriodOfTime
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Person
+    label: Person
+    upper_value:
+      - Agent
+      - eu-core:Person
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Restriction
+    label: Restriction
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Role
+    label: Role
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Rule
+    label: Rule
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: RuleOperator
+    label: Rule Operator
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: Scope
+    label: Scope
+    defined_by: https://iri.suomi.fi/model/authz/
+individual: []
+property:
+  - id: auditedAuthorization
+    label: audited authorisation
+    domain: Audit
+    range: Authorization
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: dateOfIssue
+    label: Date of Issue
+    domain: Authorization
+    range: xsd:date
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: delegable
+    label: Delegable
+    domain: Authorization
+    range: xsd:boolean
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: description
+    label: Description
+    domain:
+      - AssignmentRule
+      - AuthorizationRule
+      - JuridicalPrecedence
+      - Law
+    range: xsd:string
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: endDate
+    label: End Date
+    range: xsd:date
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: endedAtTime
+    label: Ended at Time
+    range: xsd:dateTime
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasAgent
+    label: has agent
+    domain: Involvement
+    range: Agent
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasApplicableLaw
+    label: has applicable law
+    domain: LegalBasis
+    range: Law
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasAssignmentRequirement
+    label: has assignment requirement
+    domain: AssignmentRule
+    range: AssignmentRequirement
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasAssignmentRule
+    label: has assignment rule
+    domain: Authorization
+    range: AssignmentRule
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasAuthorizationRule
+    label: has authorisation rule
+    domain: Authorization
+    range: AuthorizationRule
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasAuthorizationScope
+    label: has authorisation scope
+    domain: Authorization
+    range: AuthorizationScope
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasInvolvement
+    label: has involvement
+    domain: Authorization
+    range: Involvement
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasLegalBasis
+    label: has legal basis
+    domain: Authorization
+    range: LegalBasis
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasOperandRule
+    label: has operand rule
+    range: Rule
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasOperator
+    label: has operator
+    range: RuleOperator
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasRestriction
+    label: has restriction
+    domain: AuthorizationScope
+    range: Restriction
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasRole
+    label: has role
+    domain: Involvement
+    range: Role
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasRuleOperator
+    label: has rule operator
+    range: RuleOperator
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasSelection
+    label: has selection
+    domain: AssignmentRequirement
+    range: InvolvementSelection
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasSubrestriction
+    label: has subrestriction
+    domain: RuleOperator
+    range: Restriction
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: hasSubrule
+    label: has subrule
+    range: Rule
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: identifier
+    label: Identifier
+    domain:
+      - AssignmentRule
+      - Audit
+      - Authorization
+      - AuthorizationRule
+      - Involvement
+      - JuridicalPrecedence
+      - Law
+      - Rule
+    range: xsd:string
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: involvementPeriod
+    label: involvement period
+    domain: Involvement
+    range: PeriodOfTime
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: isDocumentedIn
+    label: is documented in
+    domain: Authorization
+    range: eu-core:Document
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: qualifiedAssociation
+    label: qualified association
+    domain: AuthorizationActivity
+    range: Involvement
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: replaces
+    label: replaces
+    domain: Authorization
+    range: Authorization
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: selectsInvolvement
+    label: selects involvement
+    domain: InvolvementSelection
+    range: Involvement
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: startDate
+    label: Start Date
+    range: xsd:date
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: startedAtTime
+    label: Started at Time
+    range: xsd:dateTime
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: title
+    label: Title
+    domain:
+      - Authorization
+      - AuthorizationRule
+      - JuridicalPrecedence
+      - Law
+      - Rule
+    range: xsd:string
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: transactionDateTime
+    label: Transaction Date Time
+    domain: Audit
+    range: xsd:dateTime
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: unit
+    label: Unit
+    range: xsd:string
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: used
+    label: used
+    domain: AuthorizationActivity
+    range: Entity
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: validDuring
+    label: valid during
+    domain: Authorization
+    range: PeriodOfTime
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: value
+    label: Value
+    range: xsd:string
+    defined_by: https://iri.suomi.fi/model/authz/
+  - id: wasGeneratedBy
+    label: was generated by
+    domain: Authorization
+    range: AuthorizationActivity
+    defined_by: https://iri.suomi.fi/model/authz/
+datatype: []

@@ -1,0 +1,530 @@
+@prefix authz: <https://iri.suomi.fi/model/authz/> .
+@prefix eu-core: <https://iri.suomi.fi/model/eu-core/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix jsonld: <http://www.w3.org/ns/json-ld#> .
+
+# Ontology definition
+authz: a owl:Ontology ;
+    dc:title """General Authorisation Model"""@en ;
+    dc:description """Vocabulary serving both Nordic DQS work as well as EU WE BUILD LSP."""^^rdf:HTML ;
+    dc:date "2026-09-29"^^xsd:date ;
+.
+
+# Property definitions
+authz:auditedAuthorization a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Audit ;
+    rdfs:range authz:Authorization ;
+    rdfs:label "audited authorisation" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:dateOfIssue a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range xsd:date ;
+    rdfs:label "Date of Issue" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:delegable a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Delegable" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:description a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (authz:AssignmentRule authz:AuthorizationRule authz:JuridicalPrecedence authz:Law) ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "Description" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:endDate a rdf:Property, owl:DatatypeProperty ;
+    rdfs:range xsd:date ;
+    rdfs:label "End Date" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:endedAtTime a rdf:Property, owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Ended at Time" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasAgent a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Involvement ;
+    rdfs:range authz:Agent ;
+    rdfs:label "has agent" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasApplicableLaw a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:LegalBasis ;
+    rdfs:range authz:Law ;
+    rdfs:label "has applicable law" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasAssignmentRequirement a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:AssignmentRule ;
+    rdfs:range authz:AssignmentRequirement ;
+    rdfs:label "has assignment requirement" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasAssignmentRule a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range authz:AssignmentRule ;
+    rdfs:label "has assignment rule" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasAuthorizationRule a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range authz:AuthorizationRule ;
+    rdfs:label "has authorisation rule" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasAuthorizationScope a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range authz:AuthorizationScope ;
+    rdfs:label "has authorisation scope" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasInvolvement a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range authz:Involvement ;
+    rdfs:label "has involvement" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasLegalBasis a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range authz:LegalBasis ;
+    rdfs:label "has legal basis" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasOperandRule a rdf:Property, owl:ObjectProperty ;
+    rdfs:range authz:Rule ;
+    rdfs:label "has operand rule" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasOperator a rdf:Property, owl:ObjectProperty ;
+    rdfs:range authz:RuleOperator ;
+    rdfs:label "has operator" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasRestriction a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:AuthorizationScope ;
+    rdfs:range authz:Restriction ;
+    rdfs:label "has restriction" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasRole a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Involvement ;
+    rdfs:range authz:Role ;
+    rdfs:label "has role" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasRuleOperator a rdf:Property, owl:ObjectProperty ;
+    rdfs:range authz:RuleOperator ;
+    rdfs:label "has rule operator" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasSelection a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:AssignmentRequirement ;
+    rdfs:range authz:InvolvementSelection ;
+    rdfs:label "has selection" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasSubrestriction a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:RuleOperator ;
+    rdfs:range authz:Restriction ;
+    rdfs:label "has subrestriction" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:hasSubrule a rdf:Property, owl:ObjectProperty ;
+    rdfs:range authz:Rule ;
+    rdfs:label "has subrule" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:identifier a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (authz:AssignmentRule authz:Audit authz:Authorization authz:AuthorizationRule authz:Involvement authz:JuridicalPrecedence authz:Law authz:Rule) ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "Identifier" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:involvementPeriod a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Involvement ;
+    rdfs:range authz:PeriodOfTime ;
+    rdfs:label "involvement period" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:isDocumentedIn a rdf:Property ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range eu-core:Document ;
+    rdfs:label "is documented in" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:qualifiedAssociation a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:AuthorizationActivity ;
+    rdfs:range authz:Involvement ;
+    rdfs:label "qualified association" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:replaces a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range authz:Authorization ;
+    rdfs:label "replaces" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:selectsInvolvement a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:InvolvementSelection ;
+    rdfs:range authz:Involvement ;
+    rdfs:label "selects involvement" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:startDate a rdf:Property, owl:DatatypeProperty ;
+    rdfs:range xsd:date ;
+    rdfs:label "Start Date" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:startedAtTime a rdf:Property, owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Started at Time" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:title a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class; owl:unionOf (authz:Authorization authz:AuthorizationRule authz:JuridicalPrecedence authz:Law authz:Rule) ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "Title" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:transactionDateTime a rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain authz:Audit ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Transaction Date Time" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:unit a rdf:Property, owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "Unit" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:used a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:AuthorizationActivity ;
+    rdfs:range authz:Entity ;
+    rdfs:label "used" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:validDuring a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range authz:PeriodOfTime ;
+    rdfs:label "valid during" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:value a rdf:Property, owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "Value" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:wasGeneratedBy a rdf:Property, owl:ObjectProperty ;
+    rdfs:domain authz:Authorization ;
+    rdfs:range authz:AuthorizationActivity ;
+    rdfs:label "was generated by" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+# Class definitions
+authz:Activity a rdfs:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "Activity" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Agent a rdfs:Class ;
+    rdfs:subClassOf foaf:Agent, prov:Agent ;
+    rdfs:label "Agent" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:AssignmentRequirement a rdfs:Class ;
+    rdfs:label "Assignment Requirement" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:AssignmentRule a rdfs:Class ;
+    rdfs:subClassOf authz:Rule ;
+    rdfs:label "Assignment Rule" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Audit a rdfs:Class ;
+    rdfs:label "Audit" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Authority a rdfs:Class ;
+    rdfs:label "Authority" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Authorization a rdfs:Class ;
+    rdfs:label "Authorisation" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:AuthorizationActivity a rdfs:Class ;
+    rdfs:label "Authorisation Activity" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:AuthorizationRule a rdfs:Class ;
+    rdfs:subClassOf authz:Rule ;
+    rdfs:label "Authorisation Rule" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:AuthorizationScope a rdfs:Class ;
+    rdfs:subClassOf authz:Scope ;
+    rdfs:label "Authorisation Scope" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:EconomicOperator a rdfs:Class ;
+    rdfs:subClassOf authz:Agent ;
+    rdfs:label "Economic Operator" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Entity a rdfs:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Entity" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Involvement a rdfs:Class ;
+    rdfs:label "Involvement" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:InvolvementSelection a rdfs:Class ;
+    rdfs:label "Involvement Selection" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:JuridicalPrecedence a rdfs:Class ;
+    rdfs:label "Juridical Precedence" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Law a rdfs:Class ;
+    rdfs:label "Law" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:LegalBasis a rdfs:Class ;
+    rdfs:label "Legal Basis" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:PeriodOfTime a rdfs:Class ;
+    rdfs:subClassOf dcterms:PeriodOfTime ;
+    rdfs:label "Period of Time" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Person a rdfs:Class ;
+    rdfs:subClassOf authz:Agent, eu-core:Person ;
+    rdfs:label "Person" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Restriction a rdfs:Class ;
+    rdfs:label "Restriction" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Role a rdfs:Class ;
+    rdfs:label "Role" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Rule a rdfs:Class ;
+    rdfs:label "Rule" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:RuleOperator a rdfs:Class ;
+    rdfs:label "Rule Operator" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+authz:Scope a rdfs:Class ;
+    rdfs:label "Scope" ;
+    rdfs:isDefinedBy <https://iri.suomi.fi/model/authz/>, <https://iri.suomi.fi/model/authz/> ;
+    vs:term_status "stable" ;
+.
+
+
+
+# Context files and their mentions
+<https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld> a jsonld:Context ;
+    schema:mentions
+        authz:Activity,
+        authz:Agent,
+        authz:AssignmentRequirement,
+        authz:AssignmentRule,
+        authz:Audit,
+        authz:Authority,
+        authz:Authorization,
+        authz:AuthorizationActivity,
+        authz:AuthorizationRule,
+        authz:AuthorizationScope,
+        authz:EconomicOperator,
+        authz:Entity,
+        authz:Involvement,
+        authz:InvolvementSelection,
+        authz:JuridicalPrecedence,
+        authz:Law,
+        authz:LegalBasis,
+        authz:PeriodOfTime,
+        authz:Person,
+        authz:Restriction,
+        authz:Role,
+        authz:Rule,
+        authz:RuleOperator,
+        authz:Scope,
+        authz:auditedAuthorization,
+        authz:dateOfIssue,
+        authz:delegable,
+        authz:description,
+        authz:endDate,
+        authz:endedAtTime,
+        authz:hasAgent,
+        authz:hasApplicableLaw,
+        authz:hasAssignmentRequirement,
+        authz:hasAssignmentRule,
+        authz:hasAuthorizationRule,
+        authz:hasAuthorizationScope,
+        authz:hasInvolvement,
+        authz:hasLegalBasis,
+        authz:hasOperandRule,
+        authz:hasOperator,
+        authz:hasRestriction,
+        authz:hasRole,
+        authz:hasRuleOperator,
+        authz:hasSelection,
+        authz:hasSubrestriction,
+        authz:hasSubrule,
+        authz:identifier,
+        authz:involvementPeriod,
+        authz:isDocumentedIn,
+        authz:qualifiedAssociation,
+        authz:replaces,
+        authz:selectsInvolvement,
+        authz:startDate,
+        authz:startedAtTime,
+        authz:title,
+        authz:transactionDateTime,
+        authz:unit,
+        authz:used,
+        authz:validDuring,
+        authz:value,
+        authz:wasGeneratedBy ;
+.
+

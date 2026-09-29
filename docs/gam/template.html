@@ -1,0 +1,162 @@
+<html lang="en">
+<head>
+    <meta charset='utf-8'/>
+    <meta name="y2v:jsonld-playground" content="https://json-ld.org/playground#json-ld={jsonld}&amp;startTab=tab-expand"/>
+    <meta name="y2v:group-individuals" content="true"/>
+    <title></title>
+    
+    <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+    <script class="remove">
+        var respecConfig = {
+          localBiblio: {
+          },
+          specStatus:  "unofficial",
+          shortName: "gam-draft",
+          latestVersion: "https://jgmikael.github.io/docs/gam/",
+          thisVersion: "https://jgmikael.github.io/docs/gam/",
+          doJsonLd:    true,
+          editors: [{ name: "Mikael af Hällström" }],
+          alternateFormats: [
+            {uri: "vocabulary.ttl", label: "Turtle"},
+            {uri: "vocabulary.jsonld", label: "JSON-LD"}
+          ],
+          inlineCSS: true,
+          doRDFa: false,
+          noIDLIn: true,
+          noLegacyStyle: false
+        };
+    </script>
+    <style type="text/css">
+        :root { color-scheme: light; }
+        dl.terms dt {
+          float: left;
+          clear: left;
+          width: 10vw;
+        }
+
+        dl.terms dd {
+          margin-left: 15vw;
+        }
+
+        dl.terms dd:after {
+            content: '';
+            display: block;
+            clear: both;
+            margin-bottom: 5px;
+        }
+        table.rdfs-definition td {
+          vertical-align: top;
+          margin-right: 2em;
+        }
+        .bold {
+          font-weight: bold;
+        }
+        /* code {
+          color: red;
+        } */
+
+        .term_definitions section {
+          border-bottom-style: solid ;
+          border-bottom-width: 1px;
+          border-bottom-color: darkgrey;
+        }
+
+        .annoy {
+          background: hsla(40,100%,50%,0.95);
+              color: black;
+              padding: .75em 1em;
+              border: red;
+              border-style: solid none;
+              box-shadow: 0 2px 8px black;
+              text-align: center;
+        }
+
+        summary {
+          font-weight: normal !important;
+        }
+
+      .example-with-playground {
+        position: relative;
+      }
+      a.jsonld-playground-button {
+        position: absolute;
+        top: 4.4em;
+        right: 1.4em;
+        z-index: 1;
+        padding: 0.3em 0.7em;
+        font-size: 0.8em;
+        font-weight: bold;
+        color: #000000;
+        background-color: #ffffff;
+        opacity: .4;
+        border-radius: 4px;
+        text-decoration: none;
+        box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.1);
+      }
+      a.jsonld-playground-button:hover {
+        background-color: #f0f0f0;
+        opacity: 1;
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
+      }
+
+    </style>
+</head>
+<body typeof="owl:Ontology">
+<section id="abstract">
+    <p>This document describes the <span property="dc:title" id="title"></span>, i.e.,
+        the <span property="dc:description" id="description"></span>.
+    </p>
+    <p>Alternate versions of the vocabulary definition exist in
+        <a rel="alternate" href="vocabulary.ttl">Turtle</a> and
+        <a rel="alternate" href="vocabulary.jsonld">JSON-LD</a>.
+    </p>
+    <dl>
+        <dt>Published:</dt>
+        <dd>
+            <time property="dc:date" id="time"></time>
+        </dd>
+        <dt>Version Info:</dt>
+        <dd>Early draft, 2026-09-29</dd>
+        <dt id="see_also">See Also:</dt>
+    </dl>
+</section>
+<section id="sotd"><p>Working publication of the early General Authorisation Model (GAM) draft. The source model has known deficiencies. Domains and ranges marked in the source YAML as inferred from existential restrictions are editorial publication hints; the generated RDF is not a lossless reproduction of the source OWL. The canonical term identifiers retain the <code>https://iri.suomi.fi/model/authz/</code> namespace.</p><p>Source: <a href="vocabulary.yml">GAM YAML</a>. Original draft: <a href="https://iri.suomi.fi/model/authz/">GAM OWL namespace</a>. Four object-property ranges and several XSD datatype ranges are editorial proposals needed for generation; they require review before authoritative use.</p></section>
+<section id="conformance"></section>
+<section>
+    <h2>Namespaces</h2>
+    <p>This specification makes use of the following namespaces:</p>
+    <dl class="terms" id="namespaces">
+    </dl>
+</section>
+
+<section><h2>Specification of terms</h2><p>This publication contains the classes and properties of the draft GAM YAML. The machine-readable serializations are linked above, and the <a href="vocabulary.yml">editable YAML source</a> is available alongside them.</p></section>
+<section>
+    <h2><code>@context</code> files</h2>
+    <p>The following <code>@context</code> files make use of the terms defined in this specification:</p>
+    <ul id="contexts">
+    </ul>
+</section>
+
+<section id="term_definitions">
+    <h2>Term definitions</h2>
+
+    <section id="property_definitions" class="term_definitions">
+        <h3>Property definitions</h3>
+    </section>
+
+    <section id="class_definitions" class="term_definitions">
+        <h2>Class definitions</h2>
+    </section>
+
+    <section id="datatype_definitions" class="term_definitions">
+        <h2>Datatype definitions</h2>
+    </section>
+
+    <section id="individual_definitions" class="term_definitions">
+        <h3>Definitions for individuals</h3>
+    </section>
+</section>
+
+</body>
+</html>
+

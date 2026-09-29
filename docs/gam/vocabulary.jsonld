@@ -1,0 +1,521 @@
+{
+    "@context": {
+        "authz": "https://iri.suomi.fi/model/authz/",
+        "eu-core": "https://iri.suomi.fi/model/eu-core/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "dc": "http://purl.org/dc/terms/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+        "schema": "http://schema.org/",
+        "jsonld": "http://www.w3.org/ns/json-ld#",
+        "dc:date": {
+            "@type": "xsd:date"
+        },
+        "rdfs:domain": {
+            "@type": "@id"
+        },
+        "rdfs:range": {
+            "@type": "@id"
+        },
+        "rdfs:seeAlso": {
+            "@type": "@id"
+        },
+        "rdfs:subClassOf": {
+            "@type": "@id"
+        },
+        "rdfs:subPropertyOf": {
+            "@type": "@id"
+        },
+        "rdfs:isDefinedBy": {
+            "@type": "@id"
+        },
+        "owl:oneOf": {
+            "@container": "@list",
+            "@type": "@vocab"
+        },
+        "owl:deprecated": {
+            "@type": "xsd:boolean"
+        },
+        "owl:inverseOf": {
+            "@type": "@vocab"
+        },
+        "owl:unionOf": {
+            "@container": "@list",
+            "@type": "@vocab"
+        },
+        "mentions": {
+            "@id": "schema:mentions",
+            "@type": "@id"
+        }
+    },
+    "@included": [{
+        "@id": "https://iri.suomi.fi/model/authz/",
+        "@type": "owl:Ontology",
+        "dc:title": {
+            "@value": "General Authorisation Model",
+            "@language": "en"
+        },
+        "dc:description": {
+            "@value": "Vocabulary serving both Nordic DQS work as well as EU WE BUILD LSP.",
+            "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+        },
+        "dc:date": "2026-09-29"
+    }, {
+        "@id": "authz:auditedAuthorization",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Audit",
+        "rdfs:range": "authz:Authorization",
+        "rdfs:label": "audited authorisation",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:dateOfIssue",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "xsd:date",
+        "rdfs:label": "Date of Issue",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:delegable",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "xsd:boolean",
+        "rdfs:label": "Delegable",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:description",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["authz:AssignmentRule", "authz:AuthorizationRule", "authz:JuridicalPrecedence", "authz:Law"]
+        },
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "Description",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:endDate",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:range": "xsd:date",
+        "rdfs:label": "End Date",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:endedAtTime",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:range": "xsd:dateTime",
+        "rdfs:label": "Ended at Time",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasAgent",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Involvement",
+        "rdfs:range": "authz:Agent",
+        "rdfs:label": "has agent",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasApplicableLaw",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:LegalBasis",
+        "rdfs:range": "authz:Law",
+        "rdfs:label": "has applicable law",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasAssignmentRequirement",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:AssignmentRule",
+        "rdfs:range": "authz:AssignmentRequirement",
+        "rdfs:label": "has assignment requirement",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasAssignmentRule",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "authz:AssignmentRule",
+        "rdfs:label": "has assignment rule",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasAuthorizationRule",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "authz:AuthorizationRule",
+        "rdfs:label": "has authorisation rule",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasAuthorizationScope",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "authz:AuthorizationScope",
+        "rdfs:label": "has authorisation scope",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasInvolvement",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "authz:Involvement",
+        "rdfs:label": "has involvement",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasLegalBasis",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "authz:LegalBasis",
+        "rdfs:label": "has legal basis",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasOperandRule",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:range": "authz:Rule",
+        "rdfs:label": "has operand rule",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasOperator",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:range": "authz:RuleOperator",
+        "rdfs:label": "has operator",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasRestriction",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:AuthorizationScope",
+        "rdfs:range": "authz:Restriction",
+        "rdfs:label": "has restriction",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasRole",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Involvement",
+        "rdfs:range": "authz:Role",
+        "rdfs:label": "has role",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasRuleOperator",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:range": "authz:RuleOperator",
+        "rdfs:label": "has rule operator",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasSelection",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:AssignmentRequirement",
+        "rdfs:range": "authz:InvolvementSelection",
+        "rdfs:label": "has selection",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasSubrestriction",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:RuleOperator",
+        "rdfs:range": "authz:Restriction",
+        "rdfs:label": "has subrestriction",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:hasSubrule",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:range": "authz:Rule",
+        "rdfs:label": "has subrule",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:identifier",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["authz:AssignmentRule", "authz:Audit", "authz:Authorization", "authz:AuthorizationRule", "authz:Involvement", "authz:JuridicalPrecedence", "authz:Law", "authz:Rule"]
+        },
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "Identifier",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:involvementPeriod",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Involvement",
+        "rdfs:range": "authz:PeriodOfTime",
+        "rdfs:label": "involvement period",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:isDocumentedIn",
+        "@type": "rdf:Property",
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "eu-core:Document",
+        "rdfs:label": "is documented in",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:qualifiedAssociation",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:AuthorizationActivity",
+        "rdfs:range": "authz:Involvement",
+        "rdfs:label": "qualified association",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:replaces",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "authz:Authorization",
+        "rdfs:label": "replaces",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:selectsInvolvement",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:InvolvementSelection",
+        "rdfs:range": "authz:Involvement",
+        "rdfs:label": "selects involvement",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:startDate",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:range": "xsd:date",
+        "rdfs:label": "Start Date",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:startedAtTime",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:range": "xsd:dateTime",
+        "rdfs:label": "Started at Time",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:title",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": {
+            "@type": "owl:Class",
+            "owl:unionOf": ["authz:Authorization", "authz:AuthorizationRule", "authz:JuridicalPrecedence", "authz:Law", "authz:Rule"]
+        },
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "Title",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:transactionDateTime",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:domain": "authz:Audit",
+        "rdfs:range": "xsd:dateTime",
+        "rdfs:label": "Transaction Date Time",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:unit",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "Unit",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:used",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:AuthorizationActivity",
+        "rdfs:range": "authz:Entity",
+        "rdfs:label": "used",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:validDuring",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "authz:PeriodOfTime",
+        "rdfs:label": "valid during",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:value",
+        "@type": ["rdf:Property", "owl:DatatypeProperty"],
+        "rdfs:range": "xsd:string",
+        "rdfs:label": "Value",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:wasGeneratedBy",
+        "@type": ["rdf:Property", "owl:ObjectProperty"],
+        "rdfs:domain": "authz:Authorization",
+        "rdfs:range": "authz:AuthorizationActivity",
+        "rdfs:label": "was generated by",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Activity",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["prov:Activity"],
+        "rdfs:label": "Activity",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Agent",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["foaf:Agent", "prov:Agent"],
+        "rdfs:label": "Agent",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:AssignmentRequirement",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Assignment Requirement",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:AssignmentRule",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["authz:Rule"],
+        "rdfs:label": "Assignment Rule",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Audit",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Audit",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Authority",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Authority",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Authorization",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Authorisation",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:AuthorizationActivity",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Authorisation Activity",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:AuthorizationRule",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["authz:Rule"],
+        "rdfs:label": "Authorisation Rule",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:AuthorizationScope",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["authz:Scope"],
+        "rdfs:label": "Authorisation Scope",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:EconomicOperator",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["authz:Agent"],
+        "rdfs:label": "Economic Operator",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Entity",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["prov:Entity"],
+        "rdfs:label": "Entity",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Involvement",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Involvement",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:InvolvementSelection",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Involvement Selection",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:JuridicalPrecedence",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Juridical Precedence",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Law",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Law",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:LegalBasis",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Legal Basis",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:PeriodOfTime",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["dcterms:PeriodOfTime"],
+        "rdfs:label": "Period of Time",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Person",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": ["authz:Agent", "eu-core:Person"],
+        "rdfs:label": "Person",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Restriction",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Restriction",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Role",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Role",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Rule",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Rule",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:RuleOperator",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Rule Operator",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "authz:Scope",
+        "@type": "rdfs:Class",
+        "rdfs:label": "Scope",
+        "rdfs:isDefinedBy": ["https://iri.suomi.fi/model/authz/", "https://iri.suomi.fi/model/authz/"],
+        "vs:term_status": "stable"
+    }, {
+        "@id": "https://jgmikael.github.io/docs/gam/v0.1/vocabulary.context.jsonld",
+        "@type": "jsonld:Context",
+        "mentions": ["authz:Activity", "authz:Agent", "authz:AssignmentRequirement", "authz:AssignmentRule", "authz:Audit", "authz:Authority", "authz:Authorization", "authz:AuthorizationActivity", "authz:AuthorizationRule", "authz:AuthorizationScope", "authz:EconomicOperator", "authz:Entity", "authz:Involvement", "authz:InvolvementSelection", "authz:JuridicalPrecedence", "authz:Law", "authz:LegalBasis", "authz:PeriodOfTime", "authz:Person", "authz:Restriction", "authz:Role", "authz:Rule", "authz:RuleOperator", "authz:Scope", "authz:auditedAuthorization", "authz:dateOfIssue", "authz:delegable", "authz:description", "authz:endDate", "authz:endedAtTime", "authz:hasAgent", "authz:hasApplicableLaw", "authz:hasAssignmentRequirement", "authz:hasAssignmentRule", "authz:hasAuthorizationRule", "authz:hasAuthorizationScope", "authz:hasInvolvement", "authz:hasLegalBasis", "authz:hasOperandRule", "authz:hasOperator", "authz:hasRestriction", "authz:hasRole", "authz:hasRuleOperator", "authz:hasSelection", "authz:hasSubrestriction", "authz:hasSubrule", "authz:identifier", "authz:involvementPeriod", "authz:isDocumentedIn", "authz:qualifiedAssociation", "authz:replaces", "authz:selectsInvolvement", "authz:startDate", "authz:startedAtTime", "authz:title", "authz:transactionDateTime", "authz:unit", "authz:used", "authz:validDuring", "authz:value", "authz:wasGeneratedBy"]
+    }]
+}
