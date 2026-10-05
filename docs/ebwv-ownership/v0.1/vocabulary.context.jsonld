@@ -1,0 +1,178 @@
+{
+  "@context": {
+    "@protected": true,
+    "LegalArrangement": {
+      "@id": "https://w3id.org/ebwv#LegalArrangement",
+      "@context": {
+        "@protected": true,
+        "arrangementType": {
+          "@id": "https://w3id.org/ebwv#arrangementType",
+          "@type": "@id"
+        },
+        "governingLaw": {
+          "@id": "https://w3id.org/ebwv#governingLaw",
+          "@type": "@id"
+        },
+        "constitutedBy": {
+          "@id": "https://w3id.org/ebwv#constitutedBy",
+          "@type": "@id"
+        },
+        "amendedBy": {
+          "@id": "https://w3id.org/ebwv#amendedBy",
+          "@type": "@id"
+        },
+        "arrangementAsset": {
+          "@id": "https://w3id.org/ebwv#arrangementAsset",
+          "@type": "@id"
+        },
+        "hasParticipation": {
+          "@id": "https://w3id.org/ebwv#hasParticipation",
+          "@type": "@id"
+        },
+        "beneficiaryClass": {
+          "@id": "https://w3id.org/ebwv#beneficiaryClass",
+          "@type": "@id"
+        },
+        "effectivePeriod": {
+          "@id": "https://w3id.org/ebwv#effectivePeriod",
+          "@type": "@id"
+        }
+      }
+    },
+    "ExpressTrust": "https://w3id.org/ebwv#ExpressTrust",
+    "LegalInstrument": {
+      "@id": "https://w3id.org/ebwv#LegalInstrument",
+      "@context": {
+        "@protected": true,
+        "governingLaw": {
+          "@id": "https://w3id.org/ebwv#governingLaw",
+          "@type": "@id"
+        }
+      }
+    },
+    "Asset": "https://w3id.org/ebwv#Asset",
+    "ArrangementParticipation": {
+      "@id": "https://w3id.org/ebwv#ArrangementParticipation",
+      "@context": {
+        "@protected": true,
+        "participatingParty": {
+          "@id": "https://w3id.org/ebwv#participatingParty",
+          "@type": "@id"
+        },
+        "participationRole": {
+          "@id": "https://w3id.org/ebwv#participationRole",
+          "@type": "@id"
+        },
+        "effectivePeriod": {
+          "@id": "https://w3id.org/ebwv#effectivePeriod",
+          "@type": "@id"
+        }
+      }
+    },
+    "BeneficiaryClass": {
+      "@id": "https://w3id.org/ebwv#BeneficiaryClass",
+      "@context": {
+        "@protected": true,
+        "beneficiaryClassDescription": "https://w3id.org/ebwv#beneficiaryClassDescription"
+      }
+    },
+    "OwnershipOrControlRelationship": {
+      "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship",
+      "@context": {
+        "@protected": true,
+        "rightHolder": {
+          "@id": "https://w3id.org/ebwv#rightHolder",
+          "@type": "@id"
+        },
+        "relationshipTarget": {
+          "@id": "https://w3id.org/ebwv#relationshipTarget",
+          "@type": "@id"
+        },
+        "relationshipType": {
+          "@id": "https://w3id.org/ebwv#relationshipType",
+          "@type": "@id"
+        },
+        "establishedUnder": {
+          "@id": "https://w3id.org/ebwv#establishedUnder",
+          "@type": "@id"
+        },
+        "supportingParticipation": {
+          "@id": "https://w3id.org/ebwv#supportingParticipation",
+          "@type": "@id"
+        },
+        "exerciseMode": {
+          "@id": "https://w3id.org/ebwv#exerciseMode",
+          "@type": "@id"
+        },
+        "conditions": {
+          "@id": "https://w3id.org/ebwv#conditions",
+          "@type": "@id"
+        },
+        "effectivePeriod": {
+          "@id": "https://w3id.org/ebwv#effectivePeriod",
+          "@type": "@id"
+        },
+        "supportedBy": {
+          "@id": "https://w3id.org/ebwv#supportedBy",
+          "@type": "@id"
+        },
+        "hasRelationshipPath": {
+          "@id": "https://w3id.org/ebwv#hasRelationshipPath",
+          "@type": "@id",
+          "@container": "@list"
+        },
+        "votingRightsPercentage": {
+          "@id": "https://w3id.org/ebwv#votingRightsPercentage",
+          "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+        },
+        "economicEntitlementPercentage": {
+          "@id": "https://w3id.org/ebwv#economicEntitlementPercentage",
+          "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+        },
+        "ownershipPercentage": {
+          "@id": "https://w3id.org/ebwv#ownershipPercentage",
+          "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+        }
+      }
+    },
+    "RelationshipCondition": "https://w3id.org/ebwv#RelationshipCondition",
+    "BeneficialOwnershipDetermination": {
+      "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination",
+      "@context": {
+        "@protected": true,
+        "supportedBy": {
+          "@id": "https://w3id.org/ebwv#supportedBy",
+          "@type": "@id"
+        },
+        "beneficialOwner": {
+          "@id": "https://w3id.org/ebwv#beneficialOwner",
+          "@type": "@id"
+        },
+        "determinationTarget": {
+          "@id": "https://w3id.org/ebwv#determinationTarget",
+          "@type": "@id"
+        },
+        "determinationBasis": {
+          "@id": "https://w3id.org/ebwv#determinationBasis",
+          "@type": "@id"
+        },
+        "basedOnParticipation": {
+          "@id": "https://w3id.org/ebwv#basedOnParticipation",
+          "@type": "@id"
+        },
+        "basedOnRelationship": {
+          "@id": "https://w3id.org/ebwv#basedOnRelationship",
+          "@type": "@id"
+        },
+        "determinedAt": {
+          "@id": "https://w3id.org/ebwv#determinedAt",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "determinationStatus": {
+          "@id": "https://w3id.org/ebwv#determinationStatus",
+          "@type": "@id"
+        }
+      }
+    }
+  }
+}
