@@ -1,0 +1,450 @@
+{
+  "@context": {
+    "cred": "https://www.w3.org/2018/credentials#",
+    "dct": "http://purl.org/dc/terms/",
+    "ebwv": "https://w3id.org/ebwv#",
+    "oa": "https://jgmikael.github.io/docs/ownership-attestations/profile#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:example:ownership:conditional-attestation-status",
+      "@type": "oa:StatusReference",
+      "oa:statusIndex": 0,
+      "oa:statusList": {
+        "@id": "https://issuer.example/status/demo"
+      },
+      "oa:statusPurpose": "revocation"
+    },
+    {
+      "@id": "urn:example:ownership:aurora-machines",
+      "@type": [
+        "ebwv:LegalPerson",
+        "ebwv:Company",
+        "ebwv:EconomicOperator"
+      ],
+      "ebwv:identifier": "DEMO-AURORA-MACHINES",
+      "ebwv:jurisdiction": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:legalForm": "Private limited company",
+      "ebwv:legalIdentifier": {
+        "@type": "ebwv:Euid",
+        "@value": "FI.DEMO.AURORA-MACHINES"
+      },
+      "ebwv:legalName": "Aurora Machines Oy",
+      "ebwv:registeredAddress": {
+        "@id": "urn:example:ownership:aurora-machines-address"
+      },
+      "oa:entityForm": {
+        "@id": "oa:private_company"
+      },
+      "rdfs:label": "Aurora Machines Oy"
+    },
+    {
+      "@id": "urn:example:ownership:sanna-aurora-shares-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:aurora-register",
+      "@type": "oa:Evidence",
+      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\n1,000 ordinary shares issued. Sanna Aalto owns 700; Jari Koski owns 300. Kaisa Ranta owns no shares.",
+      "dct:identifier": "DEMO-AURORA-REGISTER",
+      "oa:evidenceData": {
+        "@type": "xsd:base64Binary",
+        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCjEsMDAwIG9yZGluYXJ5IHNoYXJlcyBpc3N1ZWQuIFNhbm5hIEFhbHRvIG93bnMgNzAwOyBKYXJpIEtvc2tpIG93bnMgMzAwLiBLYWlzYSBSYW50YSBvd25zIG5vIHNoYXJlcy4="
+      },
+      "oa:evidenceType": {
+        "@id": "oa:officialRegister"
+      },
+      "rdfs:label": "Shareholder register — Aurora Machines"
+    },
+    {
+      "@id": "urn:example:ownership:kaisa-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:jari-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:aurora-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:jari-aurora-shares"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:jari"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:sanna-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:jari",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1981-05-04"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:jari-address"
+      },
+      "ebwv:familyName": "Koski",
+      "ebwv:givenName": "Jari",
+      "rdfs:label": "Jari Koski"
+    },
+    {
+      "@id": "urn:example:ownership:sanna-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:aurora-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:sanna-aurora-shares"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:sanna"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:kaisa-appointment",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:conditions": {
+        "@id": "urn:example:ownership:appointment-condition"
+      },
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:kaisa-appointment-period"
+      },
+      "ebwv:establishedUnder": {
+        "@id": "urn:example:ownership:aurora-agreement"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:subjectToConsent"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:aurora-machines"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:appointmentPower"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:kaisa"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:aurora-agreement"
+      },
+      "oa:capacityNote": "No ownership percentage, share quantity, dividend or liquidation rights. Power is not currently exercisable.",
+      "oa:interestType": [
+        {
+          "@id": "oa:appointmentOfBoard"
+        },
+        {
+          "@id": "oa:conditionalRightsGrantedByContract"
+        }
+      ],
+      "oa:level": {
+        "@id": "oa:joint"
+      },
+      "oa:powerState": {
+        "@id": "oa:contingent"
+      },
+      "rdfs:label": "Conditional power to appoint two of three directors"
+    },
+    {
+      "@id": "urn:example:ownership:sanna",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1985-01-30"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:sanna-address"
+      },
+      "ebwv:familyName": "Aalto",
+      "ebwv:givenName": "Sanna",
+      "rdfs:label": "Sanna Aalto"
+    },
+    {
+      "@id": "urn:example:ownership:sanna-aurora-shares",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:sanna-aurora-shares-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "70"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:aurora-machines"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:sanna"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:aurora-register"
+      },
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": {
+        "@id": "oa:shareholding"
+      },
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 700,
+      "rdfs:label": "70% direct shares"
+    },
+    {
+      "@id": "urn:example:ownership:aurora-agreement",
+      "@type": [
+        "oa:Evidence",
+        "ebwv:LegalInstrument"
+      ],
+      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\nClause 12: Kaisa may appoint two of three directors only after an uncured payment default and written consent of the lender. At assessment no default has occurred and no consent has been given. The clause conveys no share title or economic distribution rights.",
+      "dct:identifier": "DEMO-AURORA-AGREEMENT",
+      "oa:evidenceData": {
+        "@type": "xsd:base64Binary",
+        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkNsYXVzZSAxMjogS2Fpc2EgbWF5IGFwcG9pbnQgdHdvIG9mIHRocmVlIGRpcmVjdG9ycyBvbmx5IGFmdGVyIGFuIHVuY3VyZWQgcGF5bWVudCBkZWZhdWx0IGFuZCB3cml0dGVuIGNvbnNlbnQgb2YgdGhlIGxlbmRlci4gQXQgYXNzZXNzbWVudCBubyBkZWZhdWx0IGhhcyBvY2N1cnJlZCBhbmQgbm8gY29uc2VudCBoYXMgYmVlbiBnaXZlbi4gVGhlIGNsYXVzZSBjb252ZXlzIG5vIHNoYXJlIHRpdGxlIG9yIGVjb25vbWljIGRpc3RyaWJ1dGlvbiByaWdodHMu"
+      },
+      "oa:evidenceType": {
+        "@id": "oa:shareholderAgreement"
+      },
+      "rdfs:label": "Governance agreement · clause 12"
+    },
+    {
+      "@id": "urn:example:ownership:kaisa",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1977-02-18"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:kaisa-address"
+      },
+      "ebwv:familyName": "Ranta",
+      "ebwv:givenName": "Kaisa",
+      "rdfs:label": "Kaisa Ranta"
+    },
+    {
+      "@id": "urn:example:ownership:jari-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:kaisa-power-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:aurora-agreement"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:kaisa-appointment"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:kaisa"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:jari-aurora-shares",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:jari-aurora-shares-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "30"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:aurora-machines"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:jari"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:aurora-register"
+      },
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": {
+        "@id": "oa:shareholding"
+      },
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 300,
+      "rdfs:label": "30% direct shares"
+    },
+    {
+      "@id": "urn:example:ownership:aurora-machines-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:kaisa-appointment-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:appointment-condition",
+      "@type": "ebwv:RelationshipCondition",
+      "oa:assessedOn": {
+        "@type": "xsd:date",
+        "@value": "2026-10-05"
+      },
+      "oa:conditionSatisfied": false,
+      "oa:consentRequired": "Written consent of the lender",
+      "oa:trigger": "Uncured payment default under clause 12"
+    },
+    {
+      "@id": "urn:example:ownership:conditional-attestation",
+      "@type": [
+        "oa:OwnershipAttestation",
+        "ebwv:ElectronicAttestationOfAttributes",
+        "cred:VerifiableCredential"
+      ],
+      "cred:credentialSubject": {
+        "@id": "urn:example:ownership:aurora-machines"
+      },
+      "cred:issuer": {
+        "@id": "urn:example:ownership:aurora-machines"
+      },
+      "cred:validFrom": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-10-05T09:00:00+00:00"
+      },
+      "cred:validUntil": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-11-04T09:00:00+00:00"
+      },
+      "ebwv:attestationLegalCategory": {
+        "@id": "ebwv:EAA"
+      },
+      "oa:assessedOn": {
+        "@type": "xsd:date",
+        "@value": "2026-10-05"
+      },
+      "oa:contentStatus": {
+        "@id": "oa:fictionalUnsigned"
+      },
+      "oa:credentialType": "eu.we-build:ownership:1",
+      "oa:holderKeyReference": {
+        "@id": "urn:example:ownership:placeholder-public-key"
+      },
+      "oa:ownerRecord": [
+        {
+          "@id": "urn:example:ownership:sanna-record"
+        },
+        {
+          "@id": "urn:example:ownership:jari-record"
+        },
+        {
+          "@id": "urn:example:ownership:kaisa-power-record"
+        }
+      ],
+      "oa:status": {
+        "@id": "urn:example:ownership:conditional-attestation-status"
+      },
+      "rdfs:label": "Share ownership with a conditional governance power"
+    },
+    {
+      "@id": "urn:example:ownership:jari-aurora-shares-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    }
+  ]
+}

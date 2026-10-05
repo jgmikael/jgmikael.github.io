@@ -1,0 +1,146 @@
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:example:ownership:direct-attestation> a oa:OwnershipAttestation,
+        ebwv:ElectronicAttestationOfAttributes,
+        cred:VerifiableCredential ;
+    rdfs:label "Direct share ownership" ;
+    oa:assessedOn "2026-10-05"^^xsd:date ;
+    oa:contentStatus oa:fictionalUnsigned ;
+    oa:credentialType "eu.we-build:ownership:1" ;
+    oa:holderKeyReference <urn:example:ownership:placeholder-public-key> ;
+    oa:ownerRecord <urn:example:ownership:aino-direct-record>,
+        <urn:example:ownership:mikko-direct-record> ;
+    oa:status <urn:example:ownership:direct-attestation-status> ;
+    ebwv:attestationLegalCategory ebwv:EAA ;
+    cred:credentialSubject <urn:example:ownership:northstar> ;
+    cred:issuer <urn:example:ownership:northstar> ;
+    cred:validFrom "2026-10-05T09:00:00+00:00"^^xsd:dateTime ;
+    cred:validUntil "2026-11-04T09:00:00+00:00"^^xsd:dateTime .
+
+<urn:example:ownership:aino-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:aino-direct> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "60% ordinary shares" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding,
+        oa:votingRights ;
+    oa:level oa:direct ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 600 ;
+    ebwv:effectivePeriod <urn:example:ownership:aino-direct-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:ownershipPercentage 60.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:northstar> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:aino> ;
+    ebwv:supportedBy <urn:example:ownership:northstar-register> ;
+    ebwv:votingRightsPercentage 60.0 .
+
+<urn:example:ownership:aino-direct-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:aino-direct-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2026-09-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:northstar-register> ;
+    oa:interest <urn:example:ownership:aino-direct> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Person" ;
+    oa:party <urn:example:ownership:aino> .
+
+<urn:example:ownership:direct-attestation-status> a oa:StatusReference ;
+    oa:statusIndex 0 ;
+    oa:statusList <https://issuer.example/status/demo> ;
+    oa:statusPurpose "revocation" .
+
+<urn:example:ownership:mikko-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:mikko-direct> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "40% ordinary shares" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding,
+        oa:votingRights ;
+    oa:level oa:direct ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 400 ;
+    ebwv:effectivePeriod <urn:example:ownership:mikko-direct-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:ownershipPercentage 40.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:northstar> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:mikko> ;
+    ebwv:supportedBy <urn:example:ownership:northstar-register> ;
+    ebwv:votingRightsPercentage 40.0 .
+
+<urn:example:ownership:mikko-direct-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:mikko-direct-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2026-09-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:northstar-register> ;
+    oa:interest <urn:example:ownership:mikko-direct> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Person" ;
+    oa:party <urn:example:ownership:mikko> .
+
+<urn:example:ownership:northstar-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:aino> a ebwv:NaturalPerson ;
+    rdfs:label "Aino Kallio" ;
+    ebwv:dateOfBirth "1984-04-12"^^xsd:date ;
+    ebwv:domicile <urn:example:ownership:aino-address> ;
+    ebwv:familyName "Kallio" ;
+    ebwv:givenName "Aino" .
+
+<urn:example:ownership:mikko> a ebwv:NaturalPerson ;
+    rdfs:label "Mikko Laine" ;
+    ebwv:dateOfBirth "1980-11-08"^^xsd:date ;
+    ebwv:domicile <urn:example:ownership:mikko-address> ;
+    ebwv:familyName "Laine" ;
+    ebwv:givenName "Mikko" .
+
+<urn:example:ownership:northstar> a ebwv:Company,
+        ebwv:EconomicOperator,
+        ebwv:LegalPerson ;
+    rdfs:label "Northstar Workshop Oy" ;
+    oa:entityForm oa:private_company ;
+    ebwv:identifier "DEMO-NORTHSTAR" ;
+    ebwv:jurisdiction "FI"^^ebwv:CountryCode ;
+    ebwv:legalForm "Private limited company" ;
+    ebwv:legalIdentifier "FI.DEMO.NORTHSTAR"^^ebwv:Euid ;
+    ebwv:legalName "Northstar Workshop Oy" ;
+    ebwv:registeredAddress <urn:example:ownership:northstar-address> .
+
+<urn:example:ownership:northstar-register> a oa:Evidence ;
+    rdfs:label "Shareholder register — Northstar" ;
+    dct:description """FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.
+
+As at 5 October 2026: 1,000 ordinary shares issued. Aino Kallio holds 600; Mikko Laine holds 400. One vote and equal economic rights per share.""" ;
+    dct:identifier "DEMO-NORTHSTAR-REGISTER" ;
+    oa:evidenceData "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkFzIGF0IDUgT2N0b2JlciAyMDI2OiAxLDAwMCBvcmRpbmFyeSBzaGFyZXMgaXNzdWVkLiBBaW5vIEthbGxpbyBob2xkcyA2MDA7IE1pa2tvIExhaW5lIGhvbGRzIDQwMC4gT25lIHZvdGUgYW5kIGVxdWFsIGVjb25vbWljIHJpZ2h0cyBwZXIgc2hhcmUu"^^xsd:base64Binary ;
+    oa:evidenceType oa:officialRegister .
+

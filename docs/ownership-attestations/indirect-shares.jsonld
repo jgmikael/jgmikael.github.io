@@ -1,0 +1,681 @@
+{
+  "@context": {
+    "cred": "https://www.w3.org/2018/credentials#",
+    "dct": "http://purl.org/dc/terms/",
+    "ebwv": "https://w3id.org/ebwv#",
+    "oa": "https://jgmikael.github.io/docs/ownership-attestations/profile#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:example:ownership:aino-to-holding",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:aino-to-holding-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "50"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:kallio-holding"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:aino"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:holding-register"
+      },
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": {
+        "@id": "oa:shareholding"
+      },
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 50,
+      "rdfs:label": "50% of the holding company"
+    },
+    {
+      "@id": "urn:example:ownership:holding-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:baltic-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:holding-to-baltic"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Entity",
+      "oa:party": {
+        "@id": "urn:example:ownership:kallio-holding"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:aino-indirect-baltic-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:leena",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1978-09-21"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:leena-address"
+      },
+      "ebwv:familyName": "Salo",
+      "ebwv:givenName": "Leena",
+      "rdfs:label": "Leena Salo"
+    },
+    {
+      "@id": "urn:example:ownership:kallio-holding-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:aino-indirect-baltic",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:aino-indirect-baltic-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:hasRelationshipPath": {
+        "@list": [
+          {
+            "@id": "urn:example:ownership:aino-to-holding"
+          },
+          {
+            "@id": "urn:example:ownership:holding-to-baltic"
+          }
+        ]
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "30"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:baltic-parts"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:economicEntitlement"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:aino"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:holding-register"
+      },
+      "oa:calculation": "50% × 60% = 30%",
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": {
+        "@id": "oa:shareholding"
+      },
+      "oa:level": {
+        "@id": "oa:indirect"
+      },
+      "oa:quantityMeaning": "Equivalent economic units: 50% × 600 shares. Not 300 registered shares in the person’s name.",
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 300,
+      "rdfs:label": "30% indirect economic ownership"
+    },
+    {
+      "@id": "urn:example:ownership:baltic-parts-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:omar-to-holding",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:omar-to-holding-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "50"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:kallio-holding"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:omar"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:holding-register"
+      },
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": {
+        "@id": "oa:shareholding"
+      },
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 50,
+      "rdfs:label": "50% of the holding company"
+    },
+    {
+      "@id": "urn:example:ownership:omar-indirect-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:holding-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:omar-indirect-baltic"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:omar"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:omar-to-holding-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:omar",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1987-03-02"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:omar-address"
+      },
+      "ebwv:familyName": "Niemi",
+      "ebwv:givenName": "Omar",
+      "rdfs:label": "Omar Niemi"
+    },
+    {
+      "@id": "urn:example:ownership:baltic-register",
+      "@type": "oa:Evidence",
+      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\nBaltic Parts Oy has 1,000 ordinary shares. Kallio Holding Oy owns 600 and Leena Salo owns 400.",
+      "dct:identifier": "DEMO-BALTIC-REGISTER",
+      "oa:evidenceData": {
+        "@type": "xsd:base64Binary",
+        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkJhbHRpYyBQYXJ0cyBPeSBoYXMgMSwwMDAgb3JkaW5hcnkgc2hhcmVzLiBLYWxsaW8gSG9sZGluZyBPeSBvd25zIDYwMCBhbmQgTGVlbmEgU2FsbyBvd25zIDQwMC4="
+      },
+      "oa:evidenceType": {
+        "@id": "oa:officialRegister"
+      },
+      "rdfs:label": "Shareholder register — Baltic Parts"
+    },
+    {
+      "@id": "urn:example:ownership:kallio-holding",
+      "@type": [
+        "ebwv:LegalPerson",
+        "ebwv:Company",
+        "ebwv:EconomicOperator"
+      ],
+      "ebwv:identifier": "DEMO-KALLIO-HOLDING",
+      "ebwv:jurisdiction": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:legalForm": "Private limited company",
+      "ebwv:legalIdentifier": {
+        "@type": "ebwv:Euid",
+        "@value": "FI.DEMO.KALLIO-HOLDING"
+      },
+      "ebwv:legalName": "Kallio Holding Oy",
+      "ebwv:registeredAddress": {
+        "@id": "urn:example:ownership:kallio-holding-address"
+      },
+      "oa:entityForm": {
+        "@id": "oa:private_company"
+      },
+      "rdfs:label": "Kallio Holding Oy"
+    },
+    {
+      "@id": "urn:example:ownership:omar-indirect-baltic",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:omar-indirect-baltic-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:hasRelationshipPath": {
+        "@list": [
+          {
+            "@id": "urn:example:ownership:omar-to-holding"
+          },
+          {
+            "@id": "urn:example:ownership:holding-to-baltic"
+          }
+        ]
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "30"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:baltic-parts"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:economicEntitlement"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:omar"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:holding-register"
+      },
+      "oa:calculation": "50% × 60% = 30%",
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": {
+        "@id": "oa:shareholding"
+      },
+      "oa:level": {
+        "@id": "oa:indirect"
+      },
+      "oa:quantityMeaning": "Equivalent economic units: 50% × 600 shares. Not 300 registered shares in the person’s name.",
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 300,
+      "rdfs:label": "30% indirect economic ownership"
+    },
+    {
+      "@id": "urn:example:ownership:omar-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:indirect-attestation-status",
+      "@type": "oa:StatusReference",
+      "oa:statusIndex": 0,
+      "oa:statusList": {
+        "@id": "https://issuer.example/status/demo"
+      },
+      "oa:statusPurpose": "revocation"
+    },
+    {
+      "@id": "urn:example:ownership:baltic-parts",
+      "@type": [
+        "ebwv:LegalPerson",
+        "ebwv:Company",
+        "ebwv:EconomicOperator"
+      ],
+      "ebwv:identifier": "DEMO-BALTIC-PARTS",
+      "ebwv:jurisdiction": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:legalForm": "Private limited company",
+      "ebwv:legalIdentifier": {
+        "@type": "ebwv:Euid",
+        "@value": "FI.DEMO.BALTIC-PARTS"
+      },
+      "ebwv:legalName": "Baltic Parts Oy",
+      "ebwv:registeredAddress": {
+        "@id": "urn:example:ownership:baltic-parts-address"
+      },
+      "oa:entityForm": {
+        "@id": "oa:private_company"
+      },
+      "rdfs:label": "Baltic Parts Oy"
+    },
+    {
+      "@id": "urn:example:ownership:leena-to-baltic-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:omar-indirect-baltic-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:leena-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:baltic-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:leena-to-baltic"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:leena"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:aino-indirect-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:holding-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:aino-indirect-baltic"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:aino"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:leena-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:aino-to-holding-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:holding-to-baltic",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:holding-to-baltic-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "60"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:baltic-parts"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:kallio-holding"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:baltic-register"
+      },
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": {
+        "@id": "oa:shareholding"
+      },
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 600,
+      "rdfs:label": "60% direct shares"
+    },
+    {
+      "@id": "urn:example:ownership:leena-to-baltic",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:leena-to-baltic-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "40"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:baltic-parts"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:leena"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:baltic-register"
+      },
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": {
+        "@id": "oa:shareholding"
+      },
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 400,
+      "rdfs:label": "40% direct shares"
+    },
+    {
+      "@id": "urn:example:ownership:indirect-attestation",
+      "@type": [
+        "oa:OwnershipAttestation",
+        "ebwv:ElectronicAttestationOfAttributes",
+        "cred:VerifiableCredential"
+      ],
+      "cred:credentialSubject": {
+        "@id": "urn:example:ownership:baltic-parts"
+      },
+      "cred:issuer": {
+        "@id": "urn:example:ownership:baltic-parts"
+      },
+      "cred:validFrom": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-10-05T09:00:00+00:00"
+      },
+      "cred:validUntil": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-11-04T09:00:00+00:00"
+      },
+      "ebwv:attestationLegalCategory": {
+        "@id": "ebwv:EAA"
+      },
+      "oa:assessedOn": {
+        "@type": "xsd:date",
+        "@value": "2026-10-05"
+      },
+      "oa:contentStatus": {
+        "@id": "oa:fictionalUnsigned"
+      },
+      "oa:credentialType": "eu.we-build:ownership:1",
+      "oa:holderKeyReference": {
+        "@id": "urn:example:ownership:placeholder-public-key"
+      },
+      "oa:ownerRecord": [
+        {
+          "@id": "urn:example:ownership:holding-record"
+        },
+        {
+          "@id": "urn:example:ownership:leena-record"
+        },
+        {
+          "@id": "urn:example:ownership:aino-indirect-record"
+        },
+        {
+          "@id": "urn:example:ownership:omar-indirect-record"
+        }
+      ],
+      "oa:status": {
+        "@id": "urn:example:ownership:indirect-attestation-status"
+      },
+      "rdfs:label": "Direct and indirect share ownership"
+    },
+    {
+      "@id": "urn:example:ownership:holding-register",
+      "@type": "oa:Evidence",
+      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\nKallio Holding Oy has 100 ordinary shares. Aino Kallio owns 50 and Omar Niemi owns 50. Equal economic rights; no other intermediate entities.",
+      "dct:identifier": "DEMO-HOLDING-REGISTER",
+      "oa:evidenceData": {
+        "@type": "xsd:base64Binary",
+        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkthbGxpbyBIb2xkaW5nIE95IGhhcyAxMDAgb3JkaW5hcnkgc2hhcmVzLiBBaW5vIEthbGxpbyBvd25zIDUwIGFuZCBPbWFyIE5pZW1pIG93bnMgNTAuIEVxdWFsIGVjb25vbWljIHJpZ2h0czsgbm8gb3RoZXIgaW50ZXJtZWRpYXRlIGVudGl0aWVzLg=="
+      },
+      "oa:evidenceType": {
+        "@id": "oa:officialRegister"
+      },
+      "rdfs:label": "Shareholder register — Kallio Holding"
+    },
+    {
+      "@id": "urn:example:ownership:holding-to-baltic-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:aino",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1984-04-12"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:aino-address"
+      },
+      "ebwv:familyName": "Kallio",
+      "ebwv:givenName": "Aino",
+      "rdfs:label": "Aino Kallio"
+    },
+    {
+      "@id": "urn:example:ownership:aino-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    }
+  ]
+}

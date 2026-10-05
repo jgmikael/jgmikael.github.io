@@ -1,0 +1,308 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+oa:Evidence a rdfs:Class .
+
+oa:OwnerRecord a rdfs:Class .
+
+oa:OwnershipAttestation a rdfs:Class .
+
+oa:StatusReference a rdfs:Class .
+
+oa:administrationAddress a rdf:Property .
+
+oa:alone a skos:Concept ;
+    rdfs:label "alone" ;
+    skos:inScheme oa:ExerciseMode .
+
+oa:appointmentOfBoard a skos:Concept ;
+    rdfs:label "appointmentOfBoard" ;
+    skos:inScheme oa:InterestType .
+
+oa:appointmentPower a skos:Concept ;
+    rdfs:label "appointmentPower" ;
+    skos:inScheme oa:RelationshipType .
+
+oa:arrangementForm a rdf:Property .
+
+oa:arrangementJurisdiction a rdf:Property .
+
+oa:articlesOfAssociation a skos:Concept ;
+    rdfs:label "articlesOfAssociation" ;
+    skos:inScheme oa:EvidenceType .
+
+oa:assessedOn a rdf:Property .
+
+oa:beneficiaryOfLegalArrangement a skos:Concept ;
+    rdfs:label "beneficiaryOfLegalArrangement" ;
+    skos:inScheme oa:InterestType .
+
+oa:calculation a rdf:Property .
+
+oa:capacityNote a rdf:Property .
+
+oa:conditionSatisfied a rdf:Property .
+
+oa:conditionalRightsGrantedByContract a skos:Concept ;
+    rdfs:label "conditionalRightsGrantedByContract" ;
+    skos:inScheme oa:InterestType .
+
+oa:consentRequired a rdf:Property .
+
+oa:contentStatus a rdf:Property .
+
+oa:contingent a skos:Concept ;
+    rdfs:label "contingent" ;
+    skos:inScheme oa:PowerState .
+
+oa:controlByLegalFramework a skos:Concept ;
+    rdfs:label "controlByLegalFramework" ;
+    skos:inScheme oa:InterestType .
+
+oa:controlViaCompanyRulesOrArticles a skos:Concept ;
+    rdfs:label "controlViaCompanyRulesOrArticles" ;
+    skos:inScheme oa:InterestType .
+
+oa:cooperative a skos:Concept ;
+    rdfs:label "cooperative" ;
+    skos:inScheme oa:EntityForm .
+
+oa:credentialType a rdf:Property .
+
+oa:direct a skos:Concept ;
+    rdfs:label "direct" ;
+    skos:inScheme oa:Level .
+
+oa:dividend_rights a skos:Concept ;
+    rdfs:label "dividend_rights" ;
+    skos:inScheme oa:EconomicRight .
+
+oa:dual-class a skos:Concept ;
+    rdfs:label "dual-class" ;
+    skos:inScheme oa:ShareClass .
+
+oa:economicBeneficiary a skos:Concept ;
+    rdfs:label "economicBeneficiary" ;
+    skos:inScheme oa:InterestType .
+
+oa:economicEntitlement a skos:Concept ;
+    rdfs:label "economicEntitlement" ;
+    skos:inScheme oa:RelationshipType .
+
+oa:economicRight a rdf:Property .
+
+oa:effectiveDate a rdf:Property .
+
+oa:entityForm a rdf:Property .
+
+oa:evidence a rdf:Property .
+
+oa:evidenceData a rdf:Property .
+
+oa:evidenceType a rdf:Property .
+
+oa:evidenceUrl a rdf:Property .
+
+oa:exercisable a skos:Concept ;
+    rdfs:label "exercisable" ;
+    skos:inScheme oa:PowerState .
+
+oa:expressTrust a skos:Concept ;
+    rdfs:label "expressTrust" ;
+    skos:inScheme oa:ArrangementType .
+
+oa:fictionalUnsigned a skos:Concept ;
+    rdfs:label "fictionalUnsigned" ;
+    skos:inScheme oa:ContentStatus .
+
+oa:foundation a skos:Concept ;
+    rdfs:label "foundation" ;
+    skos:inScheme oa:EntityForm .
+
+oa:governanceChart a skos:Concept ;
+    rdfs:label "governanceChart" ;
+    skos:inScheme oa:EvidenceType .
+
+oa:holderKeyReference a rdf:Property .
+
+oa:indirect a skos:Concept ;
+    rdfs:label "indirect" ;
+    skos:inScheme oa:Level .
+
+oa:interest a rdf:Property .
+
+oa:interestType a rdf:Property .
+
+oa:joint a skos:Concept ;
+    rdfs:label "joint" ;
+    skos:inScheme oa:Level .
+
+oa:jointly a skos:Concept ;
+    rdfs:label "jointly" ;
+    skos:inScheme oa:ExerciseMode .
+
+oa:legalTitle a skos:Concept ;
+    rdfs:label "legalTitle" ;
+    skos:inScheme oa:RelationshipType .
+
+oa:level a rdf:Property .
+
+oa:limited_partnership a skos:Concept ;
+    rdfs:label "limited_partnership" ;
+    skos:inScheme oa:EntityForm .
+
+oa:liquidation_rights a skos:Concept ;
+    rdfs:label "liquidation_rights" ;
+    skos:inScheme oa:EconomicRight .
+
+oa:nomineeShareholding a skos:Concept ;
+    rdfs:label "nomineeShareholding" ;
+    skos:inScheme oa:InterestType .
+
+oa:officialRegister a skos:Concept ;
+    rdfs:label "officialRegister" ;
+    skos:inScheme oa:EvidenceType .
+
+oa:ordinary a skos:Concept ;
+    rdfs:label "ordinary" ;
+    skos:inScheme oa:ShareClass .
+
+oa:other a skos:Concept ;
+    rdfs:label "other" ;
+    skos:inScheme oa:EntityForm,
+        oa:ShareClass .
+
+oa:otherInfluenceOrControl a skos:Concept ;
+    rdfs:label "otherInfluenceOrControl" ;
+    skos:inScheme oa:InterestType .
+
+oa:ownerJurisdiction a rdf:Property .
+
+oa:ownerRecord a rdf:Property .
+
+oa:ownerType a rdf:Property .
+
+oa:ownershipProfile a rdfs:Resource ;
+    dct:source <https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/5c9ace01b674ca302f1dd5cc03e58b54c6dd32b5/rulebooks/rb-ownership/README.md> .
+
+oa:partnership a skos:Concept ;
+    rdfs:label "partnership" ;
+    skos:inScheme oa:EntityForm .
+
+oa:party a rdf:Property .
+
+oa:powerState a rdf:Property .
+
+oa:preferred a skos:Concept ;
+    rdfs:label "preferred" ;
+    skos:inScheme oa:ShareClass .
+
+oa:private_company a skos:Concept ;
+    rdfs:label "private_company" ;
+    skos:inScheme oa:EntityForm .
+
+oa:protector a skos:Concept ;
+    rdfs:label "protector" ;
+    skos:inScheme oa:InterestType .
+
+oa:public_company a skos:Concept ;
+    rdfs:label "public_company" ;
+    skos:inScheme oa:EntityForm .
+
+oa:quantityMeaning a rdf:Property .
+
+oa:rightsGrantedByContract a skos:Concept ;
+    rdfs:label "rightsGrantedByContract" ;
+    skos:inScheme oa:InterestType .
+
+oa:selfDeclaration a skos:Concept ;
+    rdfs:label "selfDeclaration" ;
+    skos:inScheme oa:EvidenceType .
+
+oa:seniorManagingOfficial a skos:Concept ;
+    rdfs:label "seniorManagingOfficial" ;
+    skos:inScheme oa:InterestType .
+
+oa:settlor a skos:Concept ;
+    rdfs:label "settlor" ;
+    skos:inScheme oa:InterestType .
+
+oa:shareClass a rdf:Property .
+
+oa:shareQuantity a rdf:Property .
+
+oa:shareholderAgreement a skos:Concept ;
+    rdfs:label "shareholderAgreement" ;
+    skos:inScheme oa:EvidenceType .
+
+oa:shareholding a skos:Concept ;
+    rdfs:label "shareholding" ;
+    skos:inScheme oa:InterestType .
+
+oa:state_owned_enterprise a skos:Concept ;
+    rdfs:label "state_owned_enterprise" ;
+    skos:inScheme oa:EntityForm .
+
+oa:status a rdf:Property .
+
+oa:statusIndex a rdf:Property .
+
+oa:statusList a rdf:Property .
+
+oa:statusPurpose a rdf:Property .
+
+oa:subjectToConsent a skos:Concept ;
+    rdfs:label "subjectToConsent" ;
+    skos:inScheme oa:ExerciseMode .
+
+oa:thirdPartyVerification a skos:Concept ;
+    rdfs:label "thirdPartyVerification" ;
+    skos:inScheme oa:EvidenceType .
+
+oa:trigger a rdf:Property .
+
+oa:trust a skos:Concept ;
+    rdfs:label "trust" ;
+    skos:inScheme oa:EntityForm .
+
+oa:trustDeed a skos:Concept ;
+    rdfs:label "trustDeed" ;
+    skos:inScheme oa:EvidenceType .
+
+oa:trustee a skos:Concept ;
+    rdfs:label "trustee" ;
+    skos:inScheme oa:InterestType .
+
+oa:unknown a skos:Concept ;
+    rdfs:label "unknown" ;
+    skos:inScheme oa:Level .
+
+oa:votingRights a skos:Concept ;
+    rdfs:label "votingRights" ;
+    skos:inScheme oa:InterestType .
+
+oa:ArrangementType a skos:ConceptScheme .
+
+oa:ContentStatus a skos:ConceptScheme .
+
+oa:EconomicRight a skos:ConceptScheme .
+
+oa:PowerState a skos:ConceptScheme .
+
+oa:ExerciseMode a skos:ConceptScheme .
+
+oa:RelationshipType a skos:ConceptScheme .
+
+oa:Level a skos:ConceptScheme .
+
+oa:ShareClass a skos:ConceptScheme .
+
+oa:EvidenceType a skos:ConceptScheme .
+
+oa:EntityForm a skos:ConceptScheme .
+
+oa:InterestType a skos:ConceptScheme .
+

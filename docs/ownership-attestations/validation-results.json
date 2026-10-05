@@ -1,0 +1,136 @@
+{
+  "engine": "pySHACL",
+  "inference": "none",
+  "examples": [
+    {
+      "example": "direct-shares",
+      "laocProfile": {
+        "conforms": true,
+        "results": []
+      },
+      "strictRulebookProjection": {
+        "conforms": true,
+        "results": []
+      }
+    },
+    {
+      "example": "indirect-shares",
+      "laocProfile": {
+        "conforms": true,
+        "results": []
+      },
+      "strictRulebookProjection": {
+        "conforms": true,
+        "results": [
+          {
+            "severity": "Warning",
+            "focus": "urn:example:ownership:indirect-attestation",
+            "message": "IR-19 (SHOULD): summing all owner percentages exceeds 100%; this may double-count direct and indirect levels",
+            "path": ""
+          }
+        ]
+      }
+    },
+    {
+      "example": "trust-arrangement",
+      "laocProfile": {
+        "conforms": true,
+        "results": []
+      },
+      "strictRulebookProjection": {
+        "conforms": false,
+        "results": [
+          {
+            "severity": "Violation",
+            "focus": "urn:example:ownership:elina-trust-benefit",
+            "message": "IR-09: Rulebook requires an ownership percentage for every interest",
+            "path": "https://w3id.org/ebwv#ownershipPercentage"
+          },
+          {
+            "severity": "Violation",
+            "focus": "urn:example:ownership:elina-trust-benefit",
+            "message": "IR-10: Rulebook requires a quantity for every interest",
+            "path": "https://jgmikael.github.io/docs/ownership-attestations/profile#shareQuantity"
+          }
+        ]
+      }
+    },
+    {
+      "example": "conditional-control",
+      "laocProfile": {
+        "conforms": true,
+        "results": []
+      },
+      "strictRulebookProjection": {
+        "conforms": false,
+        "results": [
+          {
+            "severity": "Violation",
+            "focus": "urn:example:ownership:kaisa-appointment",
+            "message": "IR-09: Rulebook requires an ownership percentage for every interest",
+            "path": "https://w3id.org/ebwv#ownershipPercentage"
+          },
+          {
+            "severity": "Violation",
+            "focus": "urn:example:ownership:kaisa-appointment",
+            "message": "IR-10: Rulebook requires a quantity for every interest",
+            "path": "https://jgmikael.github.io/docs/ownership-attestations/profile#shareQuantity"
+          },
+          {
+            "severity": "Violation",
+            "focus": "urn:example:ownership:kaisa-appointment",
+            "message": "IR-11: Rulebook requires an economic right for every interest",
+            "path": "https://jgmikael.github.io/docs/ownership-attestations/profile#economicRight"
+          }
+        ]
+      }
+    }
+  ],
+  "negativeChecks": [
+    {
+      "test": "Missing owner evidence",
+      "rejected": true,
+      "messages": [
+        "IR-01: at least one owner record",
+        "IR-13: evidence required"
+      ]
+    },
+    {
+      "test": "Ownership percentage above 100",
+      "rejected": true,
+      "messages": [
+        "Direct shareholding percentages exceed 100%; do not add indirect or economic-entitlement records.",
+        "Value is not <= Literal(\"100\", datatype=xsd:integer)"
+      ]
+    },
+    {
+      "test": "Broken intermediary in indirect path",
+      "rejected": true,
+      "messages": [
+        "Adjacent path relationships must connect through the same intermediary.",
+        "Node <urn:example:ownership:leena> must conform to one or more shapes in [ sh:class ebwv:Asset ] , [ sh:class ebwv:LegalPerson ] , [ sh:class ebwv:EconomicOperator ] , [ sh:class ebwv:LegalArrangement ]"
+      ]
+    },
+    {
+      "test": "Missing trust deed",
+      "rejected": true,
+      "messages": [
+        "IR-05: settlement instrument"
+      ]
+    },
+    {
+      "test": "Incorrect party for trustee capacity",
+      "rejected": true,
+      "messages": [
+        "Supporting participation must name the right holder and belong to its establishing arrangement."
+      ]
+    },
+    {
+      "test": "Contingent power with satisfied conditions",
+      "rejected": true,
+      "messages": [
+        "Contingent power cannot be marked as having satisfied conditions."
+      ]
+    }
+  ]
+}

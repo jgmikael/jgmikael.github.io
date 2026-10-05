@@ -1,0 +1,339 @@
+{
+  "@context": {
+    "cred": "https://www.w3.org/2018/credentials#",
+    "dct": "http://purl.org/dc/terms/",
+    "ebwv": "https://w3id.org/ebwv#",
+    "oa": "https://jgmikael.github.io/docs/ownership-attestations/profile#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:example:ownership:mikko-direct-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:mikko-direct-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:northstar-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:mikko-direct"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:mikko"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:aino-direct-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:northstar-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:aino-direct"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:aino"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:direct-attestation-status",
+      "@type": "oa:StatusReference",
+      "oa:statusIndex": 0,
+      "oa:statusList": {
+        "@id": "https://issuer.example/status/demo"
+      },
+      "oa:statusPurpose": "revocation"
+    },
+    {
+      "@id": "urn:example:ownership:northstar-register",
+      "@type": "oa:Evidence",
+      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\nAs at 5 October 2026: 1,000 ordinary shares issued. Aino Kallio holds 600; Mikko Laine holds 400. One vote and equal economic rights per share.",
+      "dct:identifier": "DEMO-NORTHSTAR-REGISTER",
+      "oa:evidenceData": {
+        "@type": "xsd:base64Binary",
+        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkFzIGF0IDUgT2N0b2JlciAyMDI2OiAxLDAwMCBvcmRpbmFyeSBzaGFyZXMgaXNzdWVkLiBBaW5vIEthbGxpbyBob2xkcyA2MDA7IE1pa2tvIExhaW5lIGhvbGRzIDQwMC4gT25lIHZvdGUgYW5kIGVxdWFsIGVjb25vbWljIHJpZ2h0cyBwZXIgc2hhcmUu"
+      },
+      "oa:evidenceType": {
+        "@id": "oa:officialRegister"
+      },
+      "rdfs:label": "Shareholder register — Northstar"
+    },
+    {
+      "@id": "urn:example:ownership:mikko",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1980-11-08"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:mikko-address"
+      },
+      "ebwv:familyName": "Laine",
+      "ebwv:givenName": "Mikko",
+      "rdfs:label": "Mikko Laine"
+    },
+    {
+      "@id": "urn:example:ownership:mikko-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:direct-attestation",
+      "@type": [
+        "oa:OwnershipAttestation",
+        "ebwv:ElectronicAttestationOfAttributes",
+        "cred:VerifiableCredential"
+      ],
+      "cred:credentialSubject": {
+        "@id": "urn:example:ownership:northstar"
+      },
+      "cred:issuer": {
+        "@id": "urn:example:ownership:northstar"
+      },
+      "cred:validFrom": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-10-05T09:00:00+00:00"
+      },
+      "cred:validUntil": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-11-04T09:00:00+00:00"
+      },
+      "ebwv:attestationLegalCategory": {
+        "@id": "ebwv:EAA"
+      },
+      "oa:assessedOn": {
+        "@type": "xsd:date",
+        "@value": "2026-10-05"
+      },
+      "oa:contentStatus": {
+        "@id": "oa:fictionalUnsigned"
+      },
+      "oa:credentialType": "eu.we-build:ownership:1",
+      "oa:holderKeyReference": {
+        "@id": "urn:example:ownership:placeholder-public-key"
+      },
+      "oa:ownerRecord": [
+        {
+          "@id": "urn:example:ownership:aino-direct-record"
+        },
+        {
+          "@id": "urn:example:ownership:mikko-direct-record"
+        }
+      ],
+      "oa:status": {
+        "@id": "urn:example:ownership:direct-attestation-status"
+      },
+      "rdfs:label": "Direct share ownership"
+    },
+    {
+      "@id": "urn:example:ownership:aino",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1984-04-12"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:aino-address"
+      },
+      "ebwv:familyName": "Kallio",
+      "ebwv:givenName": "Aino",
+      "rdfs:label": "Aino Kallio"
+    },
+    {
+      "@id": "urn:example:ownership:northstar-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:aino-direct-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:mikko-direct",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:mikko-direct-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "40"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:northstar"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:mikko"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:northstar-register"
+      },
+      "ebwv:votingRightsPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "40"
+      },
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": [
+        {
+          "@id": "oa:shareholding"
+        },
+        {
+          "@id": "oa:votingRights"
+        }
+      ],
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 400,
+      "rdfs:label": "40% ordinary shares"
+    },
+    {
+      "@id": "urn:example:ownership:aino-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:northstar",
+      "@type": [
+        "ebwv:LegalPerson",
+        "ebwv:Company",
+        "ebwv:EconomicOperator"
+      ],
+      "ebwv:identifier": "DEMO-NORTHSTAR",
+      "ebwv:jurisdiction": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:legalForm": "Private limited company",
+      "ebwv:legalIdentifier": {
+        "@type": "ebwv:Euid",
+        "@value": "FI.DEMO.NORTHSTAR"
+      },
+      "ebwv:legalName": "Northstar Workshop Oy",
+      "ebwv:registeredAddress": {
+        "@id": "urn:example:ownership:northstar-address"
+      },
+      "oa:entityForm": {
+        "@id": "oa:private_company"
+      },
+      "rdfs:label": "Northstar Workshop Oy"
+    },
+    {
+      "@id": "urn:example:ownership:aino-direct",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:aino-direct-period"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:ownershipPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "60"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:northstar"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:aino"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:northstar-register"
+      },
+      "ebwv:votingRightsPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "60"
+      },
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": [
+        {
+          "@id": "oa:shareholding"
+        },
+        {
+          "@id": "oa:votingRights"
+        }
+      ],
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "oa:shareClass": {
+        "@id": "oa:ordinary"
+      },
+      "oa:shareQuantity": 600,
+      "rdfs:label": "60% ordinary shares"
+    }
+  ]
+}

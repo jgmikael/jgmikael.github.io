@@ -1,0 +1,287 @@
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:example:ownership:indirect-attestation> a oa:OwnershipAttestation,
+        ebwv:ElectronicAttestationOfAttributes,
+        cred:VerifiableCredential ;
+    rdfs:label "Direct and indirect share ownership" ;
+    oa:assessedOn "2026-10-05"^^xsd:date ;
+    oa:contentStatus oa:fictionalUnsigned ;
+    oa:credentialType "eu.we-build:ownership:1" ;
+    oa:holderKeyReference <urn:example:ownership:placeholder-public-key> ;
+    oa:ownerRecord <urn:example:ownership:aino-indirect-record>,
+        <urn:example:ownership:holding-record>,
+        <urn:example:ownership:leena-record>,
+        <urn:example:ownership:omar-indirect-record> ;
+    oa:status <urn:example:ownership:indirect-attestation-status> ;
+    ebwv:attestationLegalCategory ebwv:EAA ;
+    cred:credentialSubject <urn:example:ownership:baltic-parts> ;
+    cred:issuer <urn:example:ownership:baltic-parts> ;
+    cred:validFrom "2026-10-05T09:00:00+00:00"^^xsd:dateTime ;
+    cred:validUntil "2026-11-04T09:00:00+00:00"^^xsd:dateTime .
+
+<urn:example:ownership:aino-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:aino-indirect-baltic> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "30% indirect economic ownership" ;
+    oa:calculation "50% × 60% = 30%" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding ;
+    oa:level oa:indirect ;
+    oa:quantityMeaning "Equivalent economic units: 50% × 600 shares. Not 300 registered shares in the person’s name." ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 300 ;
+    ebwv:effectivePeriod <urn:example:ownership:aino-indirect-baltic-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:hasRelationshipPath ( <urn:example:ownership:aino-to-holding> <urn:example:ownership:holding-to-baltic> ) ;
+    ebwv:ownershipPercentage 30.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:baltic-parts> ;
+    ebwv:relationshipType oa:economicEntitlement ;
+    ebwv:rightHolder <urn:example:ownership:aino> ;
+    ebwv:supportedBy <urn:example:ownership:holding-register> .
+
+<urn:example:ownership:aino-indirect-baltic-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:aino-indirect-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2026-09-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:holding-register> ;
+    oa:interest <urn:example:ownership:aino-indirect-baltic> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Person" ;
+    oa:party <urn:example:ownership:aino> .
+
+<urn:example:ownership:aino-to-holding> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "50% of the holding company" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding ;
+    oa:level oa:direct ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 50 ;
+    ebwv:effectivePeriod <urn:example:ownership:aino-to-holding-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:ownershipPercentage 50.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:kallio-holding> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:aino> ;
+    ebwv:supportedBy <urn:example:ownership:holding-register> .
+
+<urn:example:ownership:aino-to-holding-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:baltic-parts-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:holding-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2026-09-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:baltic-register> ;
+    oa:interest <urn:example:ownership:holding-to-baltic> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Entity" ;
+    oa:party <urn:example:ownership:kallio-holding> .
+
+<urn:example:ownership:holding-to-baltic-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:indirect-attestation-status> a oa:StatusReference ;
+    oa:statusIndex 0 ;
+    oa:statusList <https://issuer.example/status/demo> ;
+    oa:statusPurpose "revocation" .
+
+<urn:example:ownership:kallio-holding-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:leena-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:leena-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2026-09-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:baltic-register> ;
+    oa:interest <urn:example:ownership:leena-to-baltic> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Person" ;
+    oa:party <urn:example:ownership:leena> .
+
+<urn:example:ownership:leena-to-baltic> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "40% direct shares" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding ;
+    oa:level oa:direct ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 400 ;
+    ebwv:effectivePeriod <urn:example:ownership:leena-to-baltic-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:ownershipPercentage 40.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:baltic-parts> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:leena> ;
+    ebwv:supportedBy <urn:example:ownership:baltic-register> .
+
+<urn:example:ownership:leena-to-baltic-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:omar-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:omar-indirect-baltic> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "30% indirect economic ownership" ;
+    oa:calculation "50% × 60% = 30%" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding ;
+    oa:level oa:indirect ;
+    oa:quantityMeaning "Equivalent economic units: 50% × 600 shares. Not 300 registered shares in the person’s name." ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 300 ;
+    ebwv:effectivePeriod <urn:example:ownership:omar-indirect-baltic-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:hasRelationshipPath ( <urn:example:ownership:omar-to-holding> <urn:example:ownership:holding-to-baltic> ) ;
+    ebwv:ownershipPercentage 30.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:baltic-parts> ;
+    ebwv:relationshipType oa:economicEntitlement ;
+    ebwv:rightHolder <urn:example:ownership:omar> ;
+    ebwv:supportedBy <urn:example:ownership:holding-register> .
+
+<urn:example:ownership:omar-indirect-baltic-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:omar-indirect-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2026-09-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:holding-register> ;
+    oa:interest <urn:example:ownership:omar-indirect-baltic> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Person" ;
+    oa:party <urn:example:ownership:omar> .
+
+<urn:example:ownership:omar-to-holding> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "50% of the holding company" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding ;
+    oa:level oa:direct ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 50 ;
+    ebwv:effectivePeriod <urn:example:ownership:omar-to-holding-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:ownershipPercentage 50.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:kallio-holding> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:omar> ;
+    ebwv:supportedBy <urn:example:ownership:holding-register> .
+
+<urn:example:ownership:omar-to-holding-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:leena> a ebwv:NaturalPerson ;
+    rdfs:label "Leena Salo" ;
+    ebwv:dateOfBirth "1978-09-21"^^xsd:date ;
+    ebwv:domicile <urn:example:ownership:leena-address> ;
+    ebwv:familyName "Salo" ;
+    ebwv:givenName "Leena" .
+
+<urn:example:ownership:aino> a ebwv:NaturalPerson ;
+    rdfs:label "Aino Kallio" ;
+    ebwv:dateOfBirth "1984-04-12"^^xsd:date ;
+    ebwv:domicile <urn:example:ownership:aino-address> ;
+    ebwv:familyName "Kallio" ;
+    ebwv:givenName "Aino" .
+
+<urn:example:ownership:holding-to-baltic> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "60% direct shares" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding ;
+    oa:level oa:direct ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 600 ;
+    ebwv:effectivePeriod <urn:example:ownership:holding-to-baltic-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:ownershipPercentage 60.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:baltic-parts> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:kallio-holding> ;
+    ebwv:supportedBy <urn:example:ownership:baltic-register> .
+
+<urn:example:ownership:omar> a ebwv:NaturalPerson ;
+    rdfs:label "Omar Niemi" ;
+    ebwv:dateOfBirth "1987-03-02"^^xsd:date ;
+    ebwv:domicile <urn:example:ownership:omar-address> ;
+    ebwv:familyName "Niemi" ;
+    ebwv:givenName "Omar" .
+
+<urn:example:ownership:baltic-register> a oa:Evidence ;
+    rdfs:label "Shareholder register — Baltic Parts" ;
+    dct:description """FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.
+
+Baltic Parts Oy has 1,000 ordinary shares. Kallio Holding Oy owns 600 and Leena Salo owns 400.""" ;
+    dct:identifier "DEMO-BALTIC-REGISTER" ;
+    oa:evidenceData "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkJhbHRpYyBQYXJ0cyBPeSBoYXMgMSwwMDAgb3JkaW5hcnkgc2hhcmVzLiBLYWxsaW8gSG9sZGluZyBPeSBvd25zIDYwMCBhbmQgTGVlbmEgU2FsbyBvd25zIDQwMC4="^^xsd:base64Binary ;
+    oa:evidenceType oa:officialRegister .
+
+<urn:example:ownership:kallio-holding> a ebwv:Company,
+        ebwv:EconomicOperator,
+        ebwv:LegalPerson ;
+    rdfs:label "Kallio Holding Oy" ;
+    oa:entityForm oa:private_company ;
+    ebwv:identifier "DEMO-KALLIO-HOLDING" ;
+    ebwv:jurisdiction "FI"^^ebwv:CountryCode ;
+    ebwv:legalForm "Private limited company" ;
+    ebwv:legalIdentifier "FI.DEMO.KALLIO-HOLDING"^^ebwv:Euid ;
+    ebwv:legalName "Kallio Holding Oy" ;
+    ebwv:registeredAddress <urn:example:ownership:kallio-holding-address> .
+
+<urn:example:ownership:baltic-parts> a ebwv:Company,
+        ebwv:EconomicOperator,
+        ebwv:LegalPerson ;
+    rdfs:label "Baltic Parts Oy" ;
+    oa:entityForm oa:private_company ;
+    ebwv:identifier "DEMO-BALTIC-PARTS" ;
+    ebwv:jurisdiction "FI"^^ebwv:CountryCode ;
+    ebwv:legalForm "Private limited company" ;
+    ebwv:legalIdentifier "FI.DEMO.BALTIC-PARTS"^^ebwv:Euid ;
+    ebwv:legalName "Baltic Parts Oy" ;
+    ebwv:registeredAddress <urn:example:ownership:baltic-parts-address> .
+
+<urn:example:ownership:holding-register> a oa:Evidence ;
+    rdfs:label "Shareholder register — Kallio Holding" ;
+    dct:description """FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.
+
+Kallio Holding Oy has 100 ordinary shares. Aino Kallio owns 50 and Omar Niemi owns 50. Equal economic rights; no other intermediate entities.""" ;
+    dct:identifier "DEMO-HOLDING-REGISTER" ;
+    oa:evidenceData "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkthbGxpbyBIb2xkaW5nIE95IGhhcyAxMDAgb3JkaW5hcnkgc2hhcmVzLiBBaW5vIEthbGxpbyBvd25zIDUwIGFuZCBPbWFyIE5pZW1pIG93bnMgNTAuIEVxdWFsIGVjb25vbWljIHJpZ2h0czsgbm8gb3RoZXIgaW50ZXJtZWRpYXRlIGVudGl0aWVzLg=="^^xsd:base64Binary ;
+    oa:evidenceType oa:officialRegister .
+

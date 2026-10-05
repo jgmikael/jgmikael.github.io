@@ -1,0 +1,154 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+oa:AttestationShape a sh:NodeShape; sh:targetClass oa:OwnershipAttestation;
+ sh:property [ sh:path oa:ownerRecord; sh:minCount 1; sh:node oa:OwnerRecordShape; sh:message "IR-01: at least one owner record" ];
+ sh:property [ sh:path oa:ownerRecord; sh:qualifiedValueShape [ sh:property [ sh:path oa:ownerType; sh:hasValue "Person" ] ]; sh:qualifiedMinCount 1; sh:message "IR-02: at least one natural-person record (Rulebook design choice)" ];
+ sh:property [ sh:path cred:credentialSubject; sh:minCount 1; sh:maxCount 1; sh:class ebwv:LegalPerson ];
+ sh:property [ sh:path cred:issuer; sh:minCount 1; sh:maxCount 1; sh:class ebwv:EconomicOperator ];
+ sh:property [ sh:path ebwv:attestationLegalCategory; sh:hasValue ebwv:EAA; sh:maxCount 1 ];
+ sh:property [ sh:path cred:validFrom; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:dateTime ];
+ sh:property [ sh:path cred:validUntil; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:dateTime ];
+ sh:property [ sh:path oa:assessedOn; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:date ];
+ sh:property [ sh:path oa:holderKeyReference; sh:minCount 1; sh:maxCount 1; sh:nodeKind sh:IRI ];
+ sh:property [ sh:path oa:credentialType; sh:hasValue "eu.we-build:ownership:1"; sh:maxCount 1 ];
+ sh:property [ sh:path oa:status; sh:minCount 1; sh:maxCount 1; sh:node oa:StatusShape ];
+ sh:sparql [ sh:message "Credential validity must end after issuance."; sh:select """
+ PREFIX cred: <https://www.w3.org/2018/credentials#>
+ SELECT $this WHERE { $this cred:validFrom ?from; cred:validUntil ?until . FILTER (?until <= ?from) } """ ].
+oa:StatusShape a sh:NodeShape;
+ sh:property [ sh:path oa:statusList; sh:minCount 1; sh:maxCount 1; sh:nodeKind sh:IRI ];
+ sh:property [ sh:path oa:statusIndex; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:integer; sh:minInclusive 0 ];
+ sh:property [ sh:path oa:statusPurpose; sh:hasValue "revocation"; sh:maxCount 1 ].
+oa:OwnerRecordShape a sh:NodeShape; sh:targetClass oa:OwnerRecord;
+ sh:property [ sh:path oa:ownerType; sh:minCount 1; sh:maxCount 1; sh:in ("Person" "Entity") ];
+ sh:property [ sh:path oa:party; sh:minCount 1; sh:maxCount 1; sh:nodeKind sh:IRI ];
+ sh:xone (
+  [ sh:property [ sh:path oa:ownerType; sh:hasValue "Person" ]; sh:property [ sh:path oa:party; sh:class ebwv:NaturalPerson; sh:not [ sh:class ebwv:LegalPerson ]; sh:node oa:PersonShape ] ]
+  [ sh:property [ sh:path oa:ownerType; sh:hasValue "Entity" ]; sh:property [ sh:path oa:party; sh:not [ sh:class ebwv:NaturalPerson ]; sh:or ( [ sh:class ebwv:LegalPerson; sh:node oa:EntityShape ] [ sh:class ebwv:LegalArrangement; sh:node oa:ArrangementShape ] ) ] ]
+ );
+ sh:property [ sh:path oa:ownerJurisdiction; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:in ("FI" "GB"); sh:message "IR-18: demo country subset of ISO 3166-1 alpha-2" ];
+ sh:property [ sh:path oa:interest; sh:minCount 1; sh:class ebwv:OwnershipOrControlRelationship; sh:node oa:InterestShape ];
+ sh:property [ sh:path oa:effectiveDate; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:date; sh:message "IR-17/21: effective date" ];
+ sh:property [ sh:path oa:evidence; sh:minCount 1; sh:node oa:EvidenceShape; sh:message "IR-13: evidence required" ];
+ sh:sparql [ sh:message "The owner-record party must be the holder of every asserted interest."; sh:select """
+ PREFIX oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#>
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ SELECT $this WHERE { $this oa:party ?party; oa:interest ?r . ?r ebwv:rightHolder ?h . FILTER (?party != ?h) } """ ];
+ sh:sparql [ sh:message "Owner effective date and relationship start date must agree."; sh:select """
+ PREFIX oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#>
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ SELECT $this WHERE { $this oa:effectiveDate ?d; oa:interest ?r . ?r ebwv:effectivePeriod/ebwv:startDate ?s . FILTER (?d != ?s) } """ ].
+oa:PersonShape a sh:NodeShape;
+ sh:property [ sh:path ebwv:givenName; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:familyName; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:dateOfBirth; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:date ];
+ sh:property [ sh:path ebwv:domicile; sh:minCount 1; sh:maxCount 1; sh:class ebwv:Address; sh:node oa:AddressShape ].
+oa:EntityShape a sh:NodeShape;
+ sh:property [ sh:path ebwv:legalName; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:legalIdentifier; sh:minCount 1; sh:maxCount 1; sh:datatype ebwv:Euid; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:identifier; sh:minCount 1; sh:or ( [ sh:datatype xsd:string; sh:minLength 1 ] [ sh:datatype ebwv:Lei ] [ sh:datatype ebwv:Tin ] ) ];
+ sh:property [ sh:path ebwv:jurisdiction; sh:minCount 1; sh:maxCount 1; sh:datatype ebwv:CountryCode; sh:in ("FI"^^ebwv:CountryCode "GB"^^ebwv:CountryCode) ];
+ sh:property [ sh:path ebwv:legalForm; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:registeredAddress; sh:minCount 1; sh:maxCount 1; sh:node oa:AddressShape ].
+oa:ArrangementShape a sh:NodeShape; sh:targetClass ebwv:LegalArrangement;
+ sh:property [ sh:path rdfs:label; sh:minCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:constitutedBy; sh:minCount 1; sh:class ebwv:LegalInstrument; sh:node oa:EvidenceShape; sh:message "IR-05: settlement instrument" ];
+ sh:property [ sh:path dct:description; sh:minCount 1; sh:datatype xsd:string; sh:minLength 1; sh:message "IR-05: declared arrangement purpose" ];
+ sh:property [ sh:path ebwv:arrangementAsset; sh:minCount 1; sh:class ebwv:Asset; sh:message "IR-05: identified arrangement assets" ];
+ sh:property [ sh:path oa:arrangementJurisdiction; sh:minCount 1; sh:maxCount 1; sh:in ("FI" "GB") ];
+ sh:property [ sh:path oa:administrationAddress; sh:minCount 1; sh:node oa:AddressShape ];
+ sh:property [ sh:path ebwv:hasParticipation; sh:minCount 1; sh:class ebwv:ArrangementParticipation ].
+oa:EvidenceShape a sh:NodeShape; sh:targetClass oa:Evidence;
+ sh:property [ sh:path dct:identifier; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1; sh:message "IR-14: evidence identifier" ];
+ sh:property [ sh:path oa:evidenceData; sh:datatype xsd:base64Binary ];
+ sh:property [ sh:path oa:evidenceUrl; sh:nodeKind sh:IRI ];
+ sh:or ( [ sh:property [ sh:path oa:evidenceData; sh:minCount 1 ] ] [ sh:property [ sh:path oa:evidenceUrl; sh:minCount 1 ] ] ).
+oa:RelationshipShape a sh:NodeShape; sh:targetClass ebwv:OwnershipOrControlRelationship;
+ sh:property [ sh:path ebwv:rightHolder; sh:minCount 1; sh:maxCount 1; sh:or ( [ sh:class ebwv:NaturalPerson ] [ sh:class ebwv:LegalPerson ] [ sh:class ebwv:EconomicOperator ] ) ];
+ sh:property [ sh:path ebwv:relationshipTarget; sh:minCount 1; sh:maxCount 1; sh:or ( [ sh:class ebwv:Asset ] [ sh:class ebwv:LegalPerson ] [ sh:class ebwv:EconomicOperator ] [ sh:class ebwv:LegalArrangement ] ) ];
+ sh:property [ sh:path ebwv:effectivePeriod; sh:minCount 1; sh:maxCount 1; sh:node oa:PeriodShape ];
+ sh:property [ sh:path ebwv:supportedBy; sh:minCount 1; sh:node oa:EvidenceShape ];
+ sh:property [ sh:path ebwv:ownershipPercentage; sh:maxCount 1; sh:datatype xsd:decimal; sh:minInclusive 0; sh:maxInclusive 100 ];
+ sh:property [ sh:path ebwv:economicEntitlementPercentage; sh:maxCount 1; sh:datatype xsd:decimal; sh:minInclusive 0; sh:maxInclusive 100 ];
+ sh:property [ sh:path ebwv:votingRightsPercentage; sh:maxCount 1; sh:datatype xsd:decimal; sh:minInclusive 0; sh:maxInclusive 100 ];
+ sh:property [ sh:path ebwv:establishedUnder; sh:or ( [ sh:class ebwv:LegalArrangement ] [ sh:class ebwv:LegalInstrument ] ) ];
+ sh:property [ sh:path ebwv:supportingParticipation; sh:class ebwv:ArrangementParticipation ];
+ sh:property [ sh:path ebwv:conditions; sh:class ebwv:RelationshipCondition; sh:node oa:ConditionShape ];
+ sh:sparql [ sh:message "Indirect shareholding needs an ordered relationship path."; sh:select """
+ PREFIX oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#>
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ SELECT $this WHERE { $this oa:level oa:indirect; oa:interestType oa:shareholding . FILTER NOT EXISTS { $this ebwv:hasRelationshipPath ?p } } """ ];
+ sh:sparql [ sh:message "Each path member must be an OwnershipOrControlRelationship."; sh:select """
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ SELECT $this WHERE { $this ebwv:hasRelationshipPath/rdf:rest*/rdf:first ?r . FILTER NOT EXISTS { ?r a ebwv:OwnershipOrControlRelationship } } """ ];
+ sh:sparql [ sh:message "Indirect path must start at its holder and end at its target."; sh:select """
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ SELECT $this WHERE { $this ebwv:hasRelationshipPath ?p; ebwv:rightHolder ?h; ebwv:relationshipTarget ?t . ?p rdf:first/ebwv:rightHolder ?first . ?p rdf:rest* ?lastCell . ?lastCell rdf:rest rdf:nil; rdf:first/ebwv:relationshipTarget ?last . FILTER (?h != ?first || ?t != ?last) } """ ];
+ sh:sparql [ sh:message "Adjacent path relationships must connect through the same intermediary."; sh:select """
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ SELECT $this WHERE { $this ebwv:hasRelationshipPath/rdf:rest* ?cell . ?cell rdf:first/ebwv:relationshipTarget ?t; rdf:rest/rdf:first/ebwv:rightHolder ?h . FILTER (?t != ?h) } """ ];
+ sh:sparql [ sh:message "Supporting participation must name the right holder and belong to its establishing arrangement."; sh:select """
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ SELECT $this WHERE { $this ebwv:rightHolder ?h; ebwv:supportingParticipation ?p . FILTER NOT EXISTS { ?p ebwv:participatingParty ?h . $this ebwv:establishedUnder ?a . ?a ebwv:hasParticipation ?p } } """ ].
+oa:PeriodShape a sh:NodeShape;
+ sh:property [ sh:path ebwv:startDate; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:date ];
+ sh:property [ sh:path ebwv:endDate; sh:maxCount 1; sh:datatype xsd:date ];
+ sh:sparql [ sh:message "Period end precedes its start."; sh:select """
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ SELECT $this WHERE { $this ebwv:startDate ?s; ebwv:endDate ?e . FILTER (?e < ?s) } """ ].
+oa:ParticipationShape a sh:NodeShape; sh:targetClass ebwv:ArrangementParticipation;
+ sh:property [ sh:path ebwv:participatingParty; sh:minCount 1; sh:maxCount 1; sh:or ( [ sh:class ebwv:NaturalPerson ] [ sh:class ebwv:LegalPerson ] [ sh:class ebwv:EconomicOperator ] ) ];
+ sh:property [ sh:path ebwv:participationRole; sh:minCount 1; sh:maxCount 1; sh:in (oa:settlor oa:trustee oa:protector oa:beneficiaryOfLegalArrangement) ];
+ sh:property [ sh:path ebwv:effectivePeriod; sh:minCount 1; sh:node oa:PeriodShape ].
+oa:ConditionShape a sh:NodeShape; sh:targetClass ebwv:RelationshipCondition;
+ sh:property [ sh:path oa:trigger; sh:minCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path oa:consentRequired; sh:minCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path oa:conditionSatisfied; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:boolean ];
+ sh:property [ sh:path oa:assessedOn; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:date ].
+oa:AddressShape a sh:NodeShape;
+ sh:property [ sh:path ebwv:thoroughfare; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:locatorDesignator; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:postName; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:adminUnitL2; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:postCode; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path ebwv:adminUnitL1; sh:minCount 1; sh:maxCount 1; sh:datatype ebwv:CountryCode; sh:in ("FI"^^ebwv:CountryCode "GB"^^ebwv:CountryCode) ] .
+oa:InterestShape sh:property [ sh:path oa:interestType; sh:minCount 1; sh:in ( oa:shareholding oa:nomineeShareholding oa:votingRights oa:appointmentOfBoard oa:otherInfluenceOrControl oa:seniorManagingOfficial oa:settlor oa:trustee oa:protector oa:beneficiaryOfLegalArrangement oa:rightsGrantedByContract oa:conditionalRightsGrantedByContract oa:economicBeneficiary oa:controlViaCompanyRulesOrArticles oa:controlByLegalFramework ) ] .
+oa:InterestShape sh:property [ sh:path oa:level; sh:minCount 1; sh:in ( oa:direct oa:indirect oa:joint oa:unknown ) ] .
+oa:InterestShape sh:property [ sh:path oa:economicRight; sh:in ( oa:dividend_rights oa:liquidation_rights ) ] .
+oa:InterestShape sh:property [ sh:path oa:shareClass; sh:in ( oa:ordinary oa:preferred oa:dual-class oa:other ) ] .
+oa:EntityShape sh:property [ sh:path oa:entityForm; sh:minCount 1; sh:in ( oa:private_company oa:public_company oa:partnership oa:limited_partnership oa:trust oa:foundation oa:cooperative oa:state_owned_enterprise oa:other ) ] .
+oa:EvidenceShape sh:property [ sh:path oa:evidenceType; sh:minCount 1; sh:in ( oa:officialRegister oa:selfDeclaration oa:thirdPartyVerification oa:trustDeed oa:shareholderAgreement oa:articlesOfAssociation oa:governanceChart ) ] .
+oa:RelationshipShape sh:property [ sh:path ebwv:relationshipType; sh:minCount 1; sh:in ( oa:legalTitle oa:economicEntitlement oa:appointmentPower ) ] .
+oa:RelationshipShape sh:property [ sh:path ebwv:exerciseMode; sh:minCount 1; sh:in ( oa:alone oa:jointly oa:subjectToConsent ) ] .
+oa:ArrangementShape sh:property [ sh:path oa:arrangementForm; sh:minCount 1; sh:in ( oa:trust ) ] .
+oa:ArrangementShape sh:property [ sh:path ebwv:arrangementType; sh:minCount 1; sh:in ( oa:expressTrust ) ] .
+oa:InterestShape sh:property [ sh:path oa:shareQuantity; sh:maxCount 1; sh:datatype xsd:integer; sh:minInclusive 0 ] .
+
+oa:InterestShape sh:or (
+ [ sh:property [ sh:path oa:interestType; sh:hasValue oa:shareholding ]; sh:property [ sh:path ebwv:ownershipPercentage; sh:minCount 1 ]; sh:property [ sh:path oa:shareQuantity; sh:minCount 1 ]; sh:property [ sh:path oa:economicRight; sh:minCount 1 ] ]
+ [ sh:property [ sh:path ebwv:relationshipType; sh:hasValue oa:economicEntitlement ]; sh:property [ sh:path ebwv:economicEntitlementPercentage; sh:minCount 1 ]; sh:property [ sh:path oa:economicRight; sh:minCount 1 ] ]
+ [ sh:property [ sh:path ebwv:relationshipType; sh:hasValue oa:appointmentPower ]; sh:property [ sh:path ebwv:establishedUnder; sh:minCount 1 ]; sh:property [ sh:path ebwv:conditions; sh:minCount 1 ]; sh:property [ sh:path oa:powerState; sh:hasValue oa:contingent ]; sh:property [ sh:path ebwv:ownershipPercentage; sh:maxCount 0 ]; sh:property [ sh:path oa:shareQuantity; sh:maxCount 0 ]; sh:property [ sh:path oa:economicRight; sh:maxCount 0 ] ]
+).
+oa:RelationshipShape sh:sparql [ sh:message "Contingent power cannot be marked as having satisfied conditions."; sh:select """
+ PREFIX oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#>
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ SELECT $this WHERE { $this oa:powerState oa:contingent; ebwv:conditions/oa:conditionSatisfied true } """ ].
+oa:AttestationShape sh:sparql [ sh:message "Every owner interest must target the credential subject."; sh:select """
+ PREFIX oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#>
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ PREFIX cred: <https://www.w3.org/2018/credentials#>
+ SELECT $this WHERE { $this cred:credentialSubject ?s; oa:ownerRecord/oa:interest/ebwv:relationshipTarget ?t . FILTER (?s != ?t) } """ ].
+oa:AttestationShape sh:sparql [ sh:message "Direct shareholding percentages exceed 100%; do not add indirect or economic-entitlement records."; sh:select """
+ PREFIX oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#>
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ SELECT $this WHERE { { SELECT $this (SUM(?p) AS ?total) WHERE { $this oa:ownerRecord/oa:interest ?r . ?r oa:level oa:direct; oa:interestType oa:shareholding; ebwv:ownershipPercentage ?p } GROUP BY $this } FILTER (?total > 100) } """ ].

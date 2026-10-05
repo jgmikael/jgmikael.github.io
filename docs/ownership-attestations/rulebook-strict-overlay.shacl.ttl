@@ -1,0 +1,18 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+oa:StrictInterestShape a sh:NodeShape; sh:targetObjectsOf oa:interest;
+ sh:property [ sh:path ebwv:ownershipPercentage; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:decimal; sh:minInclusive 0; sh:maxInclusive 100; sh:message "IR-09: Rulebook requires an ownership percentage for every interest" ];
+ sh:property [ sh:path oa:shareQuantity; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:integer; sh:minInclusive 0; sh:message "IR-10: Rulebook requires a quantity for every interest" ];
+ sh:property [ sh:path oa:economicRight; sh:minCount 1; sh:in (oa:dividend_rights oa:liquidation_rights); sh:message "IR-11: Rulebook requires an economic right for every interest" ].
+oa:StrictTotalShape a sh:NodeShape; sh:targetClass oa:OwnershipAttestation; sh:severity sh:Warning;
+ sh:sparql [ sh:message "IR-19 (SHOULD): summing all owner percentages exceeds 100%; this may double-count direct and indirect levels"; sh:select """
+ PREFIX oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#>
+ PREFIX ebwv: <https://w3id.org/ebwv#>
+ SELECT $this WHERE { { SELECT $this (SUM(?p) AS ?total) WHERE { $this oa:ownerRecord/oa:interest/ebwv:ownershipPercentage ?p } GROUP BY $this } FILTER (?total > 100) } """ ].

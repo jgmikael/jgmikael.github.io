@@ -1,0 +1,301 @@
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix oa: <https://jgmikael.github.io/docs/ownership-attestations/profile#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:example:ownership:trust-attestation> a oa:OwnershipAttestation,
+        ebwv:ElectronicAttestationOfAttributes,
+        cred:VerifiableCredential ;
+    rdfs:label "Share ownership and trust economic entitlement" ;
+    oa:assessedOn "2026-10-05"^^xsd:date ;
+    oa:contentStatus oa:fictionalUnsigned ;
+    oa:credentialType "eu.we-build:ownership:1" ;
+    oa:holderKeyReference <urn:example:ownership:placeholder-public-key> ;
+    oa:ownerRecord <urn:example:ownership:elina-beneficiary-record>,
+        <urn:example:ownership:elina-direct-record>,
+        <urn:example:ownership:trustee-owner-record> ;
+    oa:status <urn:example:ownership:trust-attestation-status> ;
+    ebwv:attestationLegalCategory ebwv:EAA ;
+    cred:credentialSubject <urn:example:ownership:harbour-robotics> ;
+    cred:issuer <urn:example:ownership:harbour-robotics> ;
+    cred:validFrom "2026-10-05T09:00:00+00:00"^^xsd:dateTime ;
+    cred:validUntil "2026-11-04T09:00:00+00:00"^^xsd:dateTime .
+
+<urn:example:ownership:trustee-asset-title> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "Legal title to the entire specified share block" ;
+    oa:interestType oa:trustee ;
+    oa:level oa:direct ;
+    ebwv:effectivePeriod <urn:example:ownership:trustee-asset-title-period> ;
+    ebwv:establishedUnder <urn:example:ownership:virta-trust> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:relationshipTarget <urn:example:ownership:harbour-share-block> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:meridian-trustees> ;
+    ebwv:supportedBy <urn:example:ownership:virta-deed> ;
+    ebwv:supportingParticipation <urn:example:ownership:trust-trustee> .
+
+<urn:example:ownership:elina-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:elina-beneficiary-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2025-01-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:virta-deed> ;
+    oa:interest <urn:example:ownership:elina-trust-benefit> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Person" ;
+    oa:party <urn:example:ownership:elina> .
+
+<urn:example:ownership:elina-direct-harbour> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "40% personal share ownership" ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding ;
+    oa:level oa:direct ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 400 ;
+    ebwv:effectivePeriod <urn:example:ownership:elina-direct-harbour-period> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:ownershipPercentage 40.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:harbour-robotics> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:elina> ;
+    ebwv:supportedBy <urn:example:ownership:harbour-register> .
+
+<urn:example:ownership:elina-direct-harbour-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2026-09-01"^^xsd:date .
+
+<urn:example:ownership:elina-direct-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2026-09-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:harbour-register> ;
+    oa:interest <urn:example:ownership:elina-direct-harbour> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Person" ;
+    oa:party <urn:example:ownership:elina> .
+
+<urn:example:ownership:elina-trust-benefit> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "60% economic entitlement through the trust" ;
+    oa:capacityNote "All distributions from the 600-share block. No personal registered share title to this block. No ownershipPercentage or shareQuantity is asserted for this beneficiary right." ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:beneficiaryOfLegalArrangement,
+        oa:economicBeneficiary ;
+    oa:level oa:indirect ;
+    ebwv:economicEntitlementPercentage 60.0 ;
+    ebwv:effectivePeriod <urn:example:ownership:elina-trust-benefit-period> ;
+    ebwv:establishedUnder <urn:example:ownership:virta-trust> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:relationshipTarget <urn:example:ownership:harbour-robotics> ;
+    ebwv:relationshipType oa:economicEntitlement ;
+    ebwv:rightHolder <urn:example:ownership:elina> ;
+    ebwv:supportedBy <urn:example:ownership:virta-deed> ;
+    ebwv:supportingParticipation <urn:example:ownership:trust-beneficiary> .
+
+<urn:example:ownership:elina-trust-benefit-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2025-01-01"^^xsd:date .
+
+<urn:example:ownership:harbour-robotics-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:jukka> a ebwv:NaturalPerson ;
+    rdfs:label "Jukka Virta" ;
+    ebwv:dateOfBirth "1956-07-09"^^xsd:date ;
+    ebwv:domicile <urn:example:ownership:jukka-address> ;
+    ebwv:familyName "Virta" ;
+    ebwv:givenName "Jukka" .
+
+<urn:example:ownership:jukka-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:kaisa> a ebwv:NaturalPerson ;
+    rdfs:label "Kaisa Ranta" ;
+    ebwv:dateOfBirth "1977-02-18"^^xsd:date ;
+    ebwv:domicile <urn:example:ownership:kaisa-address> ;
+    ebwv:familyName "Ranta" ;
+    ebwv:givenName "Kaisa" .
+
+<urn:example:ownership:kaisa-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:meridian-trustees-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "FI"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "1" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "Helsinki" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:trust-address> a ebwv:Address ;
+    ebwv:adminUnitL1 "GB"^^ebwv:CountryCode ;
+    ebwv:adminUnitL2 "Example Region" ;
+    ebwv:locatorDesignator "2" ;
+    ebwv:postCode "00100" ;
+    ebwv:postName "London" ;
+    ebwv:thoroughfare "Example Street" .
+
+<urn:example:ownership:trust-attestation-status> a oa:StatusReference ;
+    oa:statusIndex 0 ;
+    oa:statusList <https://issuer.example/status/demo> ;
+    oa:statusPurpose "revocation" .
+
+<urn:example:ownership:trust-beneficiary-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2025-01-01"^^xsd:date .
+
+<urn:example:ownership:trust-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2025-01-01"^^xsd:date .
+
+<urn:example:ownership:trust-protector> a ebwv:ArrangementParticipation ;
+    ebwv:effectivePeriod <urn:example:ownership:trust-protector-period> ;
+    ebwv:participatingParty <urn:example:ownership:kaisa> ;
+    ebwv:participationRole oa:protector .
+
+<urn:example:ownership:trust-protector-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2025-01-01"^^xsd:date .
+
+<urn:example:ownership:trust-settlor> a ebwv:ArrangementParticipation ;
+    ebwv:effectivePeriod <urn:example:ownership:trust-settlor-period> ;
+    ebwv:participatingParty <urn:example:ownership:jukka> ;
+    ebwv:participationRole oa:settlor .
+
+<urn:example:ownership:trust-settlor-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2025-01-01"^^xsd:date .
+
+<urn:example:ownership:trust-trustee-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2025-01-01"^^xsd:date .
+
+<urn:example:ownership:trustee-asset-title-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2025-01-01"^^xsd:date .
+
+<urn:example:ownership:trustee-company-title> a ebwv:OwnershipOrControlRelationship ;
+    rdfs:label "60% legal title held as trustee" ;
+    oa:capacityNote "Holds the 600 shares in trustee capacity. Economic proceeds are administered for Elina; they are not Meridian’s own benefit." ;
+    oa:economicRight oa:dividend_rights,
+        oa:liquidation_rights ;
+    oa:interestType oa:shareholding,
+        oa:trustee ;
+    oa:level oa:direct ;
+    oa:shareClass oa:ordinary ;
+    oa:shareQuantity 600 ;
+    ebwv:effectivePeriod <urn:example:ownership:trustee-company-title-period> ;
+    ebwv:establishedUnder <urn:example:ownership:virta-trust> ;
+    ebwv:exerciseMode oa:alone ;
+    ebwv:ownershipPercentage 60.0 ;
+    ebwv:relationshipTarget <urn:example:ownership:harbour-robotics> ;
+    ebwv:relationshipType oa:legalTitle ;
+    ebwv:rightHolder <urn:example:ownership:meridian-trustees> ;
+    ebwv:supportedBy <urn:example:ownership:harbour-register> ;
+    ebwv:supportingParticipation <urn:example:ownership:trust-trustee> .
+
+<urn:example:ownership:trustee-company-title-period> a ebwv:PeriodOfTime ;
+    ebwv:startDate "2025-01-01"^^xsd:date .
+
+<urn:example:ownership:trustee-owner-record> a oa:OwnerRecord ;
+    oa:effectiveDate "2025-01-01"^^xsd:date ;
+    oa:evidence <urn:example:ownership:harbour-register> ;
+    oa:interest <urn:example:ownership:trustee-company-title> ;
+    oa:ownerJurisdiction "FI" ;
+    oa:ownerType "Entity" ;
+    oa:party <urn:example:ownership:meridian-trustees> .
+
+<urn:example:ownership:harbour-share-block> a ebwv:Asset ;
+    rdfs:label "600 ordinary shares in Harbour Robotics Oy" ;
+    dct:description "The trust property is a specified 600-share block, representing 60% of the company’s 1,000 ordinary shares." .
+
+<urn:example:ownership:trust-beneficiary> a ebwv:ArrangementParticipation ;
+    ebwv:effectivePeriod <urn:example:ownership:trust-beneficiary-period> ;
+    ebwv:participatingParty <urn:example:ownership:elina> ;
+    ebwv:participationRole oa:beneficiaryOfLegalArrangement .
+
+<urn:example:ownership:trust-trustee> a ebwv:ArrangementParticipation ;
+    ebwv:effectivePeriod <urn:example:ownership:trust-trustee-period> ;
+    ebwv:participatingParty <urn:example:ownership:meridian-trustees> ;
+    ebwv:participationRole oa:trustee .
+
+<urn:example:ownership:virta-trust> a ebwv:ExpressTrust,
+        ebwv:LegalArrangement ;
+    rdfs:label "Virta Family Trust" ;
+    dct:description "Administer the specified share block for Elina’s fixed economic entitlement. A fictional English-law express trust; Finnish company and trustee identities are illustrative only." ;
+    oa:administrationAddress <urn:example:ownership:trust-address> ;
+    oa:arrangementForm oa:trust ;
+    oa:arrangementJurisdiction "GB" ;
+    ebwv:arrangementAsset <urn:example:ownership:harbour-share-block> ;
+    ebwv:arrangementType oa:expressTrust ;
+    ebwv:constitutedBy <urn:example:ownership:virta-deed> ;
+    ebwv:effectivePeriod <urn:example:ownership:trust-period> ;
+    ebwv:governingLaw <https://www.legislation.gov.uk/ukpga/2000/29/contents> ;
+    ebwv:hasParticipation <urn:example:ownership:trust-beneficiary>,
+        <urn:example:ownership:trust-protector>,
+        <urn:example:ownership:trust-settlor>,
+        <urn:example:ownership:trust-trustee> .
+
+<urn:example:ownership:harbour-register> a oa:Evidence ;
+    rdfs:label "Shareholder register — Harbour Robotics" ;
+    dct:description """FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.
+
+1,000 ordinary shares issued. Meridian Trustees Oy is registered for 600 as trustee of Virta Family Trust. Elina Virta personally owns 400 separately.""" ;
+    dct:identifier "DEMO-HARBOUR-REGISTER" ;
+    oa:evidenceData "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCjEsMDAwIG9yZGluYXJ5IHNoYXJlcyBpc3N1ZWQuIE1lcmlkaWFuIFRydXN0ZWVzIE95IGlzIHJlZ2lzdGVyZWQgZm9yIDYwMCBhcyB0cnVzdGVlIG9mIFZpcnRhIEZhbWlseSBUcnVzdC4gRWxpbmEgVmlydGEgcGVyc29uYWxseSBvd25zIDQwMCBzZXBhcmF0ZWx5Lg=="^^xsd:base64Binary ;
+    oa:evidenceType oa:officialRegister .
+
+<urn:example:ownership:meridian-trustees> a ebwv:Company,
+        ebwv:EconomicOperator,
+        ebwv:LegalPerson ;
+    rdfs:label "Meridian Trustees Oy" ;
+    oa:entityForm oa:private_company ;
+    ebwv:identifier "DEMO-MERIDIAN-TRUSTEES" ;
+    ebwv:jurisdiction "FI"^^ebwv:CountryCode ;
+    ebwv:legalForm "Private limited company" ;
+    ebwv:legalIdentifier "FI.DEMO.MERIDIAN-TRUSTEES"^^ebwv:Euid ;
+    ebwv:legalName "Meridian Trustees Oy" ;
+    ebwv:registeredAddress <urn:example:ownership:meridian-trustees-address> .
+
+<urn:example:ownership:virta-deed> a oa:Evidence,
+        ebwv:LegalInstrument ;
+    rdfs:label "Virta Family Trust deed · clauses 3, 5 and 8" ;
+    dct:description """FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.
+
+Fictional deed: Jukka settled a 600-share block. Meridian holds legal title as trustee. Elina has a fixed entitlement to all distributions attributable to that block. Kaisa may remove the trustee under clause 8; this is not personal title to the block.""" ;
+    dct:identifier "DEMO-VIRTA-DEED" ;
+    oa:evidenceData "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkZpY3Rpb25hbCBkZWVkOiBKdWtrYSBzZXR0bGVkIGEgNjAwLXNoYXJlIGJsb2NrLiBNZXJpZGlhbiBob2xkcyBsZWdhbCB0aXRsZSBhcyB0cnVzdGVlLiBFbGluYSBoYXMgYSBmaXhlZCBlbnRpdGxlbWVudCB0byBhbGwgZGlzdHJpYnV0aW9ucyBhdHRyaWJ1dGFibGUgdG8gdGhhdCBibG9jay4gS2Fpc2EgbWF5IHJlbW92ZSB0aGUgdHJ1c3RlZSB1bmRlciBjbGF1c2UgODsgdGhpcyBpcyBub3QgcGVyc29uYWwgdGl0bGUgdG8gdGhlIGJsb2NrLg=="^^xsd:base64Binary ;
+    oa:evidenceType oa:trustDeed .
+
+<urn:example:ownership:elina> a ebwv:NaturalPerson ;
+    rdfs:label "Elina Virta" ;
+    ebwv:dateOfBirth "1990-06-15"^^xsd:date ;
+    ebwv:domicile <urn:example:ownership:elina-address> ;
+    ebwv:familyName "Virta" ;
+    ebwv:givenName "Elina" .
+
+<urn:example:ownership:harbour-robotics> a ebwv:Company,
+        ebwv:EconomicOperator,
+        ebwv:LegalPerson ;
+    rdfs:label "Harbour Robotics Oy" ;
+    oa:entityForm oa:private_company ;
+    ebwv:identifier "DEMO-HARBOUR-ROBOTICS" ;
+    ebwv:jurisdiction "FI"^^ebwv:CountryCode ;
+    ebwv:legalForm "Private limited company" ;
+    ebwv:legalIdentifier "FI.DEMO.HARBOUR-ROBOTICS"^^ebwv:Euid ;
+    ebwv:legalName "Harbour Robotics Oy" ;
+    ebwv:registeredAddress <urn:example:ownership:harbour-robotics-address> .
+
