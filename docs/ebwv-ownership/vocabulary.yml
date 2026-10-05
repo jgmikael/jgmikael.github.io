@@ -1,0 +1,256 @@
+# Proposed EBWV extension; not an adopted release. Lists in domain are unions.
+# ownershipPercentage replaces its existing definition during integration.
+vocab:
+- id: ebwv
+  value: https://w3id.org/ebwv#
+  context: https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld
+prefix:
+- id: rdf
+  value: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+- id: rdfs
+  value: http://www.w3.org/2000/01/rdf-schema#
+- id: owl
+  value: http://www.w3.org/2002/07/owl#
+- id: xsd
+  value: http://www.w3.org/2001/XMLSchema#
+- id: skos
+  value: http://www.w3.org/2004/02/skos/core#
+- id: dc
+  value: http://purl.org/dc/terms/
+ontology:
+- property: dc:title
+  value: EBWV Legal Arrangements, Ownership and Control — Proposed Extension
+- property: dc:description
+  value: Editorial proposal based on the ownership/control analysis. Not an adopted
+    EBWV release or a W3C Recommendation.
+- property: owl:versionInfo
+  value: Draft 0.1 — 2026-10-05
+- property: rdfs:seeAlso
+  value: https://jgmikael.github.io/docs/ebwv-ownership/
+class:
+- id: LegalArrangement
+  label: legal arrangement
+  comment: An express trust or arrangement with a similar structure or function under
+    its governing law. The arrangement is distinct from its constitutive instrument
+    and is not automatically a legal person or economic operator.
+- id: ExpressTrust
+  label: express trust
+  comment: A legal arrangement intentionally established by a settlor to place assets
+    under administration for a specified purpose.
+  upper_value: LegalArrangement
+- id: LegalInstrument
+  label: legal instrument
+  comment: An instrument establishing, amending or evidencing legal rights, duties
+    or powers; distinct from the arrangement itself.
+- id: Asset
+  label: asset
+  comment: An identifiable resource capable of being subject to ownership or other
+    rights.
+- id: ArrangementParticipation
+  label: arrangement participation
+  comment: The occupation of a specified position by a party in an identified legal
+    arrangement during a specified period.
+- id: BeneficiaryClass
+  label: beneficiary class
+  comment: A class of potential or undetermined beneficiaries described by defining
+    characteristics.
+- id: OwnershipOrControlRelationship
+  label: ownership or control relationship
+  comment: A qualified relationship identifying a holder, target, particular right
+    or power, basis, period and applicable conditions. Neither ownership nor control
+    is assumed transitive.
+- id: RelationshipCondition
+  label: relationship condition
+  comment: A condition restricting or triggering the exercise of a right or power.
+    This draft leaves the detailed condition-expression profile for subsequent design.
+- id: BeneficialOwnershipDetermination
+  label: beneficial ownership determination
+  comment: A contextual conclusion identifying a natural person as beneficial owner
+    of an entity or arrangement, with the applicable rule and supporting grounds.
+individual: []
+property:
+- id: arrangementType
+  label: arrangement type
+  domain: LegalArrangement
+  range: skos:Concept
+  comment: Classification of the arrangement using a dedicated concept scheme.
+- id: governingLaw
+  label: governing law
+  domain:
+  - LegalArrangement
+  - LegalInstrument
+  range: rdfs:Resource
+  comment: Reference to governing law or legal system.
+- id: constitutedBy
+  label: constituted by
+  domain: LegalArrangement
+  range: LegalInstrument
+  comment: Instrument establishing the arrangement.
+- id: amendedBy
+  label: amended by
+  domain: LegalArrangement
+  range: LegalInstrument
+  comment: Instrument amending the arrangement.
+- id: arrangementAsset
+  label: arrangement asset
+  domain: LegalArrangement
+  range: Asset
+  comment: Asset subject to the arrangement; does not assert title ownership by the
+    arrangement.
+- id: hasParticipation
+  label: has participation
+  domain: LegalArrangement
+  range: ArrangementParticipation
+  comment: Contextual participation in the arrangement.
+- id: participatingParty
+  label: participating party
+  domain: ArrangementParticipation
+  range: &id001
+  - NaturalPerson
+  - LegalPerson
+  - EconomicOperator
+  comment: Party occupying the specified position.
+  range_union: true
+- id: participationRole
+  label: participation role
+  domain: ArrangementParticipation
+  range: skos:Concept
+  comment: Position such as settlor, trustee, protector or beneficiary; use a dedicated
+    concept scheme.
+- id: beneficiaryClass
+  label: beneficiary class
+  domain: LegalArrangement
+  range: BeneficiaryClass
+  comment: Class of potential or undetermined beneficiaries.
+- id: beneficiaryClassDescription
+  label: beneficiary class description
+  domain: BeneficiaryClass
+  range: rdf:langString
+  comment: Characteristics defining the beneficiary class.
+- id: rightHolder
+  label: right holder
+  domain: OwnershipOrControlRelationship
+  range: *id001
+  comment: Holder of the specified right or power.
+  range_union: true
+- id: relationshipTarget
+  label: relationship target
+  domain: OwnershipOrControlRelationship
+  range:
+  - Asset
+  - EconomicOperator
+  - LegalPerson
+  - LegalArrangement
+  comment: Exact asset, entity or arrangement subject to the right or power.
+  range_union: true
+- id: relationshipType
+  label: relationship type
+  domain: OwnershipOrControlRelationship
+  range: skos:Concept
+  comment: Nature of the right or power, such as legal title, economic entitlement
+    or appointment power.
+- id: establishedUnder
+  label: established under
+  domain: OwnershipOrControlRelationship
+  range:
+  - LegalArrangement
+  - LegalInstrument
+  comment: Arrangement or instrument establishing the right or power.
+  range_union: true
+- id: supportingParticipation
+  label: supporting participation
+  domain: OwnershipOrControlRelationship
+  range: ArrangementParticipation
+  comment: Capacity in which the holder exercises the right or power.
+- id: exerciseMode
+  label: exercise mode
+  domain: OwnershipOrControlRelationship
+  range: skos:Concept
+  comment: Exercise alone, jointly or subject to consent; use a dedicated concept
+    scheme.
+- id: conditions
+  label: conditions
+  domain: OwnershipOrControlRelationship
+  range: RelationshipCondition
+  comment: Structured restrictions, consent requirements or triggering events.
+- id: effectivePeriod
+  label: effective period
+  domain:
+  - LegalArrangement
+  - ArrangementParticipation
+  - OwnershipOrControlRelationship
+  range: PeriodOfTime
+  comment: Effective period, distinct from credential validity and assessment date.
+    Reuse existing EBWV period date properties.
+- id: supportedBy
+  label: supported by
+  domain:
+  - OwnershipOrControlRelationship
+  - BeneficialOwnershipDetermination
+  range: rdfs:Resource
+  comment: Evidence such as a legal instrument provision, register entry or attestation.
+- id: hasRelationshipPath
+  label: has relationship path
+  domain: OwnershipOrControlRelationship
+  range: rdf:List
+  comment: Ordered supporting relationship identifiers for indirect ownership or control.
+    List members must be OwnershipOrControlRelationship instances; enforce this in
+    SHACL.
+  container: list
+- id: votingRightsPercentage
+  label: voting rights percentage
+  domain: OwnershipOrControlRelationship
+  range: xsd:decimal
+  comment: Percentage of voting rights, where applicable; 0 to 100.
+- id: economicEntitlementPercentage
+  label: economic entitlement percentage
+  domain: OwnershipOrControlRelationship
+  range: xsd:decimal
+  comment: Percentage of economic benefit, where quantifiable; 0 to 100.
+- id: beneficialOwner
+  label: beneficial owner
+  domain: BeneficialOwnershipDetermination
+  range: NaturalPerson
+  comment: Natural person identified as beneficial owner. Corporate trustees are participants,
+    not values of this property.
+- id: determinationTarget
+  label: determination target
+  domain: BeneficialOwnershipDetermination
+  range:
+  - EconomicOperator
+  - LegalPerson
+  - LegalArrangement
+  comment: Entity or arrangement whose beneficial ownership is determined.
+  range_union: true
+- id: determinationBasis
+  label: determination basis
+  domain: BeneficialOwnershipDetermination
+  range: rdfs:Resource
+  comment: Applicable legal provision or identification rule.
+- id: basedOnParticipation
+  label: based on participation
+  domain: BeneficialOwnershipDetermination
+  range: ArrangementParticipation
+  comment: Participation supporting the determination.
+- id: basedOnRelationship
+  label: based on relationship
+  domain: BeneficialOwnershipDetermination
+  range: OwnershipOrControlRelationship
+  comment: Ownership or control relationship supporting the determination.
+- id: determinedAt
+  label: determined at
+  domain: BeneficialOwnershipDetermination
+  range: xsd:dateTime
+  comment: Time at which the determination was made.
+- id: determinationStatus
+  label: determination status
+  domain: BeneficialOwnershipDetermination
+  range: skos:Concept
+  comment: Assessment status from a dedicated concept scheme.
+- id: ownershipPercentage
+  label: ownership percentage
+  domain: OwnershipOrControlRelationship
+  range: xsd:decimal
+  comment: 'PROPOSED REVISION of existing EBWV property: replace TBD domain and xsd:float
+    range. Ownership-interest percentage, where measurable; 0 to 100. Do not append
+    conflicting axioms to the existing definition.'
