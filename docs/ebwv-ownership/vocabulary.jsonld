@@ -1,0 +1,1838 @@
+[
+  {
+    "@id": "https://w3id.org/ebwv#exerciseMode",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Exercise alone, jointly or subject to consent; use a dedicated concept scheme.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "exercise mode"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#NaturalPerson",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>External reference; definition is maintained by its source vocabulary.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "NaturalPerson"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#basedOnParticipation",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Participation supporting the determination.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "based on participation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#ArrangementParticipation"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#beneficialOwner",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Natural person identified as beneficial owner. Corporate trustees are participants, not values of this property.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "beneficial owner"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#NaturalPerson"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#supportingParticipation",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Capacity in which the holder exercises the right or power.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "supporting participation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#ArrangementParticipation"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#amendedBy",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Instrument amending the arrangement.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalArrangement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "amended by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalInstrument"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#relationshipTarget",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Exact asset, entity or arrangement subject to the right or power.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "relationship target"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b15"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b15",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/ebwv#Asset"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#EconomicOperator"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#LegalPerson"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#LegalArrangement"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#ExpressTrust",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>A legal arrangement intentionally established by a settlor to place assets under administration for a specified purpose.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "express trust"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalArrangement"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#conditions",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Structured restrictions, consent requirements or triggering events.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "conditions"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#RelationshipCondition"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#EconomicOperator",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>External reference; definition is maintained by its source vocabulary.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "EconomicOperator"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#participationRole",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Position such as settlor, trustee, protector or beneficiary; use a dedicated concept scheme.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#ArrangementParticipation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "participation role"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#beneficiaryClass",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Class of potential or undetermined beneficiaries.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalArrangement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "beneficiary class"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficiaryClass"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>A qualified relationship identifying a holder, target, particular right or power, basis, period and applicable conditions. Neither ownership nor control is assumed transitive.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "ownership or control relationship"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#BeneficiaryClass",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>A class of potential or undetermined beneficiaries described by defining characteristics.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "beneficiary class"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#economicEntitlementPercentage",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Percentage of economic benefit, where quantifiable; 0 to 100.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "economic entitlement percentage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#hasRelationshipPath",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Ordered supporting relationship identifiers for indirect ownership or control. List members must be OwnershipOrControlRelationship instances; enforce this in SHACL.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "has relationship path"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#ownershipPercentage",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>PROPOSED REVISION of existing EBWV property: replace TBD domain and xsd:float range. Ownership-interest percentage, where measurable; 0 to 100. Do not append conflicting axioms to the existing definition.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "ownership percentage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#votingRightsPercentage",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Percentage of voting rights, where applicable; 0 to 100.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "voting rights percentage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#effectivePeriod",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Effective period, distinct from credential validity and assessment date. Reuse existing EBWV period date properties.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b23"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "effective period"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#PeriodOfTime"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b23",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/ebwv#LegalArrangement"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#ArrangementParticipation"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#determinedAt",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Time at which the determination was made.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "determined at"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#relationshipType",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Nature of the right or power, such as legal title, economic entitlement or appointment power.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "relationship type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#governingLaw",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Reference to governing law or legal system.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b1"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "governing law"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Resource"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/ebwv#LegalArrangement"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#LegalInstrument"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+          },
+          {
+            "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#dirLangString"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#PeriodOfTime",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>External reference; definition is maintained by its source vocabulary.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "PeriodOfTime"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#determinationBasis",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Applicable legal provision or identification rule.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "determination basis"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Resource"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#supportedBy",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Evidence such as a legal instrument provision, register entry or attestation.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b27"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "supported by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Resource"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b27",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#establishedUnder",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Arrangement or instrument establishing the right or power.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "established under"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b20"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b20",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/ebwv#LegalArrangement"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#LegalInstrument"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#Asset",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>An identifiable resource capable of being subject to ownership or other rights.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "asset"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#LegalArrangement",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>An express trust or arrangement with a similar structure or function under its governing law. The arrangement is distinct from its constitutive instrument and is not automatically a legal person or economic operator.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "legal arrangement"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld",
+    "@type": [
+      "http://www.w3.org/ns/json-ld#Context"
+    ],
+    "http://schema.org/mentions": [
+      {
+        "@id": "https://w3id.org/ebwv#ArrangementParticipation"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#Asset"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#BeneficiaryClass"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#ExpressTrust"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#LegalArrangement"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#LegalInstrument"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#RelationshipCondition"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#amendedBy"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#arrangementAsset"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#arrangementType"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#basedOnParticipation"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#basedOnRelationship"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#beneficialOwner"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#beneficiaryClass"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#beneficiaryClassDescription"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#conditions"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#constitutedBy"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#determinationBasis"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#determinationStatus"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#determinationTarget"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#determinedAt"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#economicEntitlementPercentage"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#effectivePeriod"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#establishedUnder"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#exerciseMode"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#governingLaw"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#hasParticipation"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#hasRelationshipPath"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#ownershipPercentage"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#participatingParty"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#participationRole"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#relationshipTarget"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#relationshipType"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#rightHolder"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#supportedBy"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#supportingParticipation"
+      },
+      {
+        "@id": "https://w3id.org/ebwv#votingRightsPercentage"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#beneficiaryClassDescription",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Characteristics defining the beneficiary class.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficiaryClass"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "beneficiary class description"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#participatingParty",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Party occupying the specified position.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#ArrangementParticipation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "participating party"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b4"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b4",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/ebwv#NaturalPerson"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#LegalPerson"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#EconomicOperator"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#rightHolder",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Holder of the specified right or power.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "right holder"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b11"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b11",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/ebwv#NaturalPerson"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#LegalPerson"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#EconomicOperator"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#ArrangementParticipation",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>The occupation of a specified position by a party in an identified legal arrangement during a specified period.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "arrangement participation"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#LegalInstrument",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>An instrument establishing, amending or evidencing legal rights, duties or powers; distinct from the arrangement itself.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "legal instrument"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>A contextual conclusion identifying a natural person as beneficial owner of an entity or arrangement, with the applicable rule and supporting grounds.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "beneficial ownership determination"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#determinationStatus",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Assessment status from a dedicated concept scheme.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "determination status"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#LegalPerson",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>External reference; definition is maintained by its source vocabulary.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "LegalPerson"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#determinationTarget",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Entity or arrangement whose beneficial ownership is determined.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "determination target"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b30"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "_:n40a812db3ff14b77af4f0076d017c2a2b30",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/ebwv#EconomicOperator"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#LegalPerson"
+          },
+          {
+            "@id": "https://w3id.org/ebwv#LegalArrangement"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/date": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2026-10-05"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "Editorial proposal based on the ownership/control analysis. Not an adopted EBWV release or a W3C Recommendation."
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "EBWV Legal Arrangements, Ownership and Control — Proposed Extension"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://jgmikael.github.io/docs/ebwv-ownership/"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@language": "en",
+        "@value": "Draft 0.1 — 2026-10-05"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#arrangementType",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Classification of the arrangement using a dedicated concept scheme.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalArrangement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "arrangement type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#constitutedBy",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Instrument establishing the arrangement.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalArrangement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "constituted by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalInstrument"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#arrangementAsset",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Asset subject to the arrangement; does not assert title ownership by the arrangement.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalArrangement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "arrangement asset"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#Asset"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#RelationshipCondition",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>A condition restricting or triggering the exercise of a right or power. This draft leaves the detailed condition-expression profile for subsequent design.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "relationship condition"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#basedOnRelationship",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Ownership or control relationship supporting the determination.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#BeneficialOwnershipDetermination"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "based on relationship"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#OwnershipOrControlRelationship"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/ebwv#hasParticipation",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
+        "@value": "<div>Contextual participation in the arrangement.</div>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/ebwv#LegalArrangement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/ebwv#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "has participation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/ebwv#ArrangementParticipation"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@value": "stable"
+      }
+    ]
+  }
+]

@@ -1,0 +1,419 @@
+@prefix dc1: <http://purl.org/dc/terms/> .
+@prefix ebwv: <https://w3id.org/ebwv#> .
+@prefix jsonld: <http://www.w3.org/ns/json-ld#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ebwv:ArrangementParticipation a rdfs:Class ;
+    rdfs:label "arrangement participation" ;
+    rdfs:comment "<div>The occupation of a specified position by a party in an identified legal arrangement during a specified period.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:Asset a rdfs:Class ;
+    rdfs:label "asset" ;
+    rdfs:comment "<div>An identifiable resource capable of being subject to ownership or other rights.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:BeneficialOwnershipDetermination a rdfs:Class ;
+    rdfs:label "beneficial ownership determination" ;
+    rdfs:comment "<div>A contextual conclusion identifying a natural person as beneficial owner of an entity or arrangement, with the applicable rule and supporting grounds.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:BeneficiaryClass a rdfs:Class ;
+    rdfs:label "beneficiary class" ;
+    rdfs:comment "<div>A class of potential or undetermined beneficiaries described by defining characteristics.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:EconomicOperator a rdfs:Class ;
+    rdfs:label "EconomicOperator" ;
+    rdfs:comment "<div>External reference; definition is maintained by its source vocabulary.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:ExpressTrust a rdfs:Class ;
+    rdfs:label "express trust" ;
+    rdfs:comment "<div>A legal arrangement intentionally established by a settlor to place assets under administration for a specified purpose.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:subClassOf ebwv:LegalArrangement ;
+    vs:term_status "stable" .
+
+ebwv:LegalArrangement a rdfs:Class ;
+    rdfs:label "legal arrangement" ;
+    rdfs:comment "<div>An express trust or arrangement with a similar structure or function under its governing law. The arrangement is distinct from its constitutive instrument and is not automatically a legal person or economic operator.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:LegalInstrument a rdfs:Class ;
+    rdfs:label "legal instrument" ;
+    rdfs:comment "<div>An instrument establishing, amending or evidencing legal rights, duties or powers; distinct from the arrangement itself.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:LegalPerson a rdfs:Class ;
+    rdfs:label "LegalPerson" ;
+    rdfs:comment "<div>External reference; definition is maintained by its source vocabulary.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:NaturalPerson a rdfs:Class ;
+    rdfs:label "NaturalPerson" ;
+    rdfs:comment "<div>External reference; definition is maintained by its source vocabulary.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:OwnershipOrControlRelationship a rdfs:Class ;
+    rdfs:label "ownership or control relationship" ;
+    rdfs:comment "<div>A qualified relationship identifying a holder, target, particular right or power, basis, period and applicable conditions. Neither ownership nor control is assumed transitive.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:PeriodOfTime a rdfs:Class ;
+    rdfs:label "PeriodOfTime" ;
+    rdfs:comment "<div>External reference; definition is maintained by its source vocabulary.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+ebwv:RelationshipCondition a rdfs:Class ;
+    rdfs:label "relationship condition" ;
+    rdfs:comment "<div>A condition restricting or triggering the exercise of a right or power. This draft leaves the detailed condition-expression profile for subsequent design.</div>"^^rdf:HTML ;
+    rdfs:isDefinedBy ebwv: ;
+    vs:term_status "stable" .
+
+<https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld> a jsonld:Context ;
+    schema1:mentions ebwv:ArrangementParticipation,
+        ebwv:Asset,
+        ebwv:BeneficialOwnershipDetermination,
+        ebwv:BeneficiaryClass,
+        ebwv:ExpressTrust,
+        ebwv:LegalArrangement,
+        ebwv:LegalInstrument,
+        ebwv:OwnershipOrControlRelationship,
+        ebwv:RelationshipCondition,
+        ebwv:amendedBy,
+        ebwv:arrangementAsset,
+        ebwv:arrangementType,
+        ebwv:basedOnParticipation,
+        ebwv:basedOnRelationship,
+        ebwv:beneficialOwner,
+        ebwv:beneficiaryClass,
+        ebwv:beneficiaryClassDescription,
+        ebwv:conditions,
+        ebwv:constitutedBy,
+        ebwv:determinationBasis,
+        ebwv:determinationStatus,
+        ebwv:determinationTarget,
+        ebwv:determinedAt,
+        ebwv:economicEntitlementPercentage,
+        ebwv:effectivePeriod,
+        ebwv:establishedUnder,
+        ebwv:exerciseMode,
+        ebwv:governingLaw,
+        ebwv:hasParticipation,
+        ebwv:hasRelationshipPath,
+        ebwv:ownershipPercentage,
+        ebwv:participatingParty,
+        ebwv:participationRole,
+        ebwv:relationshipTarget,
+        ebwv:relationshipType,
+        ebwv:rightHolder,
+        ebwv:supportedBy,
+        ebwv:supportingParticipation,
+        ebwv:votingRightsPercentage .
+
+ebwv:amendedBy a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "amended by" ;
+    rdfs:comment "<div>Instrument amending the arrangement.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:LegalArrangement ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:LegalInstrument ;
+    vs:term_status "stable" .
+
+ebwv:arrangementAsset a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "arrangement asset" ;
+    rdfs:comment "<div>Asset subject to the arrangement; does not assert title ownership by the arrangement.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:LegalArrangement ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:Asset ;
+    vs:term_status "stable" .
+
+ebwv:arrangementType a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "arrangement type" ;
+    rdfs:comment "<div>Classification of the arrangement using a dedicated concept scheme.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:LegalArrangement ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range skos:Concept ;
+    vs:term_status "stable" .
+
+ebwv:basedOnParticipation a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "based on participation" ;
+    rdfs:comment "<div>Participation supporting the determination.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:BeneficialOwnershipDetermination ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:ArrangementParticipation ;
+    vs:term_status "stable" .
+
+ebwv:basedOnRelationship a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "based on relationship" ;
+    rdfs:comment "<div>Ownership or control relationship supporting the determination.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:BeneficialOwnershipDetermination ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:OwnershipOrControlRelationship ;
+    vs:term_status "stable" .
+
+ebwv:beneficialOwner a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "beneficial owner" ;
+    rdfs:comment "<div>Natural person identified as beneficial owner. Corporate trustees are participants, not values of this property.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:BeneficialOwnershipDetermination ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:NaturalPerson ;
+    vs:term_status "stable" .
+
+ebwv:beneficiaryClass a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "beneficiary class" ;
+    rdfs:comment "<div>Class of potential or undetermined beneficiaries.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:LegalArrangement ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:BeneficiaryClass ;
+    vs:term_status "stable" .
+
+ebwv:beneficiaryClassDescription a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "beneficiary class description" ;
+    rdfs:comment "<div>Characteristics defining the beneficiary class.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:BeneficiaryClass ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range rdf:langString ;
+    vs:term_status "stable" .
+
+ebwv:conditions a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "conditions" ;
+    rdfs:comment "<div>Structured restrictions, consent requirements or triggering events.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:RelationshipCondition ;
+    vs:term_status "stable" .
+
+ebwv:constitutedBy a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "constituted by" ;
+    rdfs:comment "<div>Instrument establishing the arrangement.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:LegalArrangement ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:LegalInstrument ;
+    vs:term_status "stable" .
+
+ebwv:determinationBasis a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "determination basis" ;
+    rdfs:comment "<div>Applicable legal provision or identification rule.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:BeneficialOwnershipDetermination ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "stable" .
+
+ebwv:determinationStatus a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "determination status" ;
+    rdfs:comment "<div>Assessment status from a dedicated concept scheme.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:BeneficialOwnershipDetermination ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range skos:Concept ;
+    vs:term_status "stable" .
+
+ebwv:determinationTarget a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "determination target" ;
+    rdfs:comment "<div>Entity or arrangement whose beneficial ownership is determined.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:BeneficialOwnershipDetermination ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( ebwv:EconomicOperator ebwv:LegalPerson ebwv:LegalArrangement ) ] ;
+    vs:term_status "stable" .
+
+ebwv:determinedAt a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "determined at" ;
+    rdfs:comment "<div>Time at which the determination was made.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:BeneficialOwnershipDetermination ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range xsd:dateTime ;
+    vs:term_status "stable" .
+
+ebwv:economicEntitlementPercentage a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "economic entitlement percentage" ;
+    rdfs:comment "<div>Percentage of economic benefit, where quantifiable; 0 to 100.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range xsd:decimal ;
+    vs:term_status "stable" .
+
+ebwv:effectivePeriod a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "effective period" ;
+    rdfs:comment "<div>Effective period, distinct from credential validity and assessment date. Reuse existing EBWV period date properties.</div>"^^rdf:HTML ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( ebwv:LegalArrangement ebwv:ArrangementParticipation ebwv:OwnershipOrControlRelationship ) ] ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:PeriodOfTime ;
+    vs:term_status "stable" .
+
+ebwv:establishedUnder a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "established under" ;
+    rdfs:comment "<div>Arrangement or instrument establishing the right or power.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( ebwv:LegalArrangement ebwv:LegalInstrument ) ] ;
+    vs:term_status "stable" .
+
+ebwv:exerciseMode a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "exercise mode" ;
+    rdfs:comment "<div>Exercise alone, jointly or subject to consent; use a dedicated concept scheme.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range skos:Concept ;
+    vs:term_status "stable" .
+
+ebwv:governingLaw a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "governing law" ;
+    rdfs:comment "<div>Reference to governing law or legal system.</div>"^^rdf:HTML ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( ebwv:LegalArrangement ebwv:LegalInstrument ) ] ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "stable" .
+
+ebwv:hasParticipation a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "has participation" ;
+    rdfs:comment "<div>Contextual participation in the arrangement.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:LegalArrangement ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:ArrangementParticipation ;
+    vs:term_status "stable" .
+
+ebwv:hasRelationshipPath a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "has relationship path" ;
+    rdfs:comment "<div>Ordered supporting relationship identifiers for indirect ownership or control. List members must be OwnershipOrControlRelationship instances; enforce this in SHACL.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range rdf:List ;
+    vs:term_status "stable" .
+
+ebwv:ownershipPercentage a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "ownership percentage" ;
+    rdfs:comment "<div>PROPOSED REVISION of existing EBWV property: replace TBD domain and xsd:float range. Ownership-interest percentage, where measurable; 0 to 100. Do not append conflicting axioms to the existing definition.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range xsd:decimal ;
+    vs:term_status "stable" .
+
+ebwv:participatingParty a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "participating party" ;
+    rdfs:comment "<div>Party occupying the specified position.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:ArrangementParticipation ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( ebwv:NaturalPerson ebwv:LegalPerson ebwv:EconomicOperator ) ] ;
+    vs:term_status "stable" .
+
+ebwv:participationRole a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "participation role" ;
+    rdfs:comment "<div>Position such as settlor, trustee, protector or beneficiary; use a dedicated concept scheme.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:ArrangementParticipation ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range skos:Concept ;
+    vs:term_status "stable" .
+
+ebwv:relationshipTarget a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "relationship target" ;
+    rdfs:comment "<div>Exact asset, entity or arrangement subject to the right or power.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( ebwv:Asset ebwv:EconomicOperator ebwv:LegalPerson ebwv:LegalArrangement ) ] ;
+    vs:term_status "stable" .
+
+ebwv:relationshipType a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "relationship type" ;
+    rdfs:comment "<div>Nature of the right or power, such as legal title, economic entitlement or appointment power.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range skos:Concept ;
+    vs:term_status "stable" .
+
+ebwv:rightHolder a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "right holder" ;
+    rdfs:comment "<div>Holder of the specified right or power.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( ebwv:NaturalPerson ebwv:LegalPerson ebwv:EconomicOperator ) ] ;
+    vs:term_status "stable" .
+
+ebwv:supportedBy a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "supported by" ;
+    rdfs:comment "<div>Evidence such as a legal instrument provision, register entry or attestation.</div>"^^rdf:HTML ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( ebwv:OwnershipOrControlRelationship ebwv:BeneficialOwnershipDetermination ) ] ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range rdfs:Resource ;
+    vs:term_status "stable" .
+
+ebwv:supportingParticipation a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "supporting participation" ;
+    rdfs:comment "<div>Capacity in which the holder exercises the right or power.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range ebwv:ArrangementParticipation ;
+    vs:term_status "stable" .
+
+ebwv:votingRightsPercentage a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "voting rights percentage" ;
+    rdfs:comment "<div>Percentage of voting rights, where applicable; 0 to 100.</div>"^^rdf:HTML ;
+    rdfs:domain ebwv:OwnershipOrControlRelationship ;
+    rdfs:isDefinedBy ebwv: ;
+    rdfs:range xsd:decimal ;
+    vs:term_status "stable" .
+
+ebwv: a owl:Ontology ;
+    dc1:date "2026-10-05"^^xsd:date ;
+    dc1:description "Editorial proposal based on the ownership/control analysis. Not an adopted EBWV release or a W3C Recommendation."^^rdf:HTML ;
+    dc1:title "EBWV Legal Arrangements, Ownership and Control — Proposed Extension"@en ;
+    rdfs:seeAlso <https://jgmikael.github.io/docs/ebwv-ownership/> ;
+    owl:versionInfo "Draft 0.1 — 2026-10-05"@en .
+
+[] a owl:Class ;
+    owl:unionOf ( rdf:langString rdf:dirLangString ) .
+

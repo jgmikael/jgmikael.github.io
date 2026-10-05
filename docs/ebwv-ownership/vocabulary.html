@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>EBWV Legal Arrangements, Ownership and Control — Proposed Extension</title>
+<script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+<script>
+        function remove_status_remark() {
+            const sotd = document.getElementById("sotd");
+            const p = sotd.getElementsByTagName('p')[0];
+            sotd.removeChild(p);
+        }
+    </script>
+<script class="remove">
+        var respecConfig = {
+            localBiblio: {},
+            specStatus: "unofficial",
+            shortName: "ebwv-ownership-draft",
+            latestVersion: "https://jgmikael.github.io/docs/ebwv-ownership/",
+            thisVersion: "https://jgmikael.github.io/docs/ebwv-ownership/",
+            doJsonLd: true,
+            editors: [{
+                name: "Mikael af Hällström"
+            }],
+            alternateFormats: [{
+                    uri: "vocabulary.ttl",
+                    label: "Turtle"
+                },
+                {
+                    uri: "vocabulary.jsonld",
+                    label: "JSON-LD"
+                }
+            ],
+
+            inlineCSS: true,
+            doRDFa: false,
+            noIDLIn: true,
+            noLegacyStyle: false
+        };
+    </script>
+<style type="text/css">
+        body {
+            max-width: 72rem;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            font: 17px/1.6 system-ui, sans-serif;
+            color: #202b33;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #005a9c;
+        }
+
+        code {
+            overflow-wrap: anywhere;
+        }
+
+        :root {
+            color-scheme: light;
+        }
+
+        dl.terms dt {
+            float: left;
+            clear: left;
+            width: 10vw;
+        }
+
+        dl.terms dd {
+            margin-left: 15vw;
+        }
+
+        dl.terms dd:after {
+            content: '';
+            display: block;
+            clear: both;
+            margin-bottom: 5px;
+        }
+
+        table.rdfs-definition td {
+            vertical-align: top;
+            margin-right: 2em;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        /* code {
+          color: red;
+        } */
+
+        .term_definitions section {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: darkgrey;
+        }
+
+        .annoy {
+            background: hsla(40, 100%, 50%, 0.95);
+            color: black;
+            padding: .75em 1em;
+            border: red;
+            border-style: solid none;
+            box-shadow: 0 2px 8px black;
+            text-align: center;
+        }
+
+        summary {
+            font-weight: normal !important;
+        }
+
+        .example-with-playground {
+            position: relative;
+        }
+
+        a.jsonld-playground-button {
+            position: absolute;
+            top: 4.4em;
+            right: 1.4em;
+            z-index: 1;
+            padding: 0.3em 0.7em;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #000000;
+            background-color: #ffffff;
+            opacity: .4;
+            border-radius: 4px;
+            text-decoration: none;
+            box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a.jsonld-playground-button:hover {
+            background-color: #f0f0f0;
+            opacity: 1;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+<link href="vocabulary.jsonld" rel="alternate" type="application/ld+json"/>
+<link href="vocabulary.ttl" rel="alternate" type="text/turtle"/>
+</head>
+<body>
+<section id="abstract">
+<p>This document describes the <span id="title" property="dc:title">EBWV Legal Arrangements, Ownership and Control — Proposed Extension</span>, i.e.,
+            the <span id="description" property="dc:description">Editorial proposal based on the ownership/control analysis. Not an adopted EBWV release or a W3C Recommendation.</span>.
+        </p>
+<p>Alternate versions of the vocabulary definition exist in
+            <a href="vocabulary.ttl" rel="alternate">Turtle</a> and
+            <a href="vocabulary.jsonld" rel="alternate">JSON-LD</a>.
+        </p>
+<dl>
+<dt>Published:</dt>
+<dd>
+<time id="time" property="dc:date">2026-10-05</time>
+</dd>
+<dt>Version Info:</dt>
+<dd>Draft 0.1 — 2026-10-05</dd>
+<dt id="see_also">See Also:<a href="https://jgmikael.github.io/docs/ebwv-ownership/">https://jgmikael.github.io/docs/ebwv-ownership/</a></dt>
+</dl>
+</section>
+<section id="sotd">
+<p><strong>Draft proposal, 5 October 2026.</strong> Not an adopted EBWV release or W3C Recommendation. Proposed identifiers retain the EBWV namespace pending governance approval. Contains 29 new properties, 9 new classes and a replacement proposal for ownershipPercentage.</p>
+<p>Source: <a href="vocabulary.yml">YAML</a>. Existing EBWV classes are referenced without redeclaration. Domain and range alternatives are OWL unions, not mandatory fields. Detailed condition profiles and controlled concept schemes remain to be designed.</p>
+</section>
+<section id="conformance"></section>
+<section>
+<h2>Namespaces</h2>
+<p>This specification makes use of the following namespaces:</p>
+<dl class="terms" id="namespaces">
+<dt><code>ebwv</code></dt>
+<dd><code>https://w3id.org/ebwv#</code></dd>
+<dt><code>rdf</code></dt>
+<dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+<dt><code>rdfs</code></dt>
+<dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+<dt><code>owl</code></dt>
+<dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+<dt><code>xsd</code></dt>
+<dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+<dt><code>skos</code></dt>
+<dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+<dt><code>dc</code></dt>
+<dd><code>http://purl.org/dc/terms/</code></dd>
+</dl>
+</section>
+<section>
+<h2>Specification of terms</h2>
+<h3>Data model</h3>
+<p>Legal arrangements, instruments, participation, asset rights and AML determinations are distinct resources. A trust position does not automatically establish title to every asset. Relationships are not declared transitive.</p>
+<p>OWL signatures infer types. SHACL profiles should validate percentages, concept schemes, path members, dates and cardinalities. The existing ownershipPercentage definition must be replaced during integration, rather than combined with this draft.</p>
+<p>AML basis: Regulation (EU) 2024/1624, Articles 2, 55, 58–60 and 62. General applicability begins 10 July 2027.</p>
+</section>
+<section>
+<h2><code>@context</code> files</h2>
+<p>The following <code>@context</code> files make use of the terms defined in this specification:</p>
+<ul id="contexts">
+<li><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a>
+<details>
+<summary>term list</summary>
+<ul>
+<li><a href="#ArrangementParticipation"><code>ArrangementParticipation<code></code></code></a></li>
+<li><a href="#Asset"><code>Asset<code></code></code></a></li>
+<li><a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination<code></code></code></a></li>
+<li><a href="#BeneficiaryClass"><code>BeneficiaryClass<code></code></code></a></li>
+<li><a href="#ExpressTrust"><code>ExpressTrust<code></code></code></a></li>
+<li><a href="#LegalArrangement"><code>LegalArrangement<code></code></code></a></li>
+<li><a href="#LegalInstrument"><code>LegalInstrument<code></code></code></a></li>
+<li><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship<code></code></code></a></li>
+<li><a href="#RelationshipCondition"><code>RelationshipCondition<code></code></code></a></li>
+<li><a href="#amendedBy"><code>amendedBy<code></code></code></a></li>
+<li><a href="#arrangementAsset"><code>arrangementAsset<code></code></code></a></li>
+<li><a href="#arrangementType"><code>arrangementType<code></code></code></a></li>
+<li><a href="#basedOnParticipation"><code>basedOnParticipation<code></code></code></a></li>
+<li><a href="#basedOnRelationship"><code>basedOnRelationship<code></code></code></a></li>
+<li><a href="#beneficialOwner"><code>beneficialOwner<code></code></code></a></li>
+<li><a href="#beneficiaryClass"><code>beneficiaryClass<code></code></code></a></li>
+<li><a href="#beneficiaryClassDescription"><code>beneficiaryClassDescription<code></code></code></a></li>
+<li><a href="#conditions"><code>conditions<code></code></code></a></li>
+<li><a href="#constitutedBy"><code>constitutedBy<code></code></code></a></li>
+<li><a href="#determinationBasis"><code>determinationBasis<code></code></code></a></li>
+<li><a href="#determinationStatus"><code>determinationStatus<code></code></code></a></li>
+<li><a href="#determinationTarget"><code>determinationTarget<code></code></code></a></li>
+<li><a href="#determinedAt"><code>determinedAt<code></code></code></a></li>
+<li><a href="#economicEntitlementPercentage"><code>economicEntitlementPercentage<code></code></code></a></li>
+<li><a href="#effectivePeriod"><code>effectivePeriod<code></code></code></a></li>
+<li><a href="#establishedUnder"><code>establishedUnder<code></code></code></a></li>
+<li><a href="#exerciseMode"><code>exerciseMode<code></code></code></a></li>
+<li><a href="#governingLaw"><code>governingLaw<code></code></code></a></li>
+<li><a href="#hasParticipation"><code>hasParticipation<code></code></code></a></li>
+<li><a href="#hasRelationshipPath"><code>hasRelationshipPath<code></code></code></a></li>
+<li><a href="#ownershipPercentage"><code>ownershipPercentage<code></code></code></a></li>
+<li><a href="#participatingParty"><code>participatingParty<code></code></code></a></li>
+<li><a href="#participationRole"><code>participationRole<code></code></code></a></li>
+<li><a href="#relationshipTarget"><code>relationshipTarget<code></code></code></a></li>
+<li><a href="#relationshipType"><code>relationshipType<code></code></code></a></li>
+<li><a href="#rightHolder"><code>rightHolder<code></code></code></a></li>
+<li><a href="#supportedBy"><code>supportedBy<code></code></code></a></li>
+<li><a href="#supportingParticipation"><code>supportingParticipation<code></code></code></a></li>
+<li><a href="#votingRightsPercentage"><code>votingRightsPercentage<code></code></code></a></li>
+</ul>
+</details>
+</li>
+</ul>
+</section>
+<section id="term_definitions">
+<h2>Term definitions</h2>
+<section class="term_definitions" id="property_definitions">
+<h3>Property definitions</h3>
+<p>The following are property definitions in the <code>ebwv</code> namespace.</p>
+<section id="arrangementType">
+<h4><code>arrangementType</code></h4>
+<p><em>arrangement type</em></p>
+<div>Classification of the arrangement using a dedicated concept scheme.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#c90e2c23d860c033c25f9a0f15f6f4950d4b75c14ba99a063bd54aad3ceaf4de"><code>Concept</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="governingLaw">
+<h4><code>governingLaw</code></h4>
+<p><em>governing law</em></p>
+<div>Reference to governing law or legal system.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a> ⊔ <a href="#LegalInstrument"><code>LegalInstrument</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#Resource"><code>Resource</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="constitutedBy">
+<h4><code>constitutedBy</code></h4>
+<p><em>constituted by</em></p>
+<div>Instrument establishing the arrangement.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#LegalInstrument"><code>LegalInstrument</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="amendedBy">
+<h4><code>amendedBy</code></h4>
+<p><em>amended by</em></p>
+<div>Instrument amending the arrangement.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#LegalInstrument"><code>LegalInstrument</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="arrangementAsset">
+<h4><code>arrangementAsset</code></h4>
+<p><em>arrangement asset</em></p>
+<div>Asset subject to the arrangement; does not assert title ownership by the arrangement.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#Asset"><code>Asset</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="hasParticipation">
+<h4><code>hasParticipation</code></h4>
+<p><em>has participation</em></p>
+<div>Contextual participation in the arrangement.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#ArrangementParticipation"><code>ArrangementParticipation</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="participatingParty">
+<h4><code>participatingParty</code></h4>
+<p><em>participating party</em></p>
+<div>Party occupying the specified position.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#ArrangementParticipation"><code>ArrangementParticipation</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊔ <a href="#LegalPerson"><code>LegalPerson</code></a> ⊔ <a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="participationRole">
+<h4><code>participationRole</code></h4>
+<p><em>participation role</em></p>
+<div>Position such as settlor, trustee, protector or beneficiary; use a dedicated concept scheme.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#ArrangementParticipation"><code>ArrangementParticipation</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#c90e2c23d860c033c25f9a0f15f6f4950d4b75c14ba99a063bd54aad3ceaf4de"><code>Concept</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="beneficiaryClass">
+<h4><code>beneficiaryClass</code></h4>
+<p><em>beneficiary class</em></p>
+<div>Class of potential or undetermined beneficiaries.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#BeneficiaryClass"><code>BeneficiaryClass</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="beneficiaryClassDescription">
+<h4><code>beneficiaryClassDescription</code></h4>
+<p><em>beneficiary class description</em></p>
+<div>Characteristics defining the beneficiary class.<br/><br/>The property's value is expected to be a localizable string.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#BeneficiaryClass"><code>BeneficiaryClass</code></a></dd>
+<dt>Range:</dt>
+<dd><code>rdf:langString</code></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="rightHolder">
+<h4><code>rightHolder</code></h4>
+<p><em>right holder</em></p>
+<div>Holder of the specified right or power.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#NaturalPerson"><code>NaturalPerson</code></a> ⊔ <a href="#LegalPerson"><code>LegalPerson</code></a> ⊔ <a href="#EconomicOperator"><code>EconomicOperator</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="relationshipTarget">
+<h4><code>relationshipTarget</code></h4>
+<p><em>relationship target</em></p>
+<div>Exact asset, entity or arrangement subject to the right or power.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#Asset"><code>Asset</code></a> ⊔ <a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔ <a href="#LegalPerson"><code>LegalPerson</code></a> ⊔ <a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="relationshipType">
+<h4><code>relationshipType</code></h4>
+<p><em>relationship type</em></p>
+<div>Nature of the right or power, such as legal title, economic entitlement or appointment power.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#c90e2c23d860c033c25f9a0f15f6f4950d4b75c14ba99a063bd54aad3ceaf4de"><code>Concept</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="establishedUnder">
+<h4><code>establishedUnder</code></h4>
+<p><em>established under</em></p>
+<div>Arrangement or instrument establishing the right or power.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a> ⊔ <a href="#LegalInstrument"><code>LegalInstrument</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="supportingParticipation">
+<h4><code>supportingParticipation</code></h4>
+<p><em>supporting participation</em></p>
+<div>Capacity in which the holder exercises the right or power.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#ArrangementParticipation"><code>ArrangementParticipation</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="exerciseMode">
+<h4><code>exerciseMode</code></h4>
+<p><em>exercise mode</em></p>
+<div>Exercise alone, jointly or subject to consent; use a dedicated concept scheme.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#c90e2c23d860c033c25f9a0f15f6f4950d4b75c14ba99a063bd54aad3ceaf4de"><code>Concept</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="conditions">
+<h4><code>conditions</code></h4>
+<p><em>conditions</em></p>
+<div>Structured restrictions, consent requirements or triggering events.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#RelationshipCondition"><code>RelationshipCondition</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="effectivePeriod">
+<h4><code>effectivePeriod</code></h4>
+<p><em>effective period</em></p>
+<div>Effective period, distinct from credential validity and assessment date. Reuse existing EBWV period date properties.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a> ⊔ <a href="#ArrangementParticipation"><code>ArrangementParticipation</code></a> ⊔ <a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#PeriodOfTime"><code>PeriodOfTime</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="supportedBy">
+<h4><code>supportedBy</code></h4>
+<p><em>supported by</em></p>
+<div>Evidence such as a legal instrument provision, register entry or attestation.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a> ⊔ <a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#Resource"><code>Resource</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="hasRelationshipPath">
+<h4><code>hasRelationshipPath</code></h4>
+<p><em>has relationship path</em></p>
+<div>Ordered supporting relationship identifiers for indirect ownership or control. List members must be OwnershipOrControlRelationship instances; enforce this in SHACL.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="votingRightsPercentage">
+<h4><code>votingRightsPercentage</code></h4>
+<p><em>voting rights percentage</em></p>
+<div>Percentage of voting rights, where applicable; 0 to 100.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><code>xsd:decimal</code></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="economicEntitlementPercentage">
+<h4><code>economicEntitlementPercentage</code></h4>
+<p><em>economic entitlement percentage</em></p>
+<div>Percentage of economic benefit, where quantifiable; 0 to 100.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><code>xsd:decimal</code></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="beneficialOwner">
+<h4><code>beneficialOwner</code></h4>
+<p><em>beneficial owner</em></p>
+<div>Natural person identified as beneficial owner. Corporate trustees are participants, not values of this property.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#NaturalPerson"><code>NaturalPerson</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="determinationTarget">
+<h4><code>determinationTarget</code></h4>
+<p><em>determination target</em></p>
+<div>Entity or arrangement whose beneficial ownership is determined.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#EconomicOperator"><code>EconomicOperator</code></a> ⊔ <a href="#LegalPerson"><code>LegalPerson</code></a> ⊔ <a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="determinationBasis">
+<h4><code>determinationBasis</code></h4>
+<p><em>determination basis</em></p>
+<div>Applicable legal provision or identification rule.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#Resource"><code>Resource</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="basedOnParticipation">
+<h4><code>basedOnParticipation</code></h4>
+<p><em>based on participation</em></p>
+<div>Participation supporting the determination.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#ArrangementParticipation"><code>ArrangementParticipation</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="basedOnRelationship">
+<h4><code>basedOnRelationship</code></h4>
+<p><em>based on relationship</em></p>
+<div>Ownership or control relationship supporting the determination.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="determinedAt">
+<h4><code>determinedAt</code></h4>
+<p><em>determined at</em></p>
+<div>Time at which the determination was made.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination</code></a></dd>
+<dt>Range:</dt>
+<dd><code>xsd:dateTime</code></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="determinationStatus">
+<h4><code>determinationStatus</code></h4>
+<p><em>determination status</em></p>
+<div>Assessment status from a dedicated concept scheme.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#BeneficialOwnershipDetermination"><code>BeneficialOwnershipDetermination</code></a></dd>
+<dt>Range:</dt>
+<dd><a href="#c90e2c23d860c033c25f9a0f15f6f4950d4b75c14ba99a063bd54aad3ceaf4de"><code>Concept</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="ownershipPercentage">
+<h4><code>ownershipPercentage</code></h4>
+<p><em>ownership percentage</em></p>
+<div>PROPOSED REVISION of existing EBWV property: replace TBD domain and xsd:float range. Ownership-interest percentage, where measurable; 0 to 100. Do not append conflicting axioms to the existing definition.</div>
+<dl class="terms">
+<dt>Domain:</dt>
+<dd><a href="#OwnershipOrControlRelationship"><code>OwnershipOrControlRelationship</code></a></dd>
+<dt>Range:</dt>
+<dd><code>xsd:decimal</code></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+</section>
+<section class="term_definitions" id="class_definitions">
+<h2>Class definitions</h2>
+<p>The following are class definitions in the <code>ebwv</code> namespace.</p>
+<section id="LegalArrangement">
+<h4><code>LegalArrangement</code></h4>
+<p><em>legal arrangement</em></p>
+<div>An express trust or arrangement with a similar structure or function under its governing law. The arrangement is distinct from its constitutive instrument and is not automatically a legal person or economic operator.</div>
+<dl class="terms">
+<dt>Superclass of:</dt>
+<dd><a href="#ExpressTrust"><code>ExpressTrust</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Includes the range of:</dt>
+<dd><a href="#relationshipTarget"><code>relationshipTarget</code></a>, <a href="#establishedUnder"><code>establishedUnder</code></a>, <a href="#determinationTarget"><code>determinationTarget</code></a></dd>
+<dt>Domain of:</dt>
+<dd><a href="#arrangementType"><code>arrangementType</code></a>, <a href="#constitutedBy"><code>constitutedBy</code></a>, <a href="#amendedBy"><code>amendedBy</code></a>, <a href="#arrangementAsset"><code>arrangementAsset</code></a>, <a href="#hasParticipation"><code>hasParticipation</code></a>, <a href="#beneficiaryClass"><code>beneficiaryClass</code></a></dd>
+<dt>In the domain of:</dt>
+<dd><a href="#governingLaw"><code>governingLaw</code></a>, <a href="#effectivePeriod"><code>effectivePeriod</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="ExpressTrust">
+<h4><code>ExpressTrust</code></h4>
+<p><em>express trust</em></p>
+<div>A legal arrangement intentionally established by a settlor to place assets under administration for a specified purpose.</div>
+<dl class="terms">
+<dt>Subclass of:</dt>
+<dd><a href="#LegalArrangement"><code>LegalArrangement</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="LegalInstrument">
+<h4><code>LegalInstrument</code></h4>
+<p><em>legal instrument</em></p>
+<div>An instrument establishing, amending or evidencing legal rights, duties or powers; distinct from the arrangement itself.</div>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#constitutedBy"><code>constitutedBy</code></a>, <a href="#amendedBy"><code>amendedBy</code></a></dd>
+<dt>Includes the range of:</dt>
+<dd><a href="#establishedUnder"><code>establishedUnder</code></a></dd>
+<dt>In the domain of:</dt>
+<dd><a href="#governingLaw"><code>governingLaw</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="Asset">
+<h4><code>Asset</code></h4>
+<p><em>asset</em></p>
+<div>An identifiable resource capable of being subject to ownership or other rights.</div>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#arrangementAsset"><code>arrangementAsset</code></a></dd>
+<dt>Includes the range of:</dt>
+<dd><a href="#relationshipTarget"><code>relationshipTarget</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="ArrangementParticipation">
+<h4><code>ArrangementParticipation</code></h4>
+<p><em>arrangement participation</em></p>
+<div>The occupation of a specified position by a party in an identified legal arrangement during a specified period.</div>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#hasParticipation"><code>hasParticipation</code></a>, <a href="#supportingParticipation"><code>supportingParticipation</code></a>, <a href="#basedOnParticipation"><code>basedOnParticipation</code></a></dd>
+<dt>Domain of:</dt>
+<dd><a href="#participatingParty"><code>participatingParty</code></a>, <a href="#participationRole"><code>participationRole</code></a></dd>
+<dt>In the domain of:</dt>
+<dd><a href="#effectivePeriod"><code>effectivePeriod</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="BeneficiaryClass">
+<h4><code>BeneficiaryClass</code></h4>
+<p><em>beneficiary class</em></p>
+<div>A class of potential or undetermined beneficiaries described by defining characteristics.</div>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#beneficiaryClass"><code>beneficiaryClass</code></a></dd>
+<dt>Domain of:</dt>
+<dd><a href="#beneficiaryClassDescription"><code>beneficiaryClassDescription</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="OwnershipOrControlRelationship">
+<h4><code>OwnershipOrControlRelationship</code></h4>
+<p><em>ownership or control relationship</em></p>
+<div>A qualified relationship identifying a holder, target, particular right or power, basis, period and applicable conditions. Neither ownership nor control is assumed transitive.</div>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#basedOnRelationship"><code>basedOnRelationship</code></a></dd>
+<dt>Domain of:</dt>
+<dd><a href="#rightHolder"><code>rightHolder</code></a>, <a href="#relationshipTarget"><code>relationshipTarget</code></a>, <a href="#relationshipType"><code>relationshipType</code></a>, <a href="#establishedUnder"><code>establishedUnder</code></a>, <a href="#supportingParticipation"><code>supportingParticipation</code></a>, <a href="#exerciseMode"><code>exerciseMode</code></a>, <a href="#conditions"><code>conditions</code></a>, <a href="#hasRelationshipPath"><code>hasRelationshipPath</code></a>, <a href="#votingRightsPercentage"><code>votingRightsPercentage</code></a>, <a href="#economicEntitlementPercentage"><code>economicEntitlementPercentage</code></a>, <a href="#ownershipPercentage"><code>ownershipPercentage</code></a></dd>
+<dt>In the domain of:</dt>
+<dd><a href="#effectivePeriod"><code>effectivePeriod</code></a>, <a href="#supportedBy"><code>supportedBy</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="RelationshipCondition">
+<h4><code>RelationshipCondition</code></h4>
+<p><em>relationship condition</em></p>
+<div>A condition restricting or triggering the exercise of a right or power. This draft leaves the detailed condition-expression profile for subsequent design.</div>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#conditions"><code>conditions</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="BeneficialOwnershipDetermination">
+<h4><code>BeneficialOwnershipDetermination</code></h4>
+<p><em>beneficial ownership determination</em></p>
+<div>A contextual conclusion identifying a natural person as beneficial owner of an entity or arrangement, with the applicable rule and supporting grounds.</div>
+<dl class="terms">
+<dt>Domain of:</dt>
+<dd><a href="#beneficialOwner"><code>beneficialOwner</code></a>, <a href="#determinationTarget"><code>determinationTarget</code></a>, <a href="#determinationBasis"><code>determinationBasis</code></a>, <a href="#basedOnParticipation"><code>basedOnParticipation</code></a>, <a href="#basedOnRelationship"><code>basedOnRelationship</code></a>, <a href="#determinedAt"><code>determinedAt</code></a>, <a href="#determinationStatus"><code>determinationStatus</code></a></dd>
+<dt>In the domain of:</dt>
+<dd><a href="#supportedBy"><code>supportedBy</code></a></dd>
+</dl>
+<dl class="terms">
+<dt>Relevant <code>@context</code>:</dt>
+<dd><a href="https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld"><code>https://jgmikael.github.io/docs/ebwv-ownership/v0.1/vocabulary.context.jsonld</code></a></dd>
+</dl>
+</section>
+<section id="EconomicOperator">
+<h4><code>EconomicOperator</code></h4>
+<p><em>EconomicOperator</em></p>
+<div>External reference; definition is maintained by its source vocabulary.</div>
+<dl class="terms">
+<dt>Includes the range of:</dt>
+<dd><a href="#participatingParty"><code>participatingParty</code></a>, <a href="#rightHolder"><code>rightHolder</code></a>, <a href="#relationshipTarget"><code>relationshipTarget</code></a>, <a href="#determinationTarget"><code>determinationTarget</code></a></dd>
+</dl>
+</section>
+<section id="LegalPerson">
+<h4><code>LegalPerson</code></h4>
+<p><em>LegalPerson</em></p>
+<div>External reference; definition is maintained by its source vocabulary.</div>
+<dl class="terms">
+<dt>Includes the range of:</dt>
+<dd><a href="#participatingParty"><code>participatingParty</code></a>, <a href="#rightHolder"><code>rightHolder</code></a>, <a href="#relationshipTarget"><code>relationshipTarget</code></a>, <a href="#determinationTarget"><code>determinationTarget</code></a></dd>
+</dl>
+</section>
+<section id="NaturalPerson">
+<h4><code>NaturalPerson</code></h4>
+<p><em>NaturalPerson</em></p>
+<div>External reference; definition is maintained by its source vocabulary.</div>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#beneficialOwner"><code>beneficialOwner</code></a></dd>
+<dt>Includes the range of:</dt>
+<dd><a href="#participatingParty"><code>participatingParty</code></a>, <a href="#rightHolder"><code>rightHolder</code></a></dd>
+</dl>
+</section>
+<section id="PeriodOfTime">
+<h4><code>PeriodOfTime</code></h4>
+<p><em>PeriodOfTime</em></p>
+<div>External reference; definition is maintained by its source vocabulary.</div>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#effectivePeriod"><code>effectivePeriod</code></a></dd>
+</dl>
+</section>
+<section id="List">
+<h4><code>List</code></h4>
+<p><em>List</em></p>
+<div>External reference; definition is maintained by its source vocabulary.</div>
+<p class="note">
+<b>This term is formally defined in another vocabulary</b>
+                    (as <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">rdf:List</a>), but is frequently used with this vocabulary and has been
+                    included to aid readability of this document.
+                </p>
+</section>
+<section id="Resource">
+<h4><code>Resource</code></h4>
+<p><em>Resource</em></p>
+<div>External reference; definition is maintained by its source vocabulary.</div>
+<p class="note">
+<b>This term is formally defined in another vocabulary</b>
+                    (as <a href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>), but is frequently used with this vocabulary and has been
+                    included to aid readability of this document.
+                </p>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#governingLaw"><code>governingLaw</code></a>, <a href="#supportedBy"><code>supportedBy</code></a>, <a href="#determinationBasis"><code>determinationBasis</code></a></dd>
+</dl>
+</section>
+<section id="c90e2c23d860c033c25f9a0f15f6f4950d4b75c14ba99a063bd54aad3ceaf4de">
+<h4><code>Concept</code></h4>
+<p><em>Concept</em></p>
+<div>External reference; definition is maintained by its source vocabulary.</div>
+<p class="note">
+<b>This term is formally defined in another vocabulary</b>
+                    (as <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>), but is frequently used with this vocabulary and has been
+                    included to aid readability of this document.
+                </p>
+<dl class="terms">
+<dt>Range of:</dt>
+<dd><a href="#arrangementType"><code>arrangementType</code></a>, <a href="#participationRole"><code>participationRole</code></a>, <a href="#relationshipType"><code>relationshipType</code></a>, <a href="#exerciseMode"><code>exerciseMode</code></a>, <a href="#determinationStatus"><code>determinationStatus</code></a></dd>
+</dl>
+</section>
+</section>
+</section>
+</body>
+</html>
