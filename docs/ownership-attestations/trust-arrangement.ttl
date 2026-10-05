@@ -81,7 +81,7 @@
 
 <urn:example:ownership:elina-trust-benefit> a ebwv:OwnershipOrControlRelationship ;
     rdfs:label "60% economic entitlement through the trust" ;
-    oa:capacityNote "All distributions from the 600-share block. No personal registered share title to this block. No ownershipPercentage or shareQuantity is asserted for this beneficiary right." ;
+    oa:capacityNote "All distributions from the 600-share block. No personal registered share title to this block. No personal share-ownership percentage or registered share quantity is claimed for this beneficiary right." ;
     oa:economicRight oa:dividend_rights,
         oa:liquidation_rights ;
     oa:interestType oa:beneficiaryOfLegalArrangement,

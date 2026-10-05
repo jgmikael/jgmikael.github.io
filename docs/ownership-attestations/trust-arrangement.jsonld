@@ -10,102 +10,6 @@
   },
   "@graph": [
     {
-      "@id": "urn:example:ownership:trustee-asset-title",
-      "@type": "ebwv:OwnershipOrControlRelationship",
-      "ebwv:effectivePeriod": {
-        "@id": "urn:example:ownership:trustee-asset-title-period"
-      },
-      "ebwv:establishedUnder": {
-        "@id": "urn:example:ownership:virta-trust"
-      },
-      "ebwv:exerciseMode": {
-        "@id": "oa:alone"
-      },
-      "ebwv:relationshipTarget": {
-        "@id": "urn:example:ownership:harbour-share-block"
-      },
-      "ebwv:relationshipType": {
-        "@id": "oa:legalTitle"
-      },
-      "ebwv:rightHolder": {
-        "@id": "urn:example:ownership:meridian-trustees"
-      },
-      "ebwv:supportedBy": {
-        "@id": "urn:example:ownership:virta-deed"
-      },
-      "ebwv:supportingParticipation": {
-        "@id": "urn:example:ownership:trust-trustee"
-      },
-      "oa:interestType": {
-        "@id": "oa:trustee"
-      },
-      "oa:level": {
-        "@id": "oa:direct"
-      },
-      "rdfs:label": "Legal title to the entire specified share block"
-    },
-    {
-      "@id": "urn:example:ownership:kaisa-address",
-      "@type": "ebwv:Address",
-      "ebwv:adminUnitL1": {
-        "@type": "ebwv:CountryCode",
-        "@value": "FI"
-      },
-      "ebwv:adminUnitL2": "Example Region",
-      "ebwv:locatorDesignator": "1",
-      "ebwv:postCode": "00100",
-      "ebwv:postName": "Helsinki",
-      "ebwv:thoroughfare": "Example Street"
-    },
-    {
-      "@id": "urn:example:ownership:trust-trustee",
-      "@type": "ebwv:ArrangementParticipation",
-      "ebwv:effectivePeriod": {
-        "@id": "urn:example:ownership:trust-trustee-period"
-      },
-      "ebwv:participatingParty": {
-        "@id": "urn:example:ownership:meridian-trustees"
-      },
-      "ebwv:participationRole": {
-        "@id": "oa:trustee"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:elina",
-      "@type": "ebwv:NaturalPerson",
-      "ebwv:dateOfBirth": {
-        "@type": "xsd:date",
-        "@value": "1990-06-15"
-      },
-      "ebwv:domicile": {
-        "@id": "urn:example:ownership:elina-address"
-      },
-      "ebwv:familyName": "Virta",
-      "ebwv:givenName": "Elina",
-      "rdfs:label": "Elina Virta"
-    },
-    {
-      "@id": "urn:example:ownership:jukka-address",
-      "@type": "ebwv:Address",
-      "ebwv:adminUnitL1": {
-        "@type": "ebwv:CountryCode",
-        "@value": "FI"
-      },
-      "ebwv:adminUnitL2": "Example Region",
-      "ebwv:locatorDesignator": "1",
-      "ebwv:postCode": "00100",
-      "ebwv:postName": "Helsinki",
-      "ebwv:thoroughfare": "Example Street"
-    },
-    {
-      "@id": "urn:example:ownership:trustee-asset-title-period",
-      "@type": "ebwv:PeriodOfTime",
-      "ebwv:startDate": {
-        "@type": "xsd:date",
-        "@value": "2025-01-01"
-      }
-    },
-    {
       "@id": "urn:example:ownership:trustee-company-title",
       "@type": "ebwv:OwnershipOrControlRelationship",
       "ebwv:effectivePeriod": {
@@ -163,6 +67,249 @@
       "rdfs:label": "60% legal title held as trustee"
     },
     {
+      "@id": "urn:example:ownership:trust-beneficiary",
+      "@type": "ebwv:ArrangementParticipation",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:trust-beneficiary-period"
+      },
+      "ebwv:participatingParty": {
+        "@id": "urn:example:ownership:elina"
+      },
+      "ebwv:participationRole": {
+        "@id": "oa:beneficiaryOfLegalArrangement"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:trust-protector",
+      "@type": "ebwv:ArrangementParticipation",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:trust-protector-period"
+      },
+      "ebwv:participatingParty": {
+        "@id": "urn:example:ownership:kaisa"
+      },
+      "ebwv:participationRole": {
+        "@id": "oa:protector"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:trust-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2025-01-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:trust-trustee-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2025-01-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:trust-trustee",
+      "@type": "ebwv:ArrangementParticipation",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:trust-trustee-period"
+      },
+      "ebwv:participatingParty": {
+        "@id": "urn:example:ownership:meridian-trustees"
+      },
+      "ebwv:participationRole": {
+        "@id": "oa:trustee"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:trust-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "GB"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "2",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "London",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:jukka-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:trust-settlor-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2025-01-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:harbour-robotics",
+      "@type": [
+        "ebwv:LegalPerson",
+        "ebwv:Company",
+        "ebwv:EconomicOperator"
+      ],
+      "ebwv:identifier": "DEMO-HARBOUR-ROBOTICS",
+      "ebwv:jurisdiction": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:legalForm": "Private limited company",
+      "ebwv:legalIdentifier": {
+        "@type": "ebwv:Euid",
+        "@value": "FI.DEMO.HARBOUR-ROBOTICS"
+      },
+      "ebwv:legalName": "Harbour Robotics Oy",
+      "ebwv:registeredAddress": {
+        "@id": "urn:example:ownership:harbour-robotics-address"
+      },
+      "oa:entityForm": {
+        "@id": "oa:private_company"
+      },
+      "rdfs:label": "Harbour Robotics Oy"
+    },
+    {
+      "@id": "urn:example:ownership:elina-direct-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:harbour-register"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:elina-direct-harbour"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:elina"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:kaisa",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1977-02-18"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:kaisa-address"
+      },
+      "ebwv:familyName": "Ranta",
+      "ebwv:givenName": "Kaisa",
+      "rdfs:label": "Kaisa Ranta"
+    },
+    {
+      "@id": "urn:example:ownership:trustee-asset-title",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:trustee-asset-title-period"
+      },
+      "ebwv:establishedUnder": {
+        "@id": "urn:example:ownership:virta-trust"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:harbour-share-block"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:legalTitle"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:meridian-trustees"
+      },
+      "ebwv:supportedBy": {
+        "@id": "urn:example:ownership:virta-deed"
+      },
+      "ebwv:supportingParticipation": {
+        "@id": "urn:example:ownership:trust-trustee"
+      },
+      "oa:interestType": {
+        "@id": "oa:trustee"
+      },
+      "oa:level": {
+        "@id": "oa:direct"
+      },
+      "rdfs:label": "Legal title to the entire specified share block"
+    },
+    {
+      "@id": "urn:example:ownership:jukka",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1956-07-09"
+      },
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:jukka-address"
+      },
+      "ebwv:familyName": "Virta",
+      "ebwv:givenName": "Jukka",
+      "rdfs:label": "Jukka Virta"
+    },
+    {
+      "@id": "urn:example:ownership:harbour-robotics-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:trustee-asset-title-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2025-01-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:trust-protector-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2025-01-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:virta-deed",
+      "@type": [
+        "oa:Evidence",
+        "ebwv:LegalInstrument"
+      ],
+      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\nFictional deed: Jukka settled a 600-share block. Meridian holds legal title as trustee. Elina has a fixed entitlement to all distributions attributable to that block. Kaisa may remove the trustee under clause 8; this is not personal title to the block.",
+      "dct:identifier": "DEMO-VIRTA-DEED",
+      "oa:evidenceData": {
+        "@type": "xsd:base64Binary",
+        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkZpY3Rpb25hbCBkZWVkOiBKdWtrYSBzZXR0bGVkIGEgNjAwLXNoYXJlIGJsb2NrLiBNZXJpZGlhbiBob2xkcyBsZWdhbCB0aXRsZSBhcyB0cnVzdGVlLiBFbGluYSBoYXMgYSBmaXhlZCBlbnRpdGxlbWVudCB0byBhbGwgZGlzdHJpYnV0aW9ucyBhdHRyaWJ1dGFibGUgdG8gdGhhdCBibG9jay4gS2Fpc2EgbWF5IHJlbW92ZSB0aGUgdHJ1c3RlZSB1bmRlciBjbGF1c2UgODsgdGhpcyBpcyBub3QgcGVyc29uYWwgdGl0bGUgdG8gdGhlIGJsb2NrLg=="
+      },
+      "oa:evidenceType": {
+        "@id": "oa:trustDeed"
+      },
+      "rdfs:label": "Virta Family Trust deed · clauses 3, 5 and 8"
+    },
+    {
       "@id": "urn:example:ownership:elina-address",
       "@type": "ebwv:Address",
       "ebwv:adminUnitL1": {
@@ -176,23 +323,57 @@
       "ebwv:thoroughfare": "Example Street"
     },
     {
-      "@id": "urn:example:ownership:elina-beneficiary-record",
-      "@type": "oa:OwnerRecord",
-      "oa:effectiveDate": {
-        "@type": "xsd:date",
-        "@value": "2025-01-01"
+      "@id": "urn:example:ownership:elina-trust-benefit",
+      "@type": "ebwv:OwnershipOrControlRelationship",
+      "ebwv:economicEntitlementPercentage": {
+        "@type": "xsd:decimal",
+        "@value": "60"
       },
-      "oa:evidence": {
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:elina-trust-benefit-period"
+      },
+      "ebwv:establishedUnder": {
+        "@id": "urn:example:ownership:virta-trust"
+      },
+      "ebwv:exerciseMode": {
+        "@id": "oa:alone"
+      },
+      "ebwv:relationshipTarget": {
+        "@id": "urn:example:ownership:harbour-robotics"
+      },
+      "ebwv:relationshipType": {
+        "@id": "oa:economicEntitlement"
+      },
+      "ebwv:rightHolder": {
+        "@id": "urn:example:ownership:elina"
+      },
+      "ebwv:supportedBy": {
         "@id": "urn:example:ownership:virta-deed"
       },
-      "oa:interest": {
-        "@id": "urn:example:ownership:elina-trust-benefit"
+      "ebwv:supportingParticipation": {
+        "@id": "urn:example:ownership:trust-beneficiary"
       },
-      "oa:ownerJurisdiction": "FI",
-      "oa:ownerType": "Person",
-      "oa:party": {
-        "@id": "urn:example:ownership:elina"
-      }
+      "oa:capacityNote": "All distributions from the 600-share block. No personal registered share title to this block. No personal share-ownership percentage or registered share quantity is claimed for this beneficiary right.",
+      "oa:economicRight": [
+        {
+          "@id": "oa:dividend_rights"
+        },
+        {
+          "@id": "oa:liquidation_rights"
+        }
+      ],
+      "oa:interestType": [
+        {
+          "@id": "oa:beneficiaryOfLegalArrangement"
+        },
+        {
+          "@id": "oa:economicBeneficiary"
+        }
+      ],
+      "oa:level": {
+        "@id": "oa:indirect"
+      },
+      "rdfs:label": "60% economic entitlement through the trust"
     },
     {
       "@id": "urn:example:ownership:trustee-owner-record",
@@ -211,6 +392,62 @@
       "oa:ownerType": "Entity",
       "oa:party": {
         "@id": "urn:example:ownership:meridian-trustees"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:meridian-trustees-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:kaisa-address",
+      "@type": "ebwv:Address",
+      "ebwv:adminUnitL1": {
+        "@type": "ebwv:CountryCode",
+        "@value": "FI"
+      },
+      "ebwv:adminUnitL2": "Example Region",
+      "ebwv:locatorDesignator": "1",
+      "ebwv:postCode": "00100",
+      "ebwv:postName": "Helsinki",
+      "ebwv:thoroughfare": "Example Street"
+    },
+    {
+      "@id": "urn:example:ownership:trust-attestation-status",
+      "@type": "oa:StatusReference",
+      "oa:statusIndex": 0,
+      "oa:statusList": {
+        "@id": "https://issuer.example/status/demo"
+      },
+      "oa:statusPurpose": "revocation"
+    },
+    {
+      "@id": "urn:example:ownership:trust-settlor",
+      "@type": "ebwv:ArrangementParticipation",
+      "ebwv:effectivePeriod": {
+        "@id": "urn:example:ownership:trust-settlor-period"
+      },
+      "ebwv:participatingParty": {
+        "@id": "urn:example:ownership:jukka"
+      },
+      "ebwv:participationRole": {
+        "@id": "oa:settlor"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:elina-trust-benefit-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2025-01-01"
       }
     },
     {
@@ -265,81 +502,6 @@
       "rdfs:label": "Share ownership and trust economic entitlement"
     },
     {
-      "@id": "urn:example:ownership:trustee-company-title-period",
-      "@type": "ebwv:PeriodOfTime",
-      "ebwv:startDate": {
-        "@type": "xsd:date",
-        "@value": "2025-01-01"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:elina-direct-record",
-      "@type": "oa:OwnerRecord",
-      "oa:effectiveDate": {
-        "@type": "xsd:date",
-        "@value": "2026-09-01"
-      },
-      "oa:evidence": {
-        "@id": "urn:example:ownership:harbour-register"
-      },
-      "oa:interest": {
-        "@id": "urn:example:ownership:elina-direct-harbour"
-      },
-      "oa:ownerJurisdiction": "FI",
-      "oa:ownerType": "Person",
-      "oa:party": {
-        "@id": "urn:example:ownership:elina"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:harbour-register",
-      "@type": "oa:Evidence",
-      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\n1,000 ordinary shares issued. Meridian Trustees Oy is registered for 600 as trustee of Virta Family Trust. Elina Virta personally owns 400 separately.",
-      "dct:identifier": "DEMO-HARBOUR-REGISTER",
-      "oa:evidenceData": {
-        "@type": "xsd:base64Binary",
-        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCjEsMDAwIG9yZGluYXJ5IHNoYXJlcyBpc3N1ZWQuIE1lcmlkaWFuIFRydXN0ZWVzIE95IGlzIHJlZ2lzdGVyZWQgZm9yIDYwMCBhcyB0cnVzdGVlIG9mIFZpcnRhIEZhbWlseSBUcnVzdC4gRWxpbmEgVmlydGEgcGVyc29uYWxseSBvd25zIDQwMCBzZXBhcmF0ZWx5Lg=="
-      },
-      "oa:evidenceType": {
-        "@id": "oa:officialRegister"
-      },
-      "rdfs:label": "Shareholder register — Harbour Robotics"
-    },
-    {
-      "@id": "urn:example:ownership:elina-direct-harbour-period",
-      "@type": "ebwv:PeriodOfTime",
-      "ebwv:startDate": {
-        "@type": "xsd:date",
-        "@value": "2026-09-01"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:meridian-trustees-address",
-      "@type": "ebwv:Address",
-      "ebwv:adminUnitL1": {
-        "@type": "ebwv:CountryCode",
-        "@value": "FI"
-      },
-      "ebwv:adminUnitL2": "Example Region",
-      "ebwv:locatorDesignator": "1",
-      "ebwv:postCode": "00100",
-      "ebwv:postName": "Helsinki",
-      "ebwv:thoroughfare": "Example Street"
-    },
-    {
-      "@id": "urn:example:ownership:harbour-robotics-address",
-      "@type": "ebwv:Address",
-      "ebwv:adminUnitL1": {
-        "@type": "ebwv:CountryCode",
-        "@value": "FI"
-      },
-      "ebwv:adminUnitL2": "Example Region",
-      "ebwv:locatorDesignator": "1",
-      "ebwv:postCode": "00100",
-      "ebwv:postName": "Helsinki",
-      "ebwv:thoroughfare": "Example Street"
-    },
-    {
       "@id": "urn:example:ownership:elina-direct-harbour",
       "@type": "ebwv:OwnershipOrControlRelationship",
       "ebwv:effectivePeriod": {
@@ -383,185 +545,6 @@
       },
       "oa:shareQuantity": 400,
       "rdfs:label": "40% personal share ownership"
-    },
-    {
-      "@id": "urn:example:ownership:trust-beneficiary",
-      "@type": "ebwv:ArrangementParticipation",
-      "ebwv:effectivePeriod": {
-        "@id": "urn:example:ownership:trust-beneficiary-period"
-      },
-      "ebwv:participatingParty": {
-        "@id": "urn:example:ownership:elina"
-      },
-      "ebwv:participationRole": {
-        "@id": "oa:beneficiaryOfLegalArrangement"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:elina-trust-benefit-period",
-      "@type": "ebwv:PeriodOfTime",
-      "ebwv:startDate": {
-        "@type": "xsd:date",
-        "@value": "2025-01-01"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:jukka",
-      "@type": "ebwv:NaturalPerson",
-      "ebwv:dateOfBirth": {
-        "@type": "xsd:date",
-        "@value": "1956-07-09"
-      },
-      "ebwv:domicile": {
-        "@id": "urn:example:ownership:jukka-address"
-      },
-      "ebwv:familyName": "Virta",
-      "ebwv:givenName": "Jukka",
-      "rdfs:label": "Jukka Virta"
-    },
-    {
-      "@id": "urn:example:ownership:trust-protector-period",
-      "@type": "ebwv:PeriodOfTime",
-      "ebwv:startDate": {
-        "@type": "xsd:date",
-        "@value": "2025-01-01"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:harbour-share-block",
-      "@type": "ebwv:Asset",
-      "dct:description": "The trust property is a specified 600-share block, representing 60% of the company’s 1,000 ordinary shares.",
-      "rdfs:label": "600 ordinary shares in Harbour Robotics Oy"
-    },
-    {
-      "@id": "urn:example:ownership:elina-trust-benefit",
-      "@type": "ebwv:OwnershipOrControlRelationship",
-      "ebwv:economicEntitlementPercentage": {
-        "@type": "xsd:decimal",
-        "@value": "60"
-      },
-      "ebwv:effectivePeriod": {
-        "@id": "urn:example:ownership:elina-trust-benefit-period"
-      },
-      "ebwv:establishedUnder": {
-        "@id": "urn:example:ownership:virta-trust"
-      },
-      "ebwv:exerciseMode": {
-        "@id": "oa:alone"
-      },
-      "ebwv:relationshipTarget": {
-        "@id": "urn:example:ownership:harbour-robotics"
-      },
-      "ebwv:relationshipType": {
-        "@id": "oa:economicEntitlement"
-      },
-      "ebwv:rightHolder": {
-        "@id": "urn:example:ownership:elina"
-      },
-      "ebwv:supportedBy": {
-        "@id": "urn:example:ownership:virta-deed"
-      },
-      "ebwv:supportingParticipation": {
-        "@id": "urn:example:ownership:trust-beneficiary"
-      },
-      "oa:capacityNote": "All distributions from the 600-share block. No personal registered share title to this block. No ownershipPercentage or shareQuantity is asserted for this beneficiary right.",
-      "oa:economicRight": [
-        {
-          "@id": "oa:dividend_rights"
-        },
-        {
-          "@id": "oa:liquidation_rights"
-        }
-      ],
-      "oa:interestType": [
-        {
-          "@id": "oa:beneficiaryOfLegalArrangement"
-        },
-        {
-          "@id": "oa:economicBeneficiary"
-        }
-      ],
-      "oa:level": {
-        "@id": "oa:indirect"
-      },
-      "rdfs:label": "60% economic entitlement through the trust"
-    },
-    {
-      "@id": "urn:example:ownership:trust-settlor-period",
-      "@type": "ebwv:PeriodOfTime",
-      "ebwv:startDate": {
-        "@type": "xsd:date",
-        "@value": "2025-01-01"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:kaisa",
-      "@type": "ebwv:NaturalPerson",
-      "ebwv:dateOfBirth": {
-        "@type": "xsd:date",
-        "@value": "1977-02-18"
-      },
-      "ebwv:domicile": {
-        "@id": "urn:example:ownership:kaisa-address"
-      },
-      "ebwv:familyName": "Ranta",
-      "ebwv:givenName": "Kaisa",
-      "rdfs:label": "Kaisa Ranta"
-    },
-    {
-      "@id": "urn:example:ownership:meridian-trustees",
-      "@type": [
-        "ebwv:LegalPerson",
-        "ebwv:Company",
-        "ebwv:EconomicOperator"
-      ],
-      "ebwv:identifier": "DEMO-MERIDIAN-TRUSTEES",
-      "ebwv:jurisdiction": {
-        "@type": "ebwv:CountryCode",
-        "@value": "FI"
-      },
-      "ebwv:legalForm": "Private limited company",
-      "ebwv:legalIdentifier": {
-        "@type": "ebwv:Euid",
-        "@value": "FI.DEMO.MERIDIAN-TRUSTEES"
-      },
-      "ebwv:legalName": "Meridian Trustees Oy",
-      "ebwv:registeredAddress": {
-        "@id": "urn:example:ownership:meridian-trustees-address"
-      },
-      "oa:entityForm": {
-        "@id": "oa:private_company"
-      },
-      "rdfs:label": "Meridian Trustees Oy"
-    },
-    {
-      "@id": "urn:example:ownership:trust-address",
-      "@type": "ebwv:Address",
-      "ebwv:adminUnitL1": {
-        "@type": "ebwv:CountryCode",
-        "@value": "GB"
-      },
-      "ebwv:adminUnitL2": "Example Region",
-      "ebwv:locatorDesignator": "2",
-      "ebwv:postCode": "00100",
-      "ebwv:postName": "London",
-      "ebwv:thoroughfare": "Example Street"
-    },
-    {
-      "@id": "urn:example:ownership:trust-trustee-period",
-      "@type": "ebwv:PeriodOfTime",
-      "ebwv:startDate": {
-        "@type": "xsd:date",
-        "@value": "2025-01-01"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:trust-period",
-      "@type": "ebwv:PeriodOfTime",
-      "ebwv:startDate": {
-        "@type": "xsd:date",
-        "@value": "2025-01-01"
-      }
     },
     {
       "@id": "urn:example:ownership:virta-trust",
@@ -609,37 +592,7 @@
       "rdfs:label": "Virta Family Trust"
     },
     {
-      "@id": "urn:example:ownership:trust-settlor",
-      "@type": "ebwv:ArrangementParticipation",
-      "ebwv:effectivePeriod": {
-        "@id": "urn:example:ownership:trust-settlor-period"
-      },
-      "ebwv:participatingParty": {
-        "@id": "urn:example:ownership:jukka"
-      },
-      "ebwv:participationRole": {
-        "@id": "oa:settlor"
-      }
-    },
-    {
-      "@id": "urn:example:ownership:virta-deed",
-      "@type": [
-        "oa:Evidence",
-        "ebwv:LegalInstrument"
-      ],
-      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\nFictional deed: Jukka settled a 600-share block. Meridian holds legal title as trustee. Elina has a fixed entitlement to all distributions attributable to that block. Kaisa may remove the trustee under clause 8; this is not personal title to the block.",
-      "dct:identifier": "DEMO-VIRTA-DEED",
-      "oa:evidenceData": {
-        "@type": "xsd:base64Binary",
-        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCkZpY3Rpb25hbCBkZWVkOiBKdWtrYSBzZXR0bGVkIGEgNjAwLXNoYXJlIGJsb2NrLiBNZXJpZGlhbiBob2xkcyBsZWdhbCB0aXRsZSBhcyB0cnVzdGVlLiBFbGluYSBoYXMgYSBmaXhlZCBlbnRpdGxlbWVudCB0byBhbGwgZGlzdHJpYnV0aW9ucyBhdHRyaWJ1dGFibGUgdG8gdGhhdCBibG9jay4gS2Fpc2EgbWF5IHJlbW92ZSB0aGUgdHJ1c3RlZSB1bmRlciBjbGF1c2UgODsgdGhpcyBpcyBub3QgcGVyc29uYWwgdGl0bGUgdG8gdGhlIGJsb2NrLg=="
-      },
-      "oa:evidenceType": {
-        "@id": "oa:trustDeed"
-      },
-      "rdfs:label": "Virta Family Trust deed · clauses 3, 5 and 8"
-    },
-    {
-      "@id": "urn:example:ownership:trust-beneficiary-period",
+      "@id": "urn:example:ownership:trustee-company-title-period",
       "@type": "ebwv:PeriodOfTime",
       "ebwv:startDate": {
         "@type": "xsd:date",
@@ -647,22 +600,74 @@
       }
     },
     {
-      "@id": "urn:example:ownership:trust-attestation-status",
-      "@type": "oa:StatusReference",
-      "oa:statusIndex": 0,
-      "oa:statusList": {
-        "@id": "https://issuer.example/status/demo"
+      "@id": "urn:example:ownership:elina",
+      "@type": "ebwv:NaturalPerson",
+      "ebwv:dateOfBirth": {
+        "@type": "xsd:date",
+        "@value": "1990-06-15"
       },
-      "oa:statusPurpose": "revocation"
+      "ebwv:domicile": {
+        "@id": "urn:example:ownership:elina-address"
+      },
+      "ebwv:familyName": "Virta",
+      "ebwv:givenName": "Elina",
+      "rdfs:label": "Elina Virta"
     },
     {
-      "@id": "urn:example:ownership:harbour-robotics",
+      "@id": "urn:example:ownership:elina-beneficiary-record",
+      "@type": "oa:OwnerRecord",
+      "oa:effectiveDate": {
+        "@type": "xsd:date",
+        "@value": "2025-01-01"
+      },
+      "oa:evidence": {
+        "@id": "urn:example:ownership:virta-deed"
+      },
+      "oa:interest": {
+        "@id": "urn:example:ownership:elina-trust-benefit"
+      },
+      "oa:ownerJurisdiction": "FI",
+      "oa:ownerType": "Person",
+      "oa:party": {
+        "@id": "urn:example:ownership:elina"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:harbour-register",
+      "@type": "oa:Evidence",
+      "dct:description": "FICTIONAL DEMONSTRATION DOCUMENT — NOT AN AUTHENTIC REGISTER OR LEGAL INSTRUMENT.\n\n1,000 ordinary shares issued. Meridian Trustees Oy is registered for 600 as trustee of Virta Family Trust. Elina Virta personally owns 400 separately.",
+      "dct:identifier": "DEMO-HARBOUR-REGISTER",
+      "oa:evidenceData": {
+        "@type": "xsd:base64Binary",
+        "@value": "RklDVElPTkFMIERFTU9OU1RSQVRJT04gRE9DVU1FTlQg4oCUIE5PVCBBTiBBVVRIRU5USUMgUkVHSVNURVIgT1IgTEVHQUwgSU5TVFJVTUVOVC4KCjEsMDAwIG9yZGluYXJ5IHNoYXJlcyBpc3N1ZWQuIE1lcmlkaWFuIFRydXN0ZWVzIE95IGlzIHJlZ2lzdGVyZWQgZm9yIDYwMCBhcyB0cnVzdGVlIG9mIFZpcnRhIEZhbWlseSBUcnVzdC4gRWxpbmEgVmlydGEgcGVyc29uYWxseSBvd25zIDQwMCBzZXBhcmF0ZWx5Lg=="
+      },
+      "oa:evidenceType": {
+        "@id": "oa:officialRegister"
+      },
+      "rdfs:label": "Shareholder register — Harbour Robotics"
+    },
+    {
+      "@id": "urn:example:ownership:harbour-share-block",
+      "@type": "ebwv:Asset",
+      "dct:description": "The trust property is a specified 600-share block, representing 60% of the company’s 1,000 ordinary shares.",
+      "rdfs:label": "600 ordinary shares in Harbour Robotics Oy"
+    },
+    {
+      "@id": "urn:example:ownership:elina-direct-harbour-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2026-09-01"
+      }
+    },
+    {
+      "@id": "urn:example:ownership:meridian-trustees",
       "@type": [
         "ebwv:LegalPerson",
         "ebwv:Company",
         "ebwv:EconomicOperator"
       ],
-      "ebwv:identifier": "DEMO-HARBOUR-ROBOTICS",
+      "ebwv:identifier": "DEMO-MERIDIAN-TRUSTEES",
       "ebwv:jurisdiction": {
         "@type": "ebwv:CountryCode",
         "@value": "FI"
@@ -670,28 +675,23 @@
       "ebwv:legalForm": "Private limited company",
       "ebwv:legalIdentifier": {
         "@type": "ebwv:Euid",
-        "@value": "FI.DEMO.HARBOUR-ROBOTICS"
+        "@value": "FI.DEMO.MERIDIAN-TRUSTEES"
       },
-      "ebwv:legalName": "Harbour Robotics Oy",
+      "ebwv:legalName": "Meridian Trustees Oy",
       "ebwv:registeredAddress": {
-        "@id": "urn:example:ownership:harbour-robotics-address"
+        "@id": "urn:example:ownership:meridian-trustees-address"
       },
       "oa:entityForm": {
         "@id": "oa:private_company"
       },
-      "rdfs:label": "Harbour Robotics Oy"
+      "rdfs:label": "Meridian Trustees Oy"
     },
     {
-      "@id": "urn:example:ownership:trust-protector",
-      "@type": "ebwv:ArrangementParticipation",
-      "ebwv:effectivePeriod": {
-        "@id": "urn:example:ownership:trust-protector-period"
-      },
-      "ebwv:participatingParty": {
-        "@id": "urn:example:ownership:kaisa"
-      },
-      "ebwv:participationRole": {
-        "@id": "oa:protector"
+      "@id": "urn:example:ownership:trust-beneficiary-period",
+      "@type": "ebwv:PeriodOfTime",
+      "ebwv:startDate": {
+        "@type": "xsd:date",
+        "@value": "2025-01-01"
       }
     }
   ]

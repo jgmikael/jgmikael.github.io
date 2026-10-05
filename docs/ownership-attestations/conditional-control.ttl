@@ -90,7 +90,7 @@
     oa:capacityNote "No ownership percentage, share quantity, dividend or liquidation rights. Power is not currently exercisable." ;
     oa:interestType oa:appointmentOfBoard,
         oa:conditionalRightsGrantedByContract ;
-    oa:level oa:joint ;
+    oa:level oa:direct ;
     oa:powerState oa:contingent ;
     ebwv:conditions <urn:example:ownership:appointment-condition> ;
     ebwv:effectivePeriod <urn:example:ownership:kaisa-appointment-period> ;

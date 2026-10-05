@@ -129,7 +129,7 @@ rt=relation(g,'trustee-company-title',trustee,subject,'60% legal title held as t
 ra=relation(g,'trustee-asset-title',trustee,asset,'Legal title to the entire specified share block',['trustee'],basis=trust,ev=deed,start='2025-01-01'); add(g,ra,E.supportingParticipation,participations['trustee'])
 re=relation(g,'elina-direct-harbour',elina,subject,'40% personal share ownership',['shareholding'],pct=40,quantity=400,rights=ECON,ev=ev); record(g,att,'elina-direct-record',elina,re,ev)
 rb=relation(g,'elina-trust-benefit',elina,subject,'60% economic entitlement through the trust',['beneficiaryOfLegalArrangement','economicBeneficiary'],level='indirect',rights=ECON,basis=trust,ev=deed,start='2025-01-01',kind='economicEntitlement')
-add(g,rb,E.economicEntitlementPercentage,Literal('60',datatype=XSD.decimal)); add(g,rb,E.supportingParticipation,participations['beneficiary']); add(g,rb,A.capacityNote,text('All distributions from the 600-share block. No personal registered share title to this block. No ownershipPercentage or shareQuantity is asserted for this beneficiary right.')); record(g,att,'elina-beneficiary-record',elina,rb,deed)
+add(g,rb,E.economicEntitlementPercentage,Literal('60',datatype=XSD.decimal)); add(g,rb,E.supportingParticipation,participations['beneficiary']); add(g,rb,A.capacityNote,text('All distributions from the 600-share block. No personal registered share title to this block. No personal share-ownership percentage or registered share quantity is claimed for this beneficiary right.')); record(g,att,'elina-beneficiary-record',elina,rb,deed)
 examples.append(dict(slug='trust-arrangement',g=g,att=att,title='A trust separates title from benefit',subtitle='A company holds the shares; a person receives their economic benefit.',tag='03 · Trust arrangement',summary='Meridian Trustees holds 600 shares for the Virta Family Trust. Elina owns another 400 shares personally and is entitled to the economic benefit of the trust’s block. The trust deed connects the participants, asset and distinct rights.',takeaway='Elina has 40% personal share ownership plus 60% economic entitlement through the trust. Meridian’s 60% legal-title holding is the same trust share block, not another 60% of economic ownership. Settlor and protector roles do not themselves assert personal title to the shares.',facts=[('Direct share register','Meridian Trustees in trustee capacity 60% · Elina personally 40%'),('Economic benefit','Elina: 40% direct + 60% trust entitlement'),('Trust property','A specifically identified block of 600 ordinary shares')],story=[],scope='Direct register, fixed trust economic entitlement and named trust participants. No automatic UBO determination is asserted.',strict=False))
 
 g=graph(); subject=company(g,'aurora-machines','Aurora Machines Oy'); att=attestation(g,'conditional-attestation',subject,'Share ownership with a conditional governance power')
@@ -138,7 +138,7 @@ ev=evidence(g,'aurora-register','Shareholder register — Aurora Machines','offi
 for slug,p,pct,qty in [('sanna',sanna,70,700),('jari',jari,30,300)]:
     r=relation(g,slug+'-aurora-shares',p,subject,f'{pct}% direct shares',['shareholding'],pct=pct,quantity=qty,rights=ECON,ev=ev); record(g,att,slug+'-record',p,r,ev)
 agreement=instrument(g,'aurora-agreement','Governance agreement · clause 12','shareholderAgreement','Clause 12: Kaisa may appoint two of three directors only after an uncured payment default and written consent of the lender. At assessment no default has occurred and no consent has been given. The clause conveys no share title or economic distribution rights.')
-r=relation(g,'kaisa-appointment',kaisa,subject,'Conditional power to appoint two of three directors',['appointmentOfBoard','conditionalRightsGrantedByContract'],level='joint',basis=agreement,ev=agreement,kind='appointmentPower',mode='subjectToConsent')
+r=relation(g,'kaisa-appointment',kaisa,subject,'Conditional power to appoint two of three directors',['appointmentOfBoard','conditionalRightsGrantedByContract'],level='direct',basis=agreement,ev=agreement,kind='appointmentPower',mode='subjectToConsent')
 cond=D['appointment-condition']; add(g,cond,RDF.type,E.RelationshipCondition); add(g,r,E.conditions,cond)
 add(g,cond,A.trigger,text('Uncured payment default under clause 12')); add(g,cond,A.consentRequired,text('Written consent of the lender')); add(g,cond,A.conditionSatisfied,Literal(False)); add(g,cond,A.assessedOn,date('2026-10-05'))
 add(g,r,A.powerState,code('contingent')); add(g,r,A.capacityNote,text('No ownership percentage, share quantity, dividend or liquidation rights. Power is not currently exercisable.')); record(g,att,'kaisa-power-record',kaisa,r,agreement)
@@ -388,7 +388,12 @@ for ix,ex in enumerate(examples):
     body+='<div class="bar"><button onclick="window.print()">Print reading view</button><a href="index.html">All examples</a></div>'
     body+='<h2>The issuer’s ownership statement</h2>'+dl(ex['facts'])
     body+=f'<p class="small"><strong>Scope:</strong> {esc(ex["scope"])}</p>'
-    for rec in sorted(g.objects(att,A.ownerRecord),key=str):
+    def reading_order(rec):
+        r=val(g,rec,A.interest); level=str(val(g,r,A.level)).split('#')[-1]
+        is_power=val(g,r,E.relationshipType)==code('appointmentPower')
+        p=val(g,r,E.ownershipPercentage,val(g,r,E.economicEntitlementPercentage,0))
+        return (2 if is_power else (0 if level=='direct' else 1),-float(p),name(g,val(g,rec,A.party)))
+    for rec in sorted(g.objects(att,A.ownerRecord),key=reading_order):
         p=val(g,rec,A.party); r=val(g,rec,A.interest); own=val(g,r,E.ownershipPercentage,None); eco=val(g,r,E.economicEntitlementPercentage,None)
         metric=(pct(own)+'% shares') if own is not None else ((pct(eco)+'% economic benefit') if eco is not None else 'Conditional power')
         kind=str(val(g,r,E.relationshipType)).split('#')[-1]; level=str(val(g,r,A.level)).split('#')[-1]
@@ -421,7 +426,8 @@ for ix,ex in enumerate(examples):
         body+='<p>'+esc(val(g,arrangement,DCTERMS.description))+'</p>'
         body+='<div class="table-wrap"><table><thead><tr><th>Participant</th><th>Position in the trust</th><th>What the position tells us</th></tr></thead><tbody>'
         notes={'settlor':'Settled the specified share block; the role does not assert current title.','trustee':'Administers the asset and holds its legal title in trustee capacity.','protector':'Can remove the trustee under clause 8; no personal share title is asserted.','beneficiaryOfLegalArrangement':'Receives the fixed economic benefit of the share block.'}
-        for part in sorted(g.objects(arrangement,E.hasParticipation),key=str):
+        role_order={'settlor':0,'trustee':1,'protector':2,'beneficiaryOfLegalArrangement':3}
+        for part in sorted(g.objects(arrangement,E.hasParticipation),key=lambda p:role_order[str(val(g,p,E.participationRole)).split('#')[-1]]):
             role=str(val(g,part,E.participationRole)).split('#')[-1]
             body+=f'<tr><td>{esc(name(g,val(g,part,E.participatingParty)))}</td><td>{esc("beneficiary" if role=="beneficiaryOfLegalArrangement" else role)}</td><td>{esc(notes[role])}</td></tr>'
         body+='</tbody></table></div><p class="small">Trust participants are represented separately from the company’s owner records. No AML beneficial-owner conclusion is inferred solely from these roles.</p>'
