@@ -1,0 +1,804 @@
+[
+  {
+    "@id": "http://data.europa.eu/m8g/registrationDate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://www.w3.org/ns/legal#LegalEntity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "registration date"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/email",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An electronic address through which the Contact Point can be contacted."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/ContactPoint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has email"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/legalStatusDate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information date of the current position of the legal entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/LegalStatus"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "legal status date"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/adminUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A detailed administrative unit organized in a hierarchy."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://www.w3.org/ns/locn#Address"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "administrative unit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://data.europa.eu/m8g/AdminUnit"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/ContactPoint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Contact Point"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The Core Public Organization Vocabulary defines properties for telephone number, e-mail address and opening hours although it is noteworthy that the class is based on schema.org's <a href=\"http://schema.org/ContactPoint\"> ContactPoint </a> class  that has additional properties that some implementations may find useful."
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/scopeOfAttorney",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The context in which the power of attorney can be applied."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/a4g/ontology#PowerOfAttorney"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "scope of attorney"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/role",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The function of an Agent within a context."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/a4g/ontology#PowerOfAttorney"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "role"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "This should be provided using a controlled vocabulary."
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/issued": [
+      {
+        "@value": "2026-05-12"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/mediator": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b1"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "core-business"
+      },
+      {
+        "@language": "nl",
+        "@value": "core-business"
+      }
+    ],
+    "http://www.w3.org/2001/02pd/rec54#editor": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b2"
+      },
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b4"
+      },
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b6"
+      },
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b8"
+      },
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b10"
+      },
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b12"
+      },
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b14"
+      },
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b16"
+      },
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b18"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/maker": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b20"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b1",
+    "http://xmlns.com/foaf/0.1/homepage": [
+      {
+        "@id": "https://semic.eu"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Semantic Interoperability Community (SEMIC)"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b2",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Florian"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Barthelemy"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b3"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b3",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b4",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Jitse"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "De Cock"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b5"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b5",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b6",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Emiel"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Dhondt"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b7"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b7",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Digital Flanders"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b8",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Pavlina"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Fragkou"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b9"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b9",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "European Commission"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b10",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Faruk"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Karabulut"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b11"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b11",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b12",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Arthur"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Schiltz"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b13"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b13",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b14",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Anastasia"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Sofou"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b15"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b15",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "European Commission"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b16",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Emidio"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Stani"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b17"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b17",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b18",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Bert"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Van Nuffelen"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b19"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b19",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Digital Flanders"
+      }
+    ]
+  },
+  {
+    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b20",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Core Vocabularies Working Group"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/AdminUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A detailed administrative unit organized in a hierarchy."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Administrative Unit"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "This class should be used whenever a classification mechanism is in place, in alternative to the properties adminUnitL1 and adminUnitL2 of the Address class which allow free text."
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/LegalStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information about the viability of the position of the legal entity at a certain point of time."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Legal Status"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/code",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The classification of the administrative unit."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/AdminUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "code"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/AccountingDocument",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Financial and non-financial information as a result of an activity of an organisation."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Accounting Document"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Accounting documents, might include:\n<ul>\n<li> Financial statements (incl. the list of participating interests, subsidiary undertakings and associated undertakings, their registered office address and proportion of capital held), audit reports.</li> \n<li> Non-financial statements, management reports and other statements or reports.</li>\n<li> Annual financial reports.</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/level",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The level of the administrative unit in the hierarchy."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/AdminUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "level"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The recommended code list to indicate the level of an Admin Unit is the <a href=https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/atu-type>Administrative territorial unit type</a> Controlled Vocabulary maintained by the Publications Office of the EU. "
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/telephone",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A telephone number through which the Contact Point can be contacted."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/ContactPoint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has telephone"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/contactPage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A web page that could be used to reach out the Contact Point."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/ContactPoint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "contact page"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://xmlns.com/foaf/0.1/Document"
+      }
+    ]
+  }
+]
