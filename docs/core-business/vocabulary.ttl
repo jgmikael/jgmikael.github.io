@@ -1,0 +1,443 @@
+@prefix a4g: <http://data.europa.eu/a4g/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix cv: <http://data.europa.eu/m8g/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <http://www.w3.org/2001/02pd/rec54#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schemas: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rdfs:Literal a rdfs:Class ;
+    rdfs:label "Literal"@en ;
+    rdfs:comment "Literal"@en .
+
+cv:AccountingDocument a owl:Class ;
+    rdfs:label "Accounting Document"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AccountingDocument> ;
+    rdfs:comment "Financial and non-financial information as a result of an activity of an organisation."@en ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    skos:scopeNote """Accounting documents, might include:
+<ul>
+<li> Financial statements (incl. the list of participating interests, subsidiary undertakings and associated undertakings, their registered office address and proportion of capital held), audit reports.</li> 
+<li> Non-financial statements, management reports and other statements or reports.</li>
+<li> Annual financial reports.</li>
+</ul>"""@en .
+
+cv:adminUnit a owl:ObjectProperty ;
+    rdfs:label "administrative unit"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.administrativeunit> ;
+    rdfs:comment "A detailed administrative unit organized in a hierarchy."@en ;
+    rdfs:domain locn:Address ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range cv:AdminUnit .
+
+cv:authorises a rdf:Property ;
+    rdfs:label "authorises"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney.authorises> ;
+    rdfs:comment "The agent that the power of attorney gives the authority to act."@en .
+
+cv:code a owl:ObjectProperty ;
+    rdfs:label "code"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AdministrativeUnit.code> ;
+    rdfs:comment "The classification of the administrative unit."@en ;
+    rdfs:domain cv:AdminUnit ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range skos:Concept .
+
+cv:contactPage a owl:ObjectProperty ;
+    rdfs:label "contact page"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#ContactPoint.contactpage> ;
+    rdfs:comment "A web page that could be used to reach out the Contact Point."@en ;
+    rdfs:domain cv:ContactPoint ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range foaf:Document .
+
+cv:contactPoint a rdf:Property ;
+    rdfs:label "contact point"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.contactpoint> ;
+    rdfs:comment "The main contact information of the resource."@en .
+
+cv:email a owl:DatatypeProperty ;
+    rdfs:label "has email"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#ContactPoint.hasemail> ;
+    rdfs:comment "An electronic address through which the Contact Point can be contacted."@en ;
+    rdfs:domain cv:ContactPoint ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range rdfs:Literal .
+
+cv:hasAccountingDocument a rdf:Property ;
+    rdfs:label "has accounting document"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.hasaccountingdocument> ;
+    rdfs:comment "The accounting document provided by an organisation."@en .
+
+cv:hasLegalStatus a rdf:Property ;
+    rdfs:label "has legal status"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.haslegalstatus> ;
+    rdfs:comment "The legal status provided by an organisation."@en .
+
+cv:hasPowerOfAttorney a rdf:Property ;
+    rdfs:label "has power of attorney"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.haspowerofattorney> ;
+    rdfs:comment "The person authorised, pursuant to law or by appointment, to act on behalf of the legal entity in dealings with third parties and in legal proceedings."@en .
+
+cv:identifies a rdf:Property ;
+    rdfs:label "identifies"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.identifies> ;
+    rdfs:comment "The entity that is referenced by the Identifier."@en .
+
+cv:legalStatusDate a owl:DatatypeProperty ;
+    rdfs:label "legal status date"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalStatus.legalstatusdate> ;
+    rdfs:comment "Information date of the current position of the legal entity."@en ;
+    rdfs:domain cv:LegalStatus ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range xsd:date .
+
+cv:level a owl:ObjectProperty ;
+    rdfs:label "level"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AdministrativeUnit.level> ;
+    rdfs:comment "The level of the administrative unit in the hierarchy."@en ;
+    rdfs:domain cv:AdminUnit ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range skos:Concept ;
+    skos:scopeNote "The recommended code list to indicate the level of an Admin Unit is the <a href=https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/atu-type>Administrative territorial unit type</a> Controlled Vocabulary maintained by the Publications Office of the EU. "@en .
+
+cv:registeredAddress a rdf:Property ;
+    rdfs:label "registered address"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.registeredaddress> ;
+    rdfs:comment "The address at which the Legal Entity is legally registered."@en .
+
+cv:registrationDate a owl:DatatypeProperty ;
+    rdfs:label "registration date"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.registrationdate> ;
+    rdfs:comment "The date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes."@en ;
+    rdfs:domain legal:LegalEntity ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range xsd:date .
+
+cv:role a owl:ObjectProperty ;
+    rdfs:label "role"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney.role> ;
+    rdfs:comment "The function of an Agent within a context."@en ;
+    rdfs:domain a4g:PowerOfAttorney ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range skos:Concept ;
+    skos:scopeNote "This should be provided using a controlled vocabulary."@en .
+
+cv:scopeOfAttorney a owl:DatatypeProperty ;
+    rdfs:label "scope of attorney"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney.scopeofattorney> ;
+    rdfs:comment "The context in which the power of attorney can be applied."@en ;
+    rdfs:domain a4g:PowerOfAttorney ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range rdf:langString .
+
+cv:telephone a owl:DatatypeProperty ;
+    rdfs:label "has telephone"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#ContactPoint.hastelephone> ;
+    rdfs:comment "A telephone number through which the Contact Point can be contacted."@en ;
+    rdfs:domain cv:ContactPoint ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    rdfs:range rdfs:Literal .
+
+dct:alternative a rdf:Property ;
+    rdfs:label "alternative name"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.alternativename> ;
+    rdfs:comment "Any name by which a Legal Entity is known, other than their legal name."@en .
+
+dct:conformsTo a rdf:Property ;
+    rdfs:label "schema"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.schema> ;
+    rdfs:comment "The schema used to construct the identifier."@en .
+
+dct:creator a rdf:Property ;
+    rdfs:label "issued by"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.issuedby> ;
+    rdfs:comment "Agent legally responsible for the Identifier."@en .
+
+dct:issued a rdf:Property ;
+    rdfs:label "date issued"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.dateissued> ;
+    rdfs:comment "Date of formal issuance of the identifier."@en .
+
+dct:rightsHolder a rdf:Property ;
+    rdfs:label "ownedBy"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#IdentifierSchema.ownedBy> ;
+    rdfs:comment "The agent owning or managing rights over the identifier scheme."@en .
+
+dct:title a rdf:Property ;
+    rdfs:label "name"@en,
+        "schema name"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent.name>,
+        <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#IdentifierSchema.schemaname> .
+
+dct:type a rdf:Property ;
+    rdfs:label "type"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent.type>,
+        <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney.type> .
+
+rdfs:label a rdf:Property ;
+    rdfs:label "name"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AdministrativeUnit.name> ;
+    rdfs:comment "Official, geographical name of the administrative unit, given in different languages where required."@en .
+
+xsd:anyURI a rdfs:Datatype ;
+    rdfs:label "URI"@en ;
+    rdfs:comment "URI"@en .
+
+skos:ConceptScheme a owl:Class ;
+    rdfs:label "Identifier Schema"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#IdentifierSchema> ;
+    rdfs:comment "The schema used to assign and manage an identifier to an entity."@en .
+
+skos:notation a rdf:Property ;
+    rdfs:label "notation"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.notation> ;
+    rdfs:comment "A string of characters to uniquely identify a concept."@en .
+
+adms:Identifier a owl:Class ;
+    rdfs:label "Identifier"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier> ;
+    rdfs:comment "A structured reference that identifies an entity."@en .
+
+adms:identifier a rdf:Property ;
+    rdfs:label "identifier"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.identifier> ;
+    rdfs:comment "The unambiguous structured reference for the Legal Entity, which is different from the one denoting its legal status."@en .
+
+adms:schemeAgency a rdf:Property ;
+    rdfs:label "schema agency"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.schemaagency> ;
+    rdfs:comment "The name of the agency that issued the identifier."@en .
+
+legal:companyActivity a rdf:Property ;
+    rdfs:label "legal entity activity"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.legalentityactivity> ;
+    rdfs:comment "The area of work in which the Legal Entity is engaged."@en .
+
+legal:companyStatus a rdf:Property ;
+    rdfs:label "legal entity status"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalStatus.legalentitystatus> ;
+    rdfs:comment "Information about the viability of the position of the legal entity."@en .
+
+legal:companyType a rdf:Property ;
+    rdfs:label "legal form type"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.legalformtype> ;
+    rdfs:comment "The classification of the Legal Entity as a member of a particular group in the context of legal registration."@en .
+
+legal:legalIdentifier a rdf:Property ;
+    rdfs:label "legal identifier"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.legalidentifier> ;
+    rdfs:comment "The unambiguous structured reference assigned to the Legal Entity by the legal authority that registered it."@en .
+
+legal:legalName a rdf:Property ;
+    rdfs:label "legal name"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.legalname> ;
+    rdfs:comment "The name under which the Legal Entity is legally registered."@en .
+
+locn:addressArea a rdf:Property ;
+    rdfs:label "address area"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.addressarea> ;
+    rdfs:comment "The name of a geographic area that groups Addresses."@en .
+
+locn:addressId a rdf:Property ;
+    rdfs:label "address ID"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.addressID> ;
+    rdfs:comment "A globally unique identifier for each instance of an Address."@en .
+
+locn:adminUnitL1 a rdf:Property ;
+    rdfs:label "administrative unit level 1"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.administrativeunitlevel1> ;
+    rdfs:comment "The name of the uppermost level of the address, almost always a country."@en .
+
+locn:adminUnitL2 a rdf:Property ;
+    rdfs:label "administrative unit level 2"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.administrativeunitlevel2> ;
+    rdfs:comment "The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities."@en .
+
+locn:fullAddress a rdf:Property ;
+    rdfs:label "full address"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.fulladdress> ;
+    rdfs:comment "The complete address written as a string."@en .
+
+locn:locatorDesignator a rdf:Property ;
+    rdfs:label "locator designator"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.locatordesignator> ;
+    rdfs:comment "A number or sequence of characters that uniquely identifies the locator within the relevant scope."@en .
+
+locn:locatorName a rdf:Property ;
+    rdfs:label "locator name"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.locatorname> ;
+    rdfs:comment "Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building."@en .
+
+locn:poBox a rdf:Property ;
+    rdfs:label "post office box"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.postofficebox> ;
+    rdfs:comment "A location designator for a postal delivery point at a post office, usually a number."@en .
+
+locn:postCode a rdf:Property ;
+    rdfs:label "post code"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.postcode> ;
+    rdfs:comment "The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points."@en .
+
+locn:postName a rdf:Property ;
+    rdfs:label "post name"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.postname> ;
+    rdfs:comment "A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points."@en .
+
+locn:thoroughfare a rdf:Property ;
+    rdfs:label "thoroughfare"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.thoroughfare> ;
+    rdfs:comment "The name of a passage or way through from one location to another."@en .
+
+org:hasMember a rdf:Property ;
+    rdfs:label "has member"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Organization.hasmember> ;
+    rdfs:comment "Indicates an agent (person or other organization) who is a member of the subject Organization."@en .
+
+org:hasSubOrganization a rdf:Property ;
+    rdfs:label "has sub organization"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Organization.hassuborganization> ;
+    rdfs:comment "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an organization which is a sub-part or child of this organization."@en .
+
+org:headOf a rdf:Property ;
+    rdfs:label "head of"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent.headof> ;
+    rdfs:comment "Indicates that a person (or other agent) is the leader or formal head of the Organization."@en .
+
+org:memberOf a rdf:Property ;
+    rdfs:label "member of"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent.memberof> ;
+    rdfs:comment "Indicates that an agent (person or other organization) is a member of the Organization with no indication of the nature of that membership or the role played."@en .
+
+org:subOrganizationOf a rdf:Property ;
+    rdfs:label "sub organization of"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Organization.suborganizationof> ;
+    rdfs:comment "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an Organization which contains this Organization."@en .
+
+<https://jgmikael.github.io/docs/core-business/> dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/> .
+
+cv:LegalStatus a owl:Class ;
+    rdfs:label "Legal Status"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalStatus> ;
+    rdfs:comment "Information about the viability of the position of the legal entity at a certain point of time."@en ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> .
+
+rdf:langString a rdfs:Datatype ;
+    rdfs:label "Text"@en ;
+    rdfs:comment "Text"@en .
+
+legal:LegalEntity a owl:Class ;
+    rdfs:label "Legal Entity"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity> ;
+    rdfs:comment "A self-employed person, company, or organization that has legal rights and obligations."@en ;
+    rdfs:subClassOf org:FormalOrganization .
+
+locn:Address a owl:Class ;
+    rdfs:label "Address"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address> ;
+    rdfs:comment "A spatial object that in a human-readable way identifies a fixed location."@en .
+
+org:FormalOrganization a owl:Class ;
+    rdfs:label "Formal Organization"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#FormalOrganization> ;
+    rdfs:comment "An Organization which is recognized in the world at large, in particular in legal jurisdictions, with associated rights and responsibilities"@en ;
+    rdfs:subClassOf org:Organization .
+
+org:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Organization> ;
+    rdfs:comment "A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures."@en ;
+    rdfs:subClassOf foaf:Agent .
+
+foaf:Agent a owl:Class ;
+    rdfs:label "Agent"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent> ;
+    rdfs:comment "Entity that is able to carry out action."@en .
+
+foaf:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Document> ;
+    rdfs:comment "A self-contained collection of information in a readable format."@en .
+
+a4g:PowerOfAttorney a owl:Class ;
+    rdfs:label "Power of Attorney"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney> ;
+    rdfs:comment "A legal document that grants someone the authority to make decisions on behalf of an Organization."@en .
+
+xsd:date a rdfs:Datatype ;
+    rdfs:label "Date"@en ;
+    rdfs:comment "Date"@en .
+
+cv:AdminUnit a owl:Class ;
+    rdfs:label "Administrative Unit"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AdministrativeUnit> ;
+    rdfs:comment "A detailed administrative unit organized in a hierarchy."@en ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    skos:scopeNote "This class should be used whenever a classification mechanism is in place, in alternative to the properties adminUnitL1 and adminUnitL2 of the Address class which allow free text."@en .
+
+cv:ContactPoint a owl:Class ;
+    rdfs:label "Contact Point"@en ;
+    dct:source <https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#ContactPoint> ;
+    rdfs:comment "Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with."@en ;
+    rdfs:isDefinedBy <http://data.europa.eu/m8g> ;
+    skos:scopeNote "The Core Public Organization Vocabulary defines properties for telephone number, e-mail address and opening hours although it is noteworthy that the class is based on schema.org's <a href=\"http://schema.org/ContactPoint\"> ContactPoint </a> class  that has additional properties that some implementations may find useful."@en .
+
+skos:Concept a owl:Class ;
+    rdfs:label "Code"@en ;
+    rdfs:comment "Code"@en .
+
+<http://data.europa.eu/m8g> a owl:Ontology ;
+    rdfs:label "core-business"@en,
+        "core-business"@nl ;
+    dct:issued "2026-05-12" ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:mediator [ foaf:homepage <https://semic.eu> ;
+            foaf:name "Semantic Interoperability Community (SEMIC)" ] ;
+    ns1:editor [ a foaf:Person ;
+            foaf:firstName "Faruk" ;
+            foaf:lastName "Karabulut" ;
+            schemas:affiliation [ foaf:name "PwC EU Services" ] ],
+        [ a foaf:Person ;
+            foaf:firstName "Arthur" ;
+            foaf:lastName "Schiltz" ;
+            schemas:affiliation [ foaf:name "PwC EU Services" ] ],
+        [ a foaf:Person ;
+            foaf:firstName "Anastasia" ;
+            foaf:lastName "Sofou" ;
+            schemas:affiliation [ foaf:name "European Commission" ] ],
+        [ a foaf:Person ;
+            foaf:firstName "Emidio" ;
+            foaf:lastName "Stani" ;
+            schemas:affiliation [ foaf:name "PwC EU Services" ] ],
+        [ a foaf:Person ;
+            foaf:firstName "Bert" ;
+            foaf:lastName "Van Nuffelen" ;
+            schemas:affiliation [ foaf:name "Digital Flanders" ] ],
+        [ a foaf:Person ;
+            foaf:firstName "Florian" ;
+            foaf:lastName "Barthelemy" ;
+            schemas:affiliation [ foaf:name "PwC EU Services" ] ],
+        [ a foaf:Person ;
+            foaf:firstName "Jitse" ;
+            foaf:lastName "De Cock" ;
+            schemas:affiliation [ foaf:name "PwC EU Services" ] ],
+        [ a foaf:Person ;
+            foaf:firstName "Emiel" ;
+            foaf:lastName "Dhondt" ;
+            schemas:affiliation [ foaf:name "Digital Flanders" ] ],
+        [ a foaf:Person ;
+            foaf:firstName "Pavlina" ;
+            foaf:lastName "Fragkou" ;
+            schemas:affiliation [ foaf:name "European Commission" ] ] ;
+    foaf:maker [ a foaf:Person ;
+            foaf:firstName "Core Vocabularies Working Group" ] .
+

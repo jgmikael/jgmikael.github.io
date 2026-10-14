@@ -1,643 +1,13 @@
 [
   {
-    "@id": "http://data.europa.eu/m8g/registrationDate",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://www.w3.org/ns/legal#LegalEntity"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "registration date"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#date"
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g/email",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An electronic address through which the Contact Point can be contacted."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://data.europa.eu/m8g/ContactPoint"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has email"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g/legalStatusDate",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Information date of the current position of the legal entity."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://data.europa.eu/m8g/LegalStatus"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "legal status date"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#date"
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g/adminUnit",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A detailed administrative unit organized in a hierarchy."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://www.w3.org/ns/locn#Address"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "administrative unit"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://data.europa.eu/m8g/AdminUnit"
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g/ContactPoint",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Contact Point"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#scopeNote": [
-      {
-        "@language": "en",
-        "@value": "The Core Public Organization Vocabulary defines properties for telephone number, e-mail address and opening hours although it is noteworthy that the class is based on schema.org's <a href=\"http://schema.org/ContactPoint\"> ContactPoint </a> class  that has additional properties that some implementations may find useful."
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g/scopeOfAttorney",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The context in which the power of attorney can be applied."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://data.europa.eu/a4g/ontology#PowerOfAttorney"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "scope of attorney"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g/role",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The function of an Agent within a context."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://data.europa.eu/a4g/ontology#PowerOfAttorney"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "role"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#scopeNote": [
-      {
-        "@language": "en",
-        "@value": "This should be provided using a controlled vocabulary."
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Ontology"
-    ],
-    "http://purl.org/dc/terms/issued": [
-      {
-        "@value": "2026-05-12"
-      }
-    ],
-    "http://purl.org/dc/terms/license": [
-      {
-        "@id": "https://creativecommons.org/licenses/by/4.0/"
-      }
-    ],
-    "http://purl.org/dc/terms/mediator": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b1"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "core-business"
-      },
-      {
-        "@language": "nl",
-        "@value": "core-business"
-      }
-    ],
-    "http://www.w3.org/2001/02pd/rec54#editor": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b2"
-      },
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b4"
-      },
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b6"
-      },
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b8"
-      },
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b10"
-      },
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b12"
-      },
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b14"
-      },
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b16"
-      },
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b18"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/maker": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b20"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b1",
-    "http://xmlns.com/foaf/0.1/homepage": [
-      {
-        "@id": "https://semic.eu"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "Semantic Interoperability Community (SEMIC)"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b2",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Florian"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "Barthelemy"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b3"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b3",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "PwC EU Services"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b4",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Jitse"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "De Cock"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b5"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b5",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "PwC EU Services"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b6",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Emiel"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "Dhondt"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b7"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b7",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "Digital Flanders"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b8",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Pavlina"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "Fragkou"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b9"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b9",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "European Commission"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b10",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Faruk"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "Karabulut"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b11"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b11",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "PwC EU Services"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b12",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Arthur"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "Schiltz"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b13"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b13",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "PwC EU Services"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b14",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Anastasia"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "Sofou"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b15"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b15",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "European Commission"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b16",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Emidio"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "Stani"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b17"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b17",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "PwC EU Services"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b18",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Bert"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/lastName": [
-      {
-        "@value": "Van Nuffelen"
-      }
-    ],
-    "https://schema.org/affiliation": [
-      {
-        "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b19"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b19",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "Digital Flanders"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5e6c98cbdeed49a5bfa5ef7f93d434d8b20",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/firstName": [
-      {
-        "@value": "Core Vocabularies Working Group"
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g/AdminUnit",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A detailed administrative unit organized in a hierarchy."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Administrative Unit"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#scopeNote": [
-      {
-        "@language": "en",
-        "@value": "This class should be used whenever a classification mechanism is in place, in alternative to the properties adminUnitL1 and adminUnitL2 of the Address class which allow free text."
-      }
-    ]
-  },
-  {
-    "@id": "http://data.europa.eu/m8g/LegalStatus",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Information about the viability of the position of the legal entity at a certain point of time."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "http://data.europa.eu/m8g"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Legal Status"
-      }
-    ]
-  },
-  {
     "@id": "http://data.europa.eu/m8g/code",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AdministrativeUnit.code"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -668,14 +38,47 @@
     ]
   },
   {
-    "@id": "http://data.europa.eu/m8g/AccountingDocument",
+    "@id": "http://www.w3.org/ns/locn#poBox",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.postofficebox"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Financial and non-financial information as a result of an activity of an organisation."
+        "@value": "A location designator for a postal delivery point at a post office, usually a number."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "post office box"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/telephone",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#ContactPoint.hastelephone"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A telephone number through which the Contact Point can be contacted."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/ContactPoint"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -686,13 +89,1716 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Accounting Document"
+        "@value": "has telephone"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#adminUnitL2",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.administrativeunitlevel2"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "administrative unit level 2"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#hasMember",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Organization.hasmember"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Indicates an agent (person or other organization) who is a member of the subject Organization."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has member"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#Organization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Organization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Organization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/AdminUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AdministrativeUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A detailed administrative unit organized in a hierarchy."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Administrative Unit"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
         "@language": "en",
-        "@value": "Accounting documents, might include:\n<ul>\n<li> Financial statements (incl. the list of participating interests, subsidiary undertakings and associated undertakings, their registered office address and proportion of capital held), audit reports.</li> \n<li> Non-financial statements, management reports and other statements or reports.</li>\n<li> Annual financial reports.</li>\n</ul>"
+        "@value": "This class should be used whenever a classification mechanism is in place, in alternative to the properties adminUnitL1 and adminUnitL2 of the Address class which allow free text."
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#subOrganizationOf",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Organization.suborganizationof"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an Organization which contains this Organization."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "sub organization of"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#notation",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.notation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A string of characters to uniquely identify a concept."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "notation"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/ContactPoint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#ContactPoint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Contact Point"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The Core Public Organization Vocabulary defines properties for telephone number, e-mail address and opening hours although it is noteworthy that the class is based on schema.org's <a href=\"http://schema.org/ContactPoint\"> ContactPoint </a> class  that has additional properties that some implementations may find useful."
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#addressArea",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.addressarea"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The name of a geographic area that groups Addresses."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "address area"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2001/XMLSchema#date",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Date"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Date"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/registeredAddress",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.registeredaddress"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The address at which the Legal Entity is legally registered."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "registered address"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Text"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Text"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Literal"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Literal"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#locatorName",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.locatorname"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "locator name"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#IdentifierSchema"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The schema used to assign and manage an identifier to an entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Identifier Schema"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/legal#LegalEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A self-employed person, company, or organization that has legal rights and obligations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Legal Entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/org#FormalOrganization"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/issued": [
+      {
+        "@value": "2026-05-12"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/mediator": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b1"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "core-business"
+      },
+      {
+        "@language": "nl",
+        "@value": "core-business"
+      }
+    ],
+    "http://www.w3.org/2001/02pd/rec54#editor": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b2"
+      },
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b4"
+      },
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b6"
+      },
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b8"
+      },
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b10"
+      },
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b12"
+      },
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b14"
+      },
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b16"
+      },
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b18"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/maker": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b20"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b1",
+    "http://xmlns.com/foaf/0.1/homepage": [
+      {
+        "@id": "https://semic.eu"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Semantic Interoperability Community (SEMIC)"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b2",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Florian"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Barthelemy"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b3"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b3",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b4",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Jitse"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "De Cock"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b5"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b5",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b6",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Emiel"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Dhondt"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b7"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b7",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Digital Flanders"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b8",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Pavlina"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Fragkou"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b9"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b9",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "European Commission"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b10",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Faruk"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Karabulut"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b11"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b11",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b12",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Arthur"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Schiltz"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b13"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b13",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b14",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Anastasia"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Sofou"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b15"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b15",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "European Commission"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b16",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Emidio"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Stani"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b17"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b17",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "PwC EU Services"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b18",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Bert"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/lastName": [
+      {
+        "@value": "Van Nuffelen"
+      }
+    ],
+    "https://schema.org/affiliation": [
+      {
+        "@id": "_:n48804638577a478584664a422196fa87b19"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b19",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Digital Flanders"
+      }
+    ]
+  },
+  {
+    "@id": "_:n48804638577a478584664a422196fa87b20",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/firstName": [
+      {
+        "@value": "Core Vocabularies Working Group"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/rightsHolder",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#IdentifierSchema.ownedBy"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The agent owning or managing rights over the identifier scheme."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "ownedBy"
+      }
+    ]
+  },
+  {
+    "@id": "https://jgmikael.github.io/docs/core-business/",
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/identifies",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.identifies"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The entity that is referenced by the Identifier."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "identifies"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/email",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#ContactPoint.hasemail"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An electronic address through which the Contact Point can be contacted."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/ContactPoint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has email"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/Agent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Entity that is able to carry out action."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Agent"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/alternative",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.alternativename"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any name by which a Legal Entity is known, other than their legal name."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "alternative name"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#postCode",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.postcode"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "post code"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#Address",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A spatial object that in a human-readable way identifies a fixed location."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Address"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/scopeOfAttorney",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney.scopeofattorney"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The context in which the power of attorney can be applied."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/a4g/ontology#PowerOfAttorney"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "scope of attorney"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/type",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent.type"
+      },
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney.type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "type"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#adminUnitL1",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.administrativeunitlevel1"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The name of the uppermost level of the address, almost always a country."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "administrative unit level 1"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/hasPowerOfAttorney",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.haspowerofattorney"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The person authorised, pursuant to law or by appointment, to act on behalf of the legal entity in dealings with third parties and in legal proceedings."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has power of attorney"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/legal#companyType",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.legalformtype"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The classification of the Legal Entity as a member of a particular group in the context of legal registration."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "legal form type"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/adms#schemeAgency",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.schemaagency"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The name of the agency that issued the identifier."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema agency"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/hasAccountingDocument",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.hasaccountingdocument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The accounting document provided by an organisation."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has accounting document"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2000/01/rdf-schema#label",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AdministrativeUnit.name"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Official, geographical name of the administrative unit, given in different languages where required."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "name"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/adminUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.administrativeunit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A detailed administrative unit organized in a hierarchy."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://www.w3.org/ns/locn#Address"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "administrative unit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://data.europa.eu/m8g/AdminUnit"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/authorises",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney.authorises"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The agent that the power of attorney gives the authority to act."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "authorises"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/issued",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.dateissued"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Date of formal issuance of the identifier."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "date issued"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#FormalOrganization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#FormalOrganization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An Organization which is recognized in the world at large, in particular in legal jurisdictions, with associated rights and responsibilities"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Formal Organization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/org#Organization"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/legal#companyStatus",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalStatus.legalentitystatus"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information about the viability of the position of the legal entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "legal entity status"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#hasSubOrganization",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Organization.hassuborganization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an organization which is a sub-part or child of this organization."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has sub organization"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#locatorDesignator",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.locatordesignator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A number or sequence of characters that uniquely identifies the locator within the relevant scope."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "locator designator"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#fullAddress",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.fulladdress"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The complete address written as a string."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "full address"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#Concept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Code"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Code"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/hasLegalStatus",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.haslegalstatus"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The legal status provided by an organisation."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has legal status"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#memberOf",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent.memberof"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Indicates that an agent (person or other organization) is a member of the Organization with no indication of the nature of that membership or the role played."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "member of"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/Document",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Document"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A self-contained collection of information in a readable format."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Document"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/contactPoint",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.contactpoint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The main contact information of the resource."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "contact point"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2001/XMLSchema#anyURI",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "URI"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "URI"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/legal#legalName",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.legalname"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The name under which the Legal Entity is legally registered."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "legal name"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/legal#legalIdentifier",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.legalidentifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The unambiguous structured reference assigned to the Legal Entity by the legal authority that registered it."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "legal identifier"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/contactPage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#ContactPoint.contactpage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A web page that could be used to reach out the Contact Point."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/ContactPoint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "contact page"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://xmlns.com/foaf/0.1/Document"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/adms#identifier",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.identifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The unambiguous structured reference for the Legal Entity, which is different from the one denoting its legal status."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "identifier"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/registrationDate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.registrationdate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://www.w3.org/ns/legal#LegalEntity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "registration date"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#postName",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.postname"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "post name"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#addressId",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.addressID"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A globally unique identifier for each instance of an Address."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "address ID"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/locn#thoroughfare",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Address.thoroughfare"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The name of a passage or way through from one location to another."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "thoroughfare"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/legalStatusDate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalStatus.legalstatusdate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information date of the current position of the legal entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://data.europa.eu/m8g/LegalStatus"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "legal status date"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/adms#Identifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A structured reference that identifies an entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Identifier"
       }
     ]
   },
@@ -700,6 +1806,11 @@
     "@id": "http://data.europa.eu/m8g/level",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AdministrativeUnit.level"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -736,19 +1847,24 @@
     ]
   },
   {
-    "@id": "http://data.europa.eu/m8g/telephone",
+    "@id": "http://data.europa.eu/m8g/role",
     "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney.role"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A telephone number through which the Contact Point can be contacted."
+        "@value": "The function of an Agent within a context."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "http://data.europa.eu/m8g/ContactPoint"
+        "@id": "http://data.europa.eu/a4g/ontology#PowerOfAttorney"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -759,29 +1875,127 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has telephone"
+        "@value": "role"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "This should be provided using a controlled vocabulary."
       }
     ]
   },
   {
-    "@id": "http://data.europa.eu/m8g/contactPage",
+    "@id": "http://purl.org/dc/terms/conformsTo",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.schema"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A web page that could be used to reach out the Contact Point."
+        "@value": "The schema used to construct the identifier."
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@id": "http://data.europa.eu/m8g/ContactPoint"
+        "@language": "en",
+        "@value": "schema"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/legal#companyActivity",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalEntity.legalentityactivity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The area of work in which the Legal Entity is engaged."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "legal entity activity"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/creator",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Identifier.issuedby"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Agent legally responsible for the Identifier."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "issued by"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/org#headOf",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent.headof"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Indicates that a person (or other agent) is the leader or formal head of the Organization."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "head of"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/LegalStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#LegalStatus"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information about the viability of the position of the legal entity at a certain point of time."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -792,12 +2006,88 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "contact page"
+        "@value": "Legal Status"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/a4g/ontology#PowerOfAttorney",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#PowerofAttorney"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@id": "http://xmlns.com/foaf/0.1/Document"
+        "@language": "en",
+        "@value": "A legal document that grants someone the authority to make decisions on behalf of an Organization."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Power of Attorney"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/title",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#Agent.name"
+      },
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#IdentifierSchema.schemaname"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "name"
+      },
+      {
+        "@language": "en",
+        "@value": "schema name"
+      }
+    ]
+  },
+  {
+    "@id": "http://data.europa.eu/m8g/AccountingDocument",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/#AccountingDocument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Financial and non-financial information as a result of an activity of an organisation."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://data.europa.eu/m8g"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Accounting Document"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Accounting documents, might include:\n<ul>\n<li> Financial statements (incl. the list of participating interests, subsidiary undertakings and associated undertakings, their registered office address and proportion of capital held), audit reports.</li> \n<li> Non-financial statements, management reports and other statements or reports.</li>\n<li> Annual financial reports.</li>\n</ul>"
       }
     ]
   }

@@ -1,0 +1,14 @@
+{
+  "source": "https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/",
+  "classes": 13,
+  "distinct_properties": 49,
+  "class_property_usages": 51,
+  "annex_rows": 54,
+  "supporting_value_types": 5,
+  "expanded_triples": 373,
+  "original_triples_preserved": 146,
+  "annex_coverage": "complete",
+  "official_shacl_usage_coverage": "complete",
+  "rdf_serializations": "isomorphic",
+  "internal_links": "valid"
+}
